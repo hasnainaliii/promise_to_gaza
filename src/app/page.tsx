@@ -53,11 +53,6 @@ export default function HomePage() {
 
         {/* Centred hero content */}
         <div className="relative flex min-h-[90vh] flex-col items-center justify-end px-5 pb-20 pt-36 text-center sm:px-8 lg:min-h-screen lg:justify-center lg:pb-28">
-          <span className="mb-6 inline-flex items-center gap-2.5 rounded-full bg-olive-deep/80 px-5 py-2 text-sm font-medium text-paper shadow-soft backdrop-blur-sm">
-            <span aria-hidden="true" className="size-2 rotate-45 bg-sand" />
-            Welfare and relief work for Gaza
-          </span>
-
           <h1 className="mx-auto max-w-3xl font-heading text-4xl leading-[1.08] tracking-tight text-balance text-charcoal sm:text-5xl md:text-6xl lg:text-7xl">
             Keeping a{" "}
             <span className="relative whitespace-nowrap">
@@ -92,11 +87,6 @@ export default function HomePage() {
               Learn about our work
             </ActionLink>
           </div>
-
-          <PlaceholderNote className="mt-8 max-w-lg">
-            This site is still being built. Programme details, impact
-            reporting and published accounts will follow.
-          </PlaceholderNote>
         </div>
 
         {/* Organic wave transition to next section */}

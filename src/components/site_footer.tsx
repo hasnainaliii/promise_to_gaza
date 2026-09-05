@@ -27,16 +27,16 @@ export function SiteFooter() {
       <TatreezDivider className="text-olive-soft" />
       <div className="mx-auto grid max-w-page gap-10 px-5 py-section sm:px-8 md:grid-cols-[1.4fr_1fr_1fr]">
         <div className="flex flex-col gap-4">
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-3">
             <Image
-              src="/images/brand/logo_mark.svg"
-              alt=""
-              width={36}
-              height={36}
+              src="/images/Logos/Promise to Gaza Transparent Logo.png"
+              alt="Promise to Gaza Logo"
+              width={48}
+              height={48}
               unoptimized
-              className="size-9"
+              className="size-11 object-contain"
             />
-            <span className="font-heading text-xl tracking-tight">{SITE_NAME}</span>
+            <span className="font-heading text-2xl font-bold tracking-tight">{SITE_NAME}</span>
           </div>
           <p className="max-w-sm leading-relaxed text-sand">{SITE_TAGLINE}.</p>
           <p className="max-w-sm text-sm leading-relaxed text-sand">

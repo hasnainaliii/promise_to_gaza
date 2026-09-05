@@ -51,17 +51,17 @@ export function SiteHeader() {
         <div className="flex items-center justify-start">
           <Link
             href="/"
-            className="group flex items-center gap-2.5 py-1 text-charcoal"
+            className="group flex items-center gap-3 py-1 text-charcoal"
           >
             <Image
-              src="/images/brand/logo_mark.svg"
-              alt=""
-              width={36}
-              height={36}
+              src="/images/Logos/Promise to Gaza Transparent Logo.png"
+              alt="Promise to Gaza Logo"
+              width={48}
+              height={48}
               unoptimized
-              className="size-8.5 sm:size-9 transition-transform duration-200 group-hover:scale-105"
+              className="size-11 sm:size-12 object-contain transition-transform duration-200 group-hover:scale-105"
             />
-            <span className="font-heading text-xl font-semibold leading-none tracking-tight text-charcoal">
+            <span className="font-heading text-2xl font-bold leading-none tracking-tight text-charcoal">
               {SITE_NAME}
             </span>
           </Link>
@@ -72,7 +72,7 @@ export function SiteHeader() {
           aria-label="Primary"
           className="hidden items-center justify-center md:flex"
         >
-          <ul className="flex items-center gap-7 lg:gap-9">
+          <ul className="flex items-center gap-8 lg:gap-10">
             {NAV_LINKS.map((link) => {
               const active = isCurrent(link.href);
               return (
@@ -80,10 +80,10 @@ export function SiteHeader() {
                   <Link
                     href={link.href}
                     aria-current={active ? "page" : undefined}
-                    className={`text-sm transition-colors duration-200 ${
+                    className={`text-base transition-colors duration-200 ${
                       active
                         ? "font-semibold text-charcoal"
-                        : "font-medium text-charcoal/75 hover:text-charcoal"
+                        : "font-medium text-charcoal/80 hover:text-charcoal"
                     }`}
                   >
                     {link.label}
@@ -99,7 +99,7 @@ export function SiteHeader() {
           <ActionLink
             href="/donate"
             variant="dark"
-            className="max-sm:hidden min-h-10 px-5 text-sm font-medium tracking-normal"
+            className="max-sm:hidden min-h-11 px-6 text-base font-medium tracking-normal"
           >
             Donate now
           </ActionLink>
@@ -110,7 +110,7 @@ export function SiteHeader() {
             aria-controls="mobile-menu"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             onClick={() => setMenuOpen((open) => !open)}
-            className="inline-flex size-10 items-center justify-center rounded-full border border-line bg-paper/70 text-charcoal backdrop-blur-sm transition-colors duration-200 hover:bg-surface md:hidden"
+            className="inline-flex size-11 items-center justify-center rounded-full border border-line bg-paper/70 text-charcoal backdrop-blur-sm transition-colors duration-200 hover:bg-surface md:hidden"
           >
             <svg
               viewBox="0 0 24 24"
