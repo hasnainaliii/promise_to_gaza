@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ActionLink } from "@/components/action_button";
 import { CampaignCard } from "@/components/campaign_card";
+import { HeroSlideshow } from "@/components/hero_slideshow";
 import { IllustrationFrame } from "@/components/illustration_frame";
 import { PlaceholderNote } from "@/components/placeholder_note";
 import { SectionIntro } from "@/components/section_intro";
@@ -30,29 +31,22 @@ export default function HomePage() {
   return (
     <>
       {/* ── Hero ────────────────────────────────────────────────── */}
-      <section className="relative min-h-[90vh] overflow-hidden -mt-20 lg:min-h-screen">
-        {/* Background photograph */}
-        <Image
-          src="/images/mohammed-ibrahim-ZupwcgqWjcU-unsplash.jpg"
-          alt="Two young people sitting together in Gaza"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-[50%_35%]"
-        />
+      <section className="relative min-h-[90vh] overflow-hidden -mt-22 sm:-mt-24 lg:min-h-screen">
+        {/* Rotating smooth background photographs */}
+        <HeroSlideshow />
 
-        {/* Warm gradient overlay — soft wash at top for navbar legibility, solid paper at bottom */}
+        {/* Warm gradient overlay — soft top wash for navbar, gentle center text readability, bottom fade covering only ~10-15% */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0"
+          className="pointer-events-none absolute inset-0 z-10"
           style={{
             background:
-              "linear-gradient(to bottom, var(--color-paper-90) 0%, var(--color-paper-40) 80px, var(--color-paper-0) 140px), linear-gradient(to top, var(--color-paper) 0%, var(--color-paper-90) 25%, var(--color-paper-70) 45%, var(--color-paper-0) 75%)",
+              "linear-gradient(to bottom, var(--color-paper-90) 0%, var(--color-paper-40) 80px, var(--color-paper-0) 140px), radial-gradient(ellipse 75% 60% at 50% 50%, rgba(251, 248, 241, 0.65) 0%, rgba(251, 248, 241, 0.25) 55%, rgba(251, 248, 241, 0) 100%), linear-gradient(to top, var(--color-paper) 0%, var(--color-paper-90) 5%, var(--color-paper-40) 10%, var(--color-paper-0) 16%)",
           }}
         />
 
         {/* Centred hero content */}
-        <div className="relative flex min-h-[90vh] flex-col items-center justify-end px-5 pb-20 pt-36 text-center sm:px-8 lg:min-h-screen lg:justify-center lg:pb-28">
+        <div className="relative z-20 flex min-h-[90vh] flex-col items-center justify-end px-5 pb-20 pt-36 text-center sm:px-8 sm:pt-40 lg:min-h-screen lg:justify-center lg:pb-28">
           <h1 className="mx-auto max-w-3xl font-heading text-4xl leading-[1.08] tracking-tight text-balance text-charcoal sm:text-5xl md:text-6xl lg:text-7xl">
             Keeping a{" "}
             <span className="relative whitespace-nowrap">

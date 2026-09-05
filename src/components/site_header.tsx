@@ -46,22 +46,22 @@ export function SiteHeader() {
           : "border-b border-line/60 bg-paper/90 backdrop-blur-md shadow-xs"
       }`}
     >
-      <div className="mx-auto grid h-20 max-w-page grid-cols-2 items-center px-6 sm:px-8 md:grid-cols-[1fr_auto_1fr]">
+      <div className="mx-auto grid h-22 sm:h-24 max-w-page grid-cols-2 items-center px-6 sm:px-8 md:grid-cols-[1fr_auto_1fr]">
         {/* Left: Brand / Logo */}
         <div className="flex items-center justify-start">
           <Link
             href="/"
-            className="group flex items-center gap-3 py-1 text-charcoal"
+            className="group flex items-center gap-3.5 py-1 text-charcoal"
           >
             <Image
               src="/images/Logos/Promise to Gaza Transparent Logo.png"
               alt="Promise to Gaza Logo"
-              width={48}
-              height={48}
+              width={64}
+              height={64}
               unoptimized
-              className="size-11 sm:size-12 object-contain transition-transform duration-200 group-hover:scale-105"
+              className="size-14 sm:size-16 object-contain transition-transform duration-200 group-hover:scale-105"
             />
-            <span className="font-heading text-2xl font-bold leading-none tracking-tight text-charcoal">
+            <span className="font-heading text-2xl sm:text-[1.65rem] font-bold leading-none tracking-tight text-charcoal">
               {SITE_NAME}
             </span>
           </Link>
@@ -98,7 +98,7 @@ export function SiteHeader() {
         <div className="flex items-center justify-end gap-3">
           <ActionLink
             href="/donate"
-            variant="dark"
+            variant="primary"
             className="max-sm:hidden min-h-11 px-6 text-base font-medium tracking-normal"
           >
             Donate now
@@ -156,7 +156,7 @@ export function SiteHeader() {
           </ul>
           <ActionLink
             href="/donate"
-            variant="dark"
+            variant="primary"
             size="lg"
             className="mt-5 w-full"
           >
