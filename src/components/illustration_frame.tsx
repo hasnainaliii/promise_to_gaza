@@ -44,7 +44,7 @@ export function IllustrationFrame({
         sizes={sizes}
         priority={priority}
         unoptimized
-        className="object-cover"
+        className="object-cover grayscale contrast-[1.05]"
       />
     </div>
   );

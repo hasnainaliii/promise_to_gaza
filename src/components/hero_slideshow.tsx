@@ -34,7 +34,7 @@ export function HeroSlideshow() {
   }, []);
 
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+    <div className="absolute -top-16 inset-x-0 bottom-0 overflow-hidden pointer-events-none bg-neutral-900" aria-hidden="true">
       {SLIDES.map((slide, index) => {
         const isActive = index === currentIndex;
         return (
@@ -50,7 +50,7 @@ export function HeroSlideshow() {
               fill
               priority={index === 0}
               sizes="100vw"
-              className={`object-cover ${slide.position} transition-transform duration-[7000ms] ease-out ${
+              className={`object-cover ${slide.position} grayscale contrast-[1.08] brightness-[0.96] transition-transform duration-[7000ms] ease-out ${
                 isActive ? "scale-105" : "scale-100"
               }`}
             />

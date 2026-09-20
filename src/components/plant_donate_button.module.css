@@ -1,0 +1,525 @@
+.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 13px 35px;
+  background: #2d6035;
+  font-size: 17px;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: none;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(25, 55, 28, 0.25);
+  transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: visible;
+  user-select: none;
+  line-height: 1.2;
+}
+
+.button:hover {
+  padding: 13px 35px; /* Stable padding: prevents layout shifting of sibling buttons */
+  border-radius: 8px; /* Stable corners */
+  background: #244e2b;
+  border-color: rgba(0, 0, 0, 0.18);
+  box-shadow: 0 4px 14px rgba(25, 55, 28, 0.32);
+}
+
+.button:active {
+  transform: scale(0.98);
+}
+
+/* Compact size (ideal for top navbars) */
+.buttonSm {
+  padding: 10px 24px;
+  font-size: 15px;
+}
+
+.buttonSm:hover {
+  padding: 10px 24px; /* Stable padding */
+  border-radius: 8px;
+}
+
+/* When leaves are disabled (clean navbar button) */
+.noLeaves:hover {
+  padding: 13px 35px;
+  border-radius: 8px;
+  background: #244e2b;
+  box-shadow: 0 4px 14px rgba(25, 55, 28, 0.32);
+  transform: translateY(-1px);
+}
+
+.buttonSm.noLeaves:hover {
+  padding: 10px 24px;
+  border-radius: 8px;
+  background: #244e2b;
+  box-shadow: 0 4px 14px rgba(25, 55, 28, 0.32);
+  transform: translateY(-1px);
+}
+
+
+.icon1 {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 0px;
+  height: auto;
+  transition: all 0.5s ease-in-out;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.icon2 {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 0px;
+  height: auto;
+  transition: all 0.5s ease-in-out;
+  z-index: -2;
+  pointer-events: none;
+}
+
+.icon3 {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 0px;
+  height: auto;
+  transition: all 0.5s ease-in-out;
+  z-index: -2;
+  pointer-events: none;
+}
+
+.icon4 {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 0px;
+  height: auto;
+  transition: all 0.5s ease-in-out;
+  z-index: -2;
+  pointer-events: none;
+}
+
+.icon5 {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 0px;
+  height: auto;
+  transition: all 0.5s ease-in-out;
+  z-index: -2;
+  pointer-events: none;
+}
+
+.icon1,
+.icon2,
+.icon3,
+.icon4,
+.icon5 {
+  clip-path: inset(-600px -150px 0px -150px);
+}
+
+.button:hover .icon1,
+.button:active .icon1,
+.button:focus-visible .icon1 {
+  top: -225%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 56px;
+  height: auto;
+  animation: inIcon1 1s ease 0.45s forwards;
+}
+
+.button:active .icon1 {
+  top: -245%;
+  transform: translate(-50%, 0) scale(1.08);
+}
+
+@keyframes inIcon1 {
+  0% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(0deg);
+  }
+  25% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(5deg);
+  }
+  50% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(1deg);
+  }
+  65% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(3deg);
+  }
+  100% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(0deg);
+  }
+}
+
+.button:hover .icon2,
+.button:active .icon2,
+.button:focus-visible .icon2 {
+  position: absolute;
+  top: -205%;
+  left: 88%;
+  transform: translate(-50%, 0);
+  width: 70px;
+  height: auto;
+  animation: inIcon2 1s ease 0.45s forwards;
+}
+
+.button:active .icon2 {
+  top: -225%;
+  transform: translate(-50%, 0) scale(1.08);
+}
+
+@keyframes inIcon2 {
+  0% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(0deg);
+  }
+  35% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(10deg);
+  }
+  50% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(4deg);
+  }
+  80% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(5deg);
+  }
+  100% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(0deg);
+  }
+}
+
+.button:hover .icon3,
+.button:active .icon3,
+.button:focus-visible .icon3 {
+  position: absolute;
+  top: -155%;
+  left: 16%;
+  transform: translate(-50%, 0);
+  width: 60px;
+  height: auto;
+  animation: inIcon3 1s ease 0.45s forwards;
+}
+
+.button:active .icon3 {
+  top: -175%;
+  transform: translate(-50%, 0) scale(1.08);
+}
+
+@keyframes inIcon3 {
+  0% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(0deg);
+  }
+  35% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(-2deg);
+  }
+  100% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(0deg);
+  }
+}
+
+.button:hover .icon4,
+.button:active .icon4,
+.button:focus-visible .icon4 {
+  position: absolute;
+  top: -255%;
+  left: 12%;
+  transform: translate(-50%, 0);
+  width: 74px;
+  height: auto;
+  animation: inIcon4 1s ease 0.45s forwards;
+}
+
+.button:active .icon4 {
+  top: -275%;
+  transform: translate(-50%, 0) scale(1.08);
+}
+
+@keyframes inIcon4 {
+  0% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(0deg);
+  }
+  40% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(-3deg);
+  }
+  100% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(0deg);
+  }
+}
+
+.button:hover .icon5,
+.button:active .icon5,
+.button:focus-visible .icon5 {
+  position: absolute;
+  top: -275%;
+  left: 85%;
+  transform: translate(-50%, 0);
+  width: 78px;
+  height: auto;
+  animation: inIcon5 1s ease 0.45s forwards;
+}
+
+.button:active .icon5 {
+  top: -295%;
+  transform: translate(-50%, 0) scale(1.08);
+}
+
+@keyframes inIcon5 {
+  0% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(0deg);
+  }
+  35% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(-3deg);
+  }
+  100% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(0deg);
+  }
+}
+
+.filLeaf1 {
+  fill: #7B9B3A;
+}
+
+.filLeaf2 {
+  fill: #556729;
+  fill-rule: nonzero;
+}
+
+.filLeaf3 {
+  fill: #556729;
+}
+
+.filLeaf4 {
+  fill: #3C4819;
+}
+
+.filLeaf5 {
+  fill: #3C4819;
+}
+
+/* ==========================================================================
+   Downward Sprouting Variant (for Sticky Top Navbar)
+   Leaves sprout downward beneath the button into the open page area.
+   ========================================================================== */
+
+.button.sproutDown:hover {
+  border-radius: 20px 20px 8px 8px;
+}
+
+.buttonSm.sproutDown:hover {
+  border-radius: 16px 16px 8px 8px;
+}
+
+.sproutDown .icon1,
+.sproutDown .icon2,
+.sproutDown .icon3,
+.sproutDown .icon4,
+.sproutDown .icon5 {
+  top: 85%;
+  clip-path: inset(0px -150px -600px -150px);
+}
+
+.button.sproutDown:hover .icon1,
+.button.sproutDown:active .icon1,
+.button.sproutDown:focus-visible .icon1 {
+  top: 105%;
+  left: 50%;
+  transform: translate(-50%, 0) scaleY(-1);
+  width: 48px;
+  height: auto;
+  animation: inIcon1Down 1s ease 0.45s forwards;
+}
+
+.button.sproutDown:active .icon1 {
+  top: 115%;
+  transform: translate(-50%, 0) scaleY(-1) scale(1.08);
+}
+
+.button.sproutDown:hover .icon2,
+.button.sproutDown:active .icon2,
+.button.sproutDown:focus-visible .icon2 {
+  position: absolute;
+  top: 105%;
+  left: 86%;
+  transform: translate(-50%, 0) scaleY(-1);
+  width: 58px;
+  height: auto;
+  animation: inIcon2Down 1s ease 0.45s forwards;
+}
+
+.button.sproutDown:active .icon2 {
+  top: 115%;
+  transform: translate(-50%, 0) scaleY(-1) scale(1.08);
+}
+
+.button.sproutDown:hover .icon3,
+.button.sproutDown:active .icon3,
+.button.sproutDown:focus-visible .icon3 {
+  position: absolute;
+  top: 100%;
+  left: 18%;
+  transform: translate(-50%, 0) scaleY(-1);
+  width: 50px;
+  height: auto;
+  animation: inIcon3Down 1s ease 0.45s forwards;
+}
+
+.button.sproutDown:active .icon3 {
+  top: 110%;
+  transform: translate(-50%, 0) scaleY(-1) scale(1.08);
+}
+
+.button.sproutDown:hover .icon4,
+.button.sproutDown:active .icon4,
+.button.sproutDown:focus-visible .icon4 {
+  position: absolute;
+  top: 108%;
+  left: 14%;
+  transform: translate(-50%, 0) scaleY(-1);
+  width: 60px;
+  height: auto;
+  animation: inIcon4Down 1s ease 0.45s forwards;
+}
+
+.button.sproutDown:active .icon4 {
+  top: 118%;
+  transform: translate(-50%, 0) scaleY(-1) scale(1.08);
+}
+
+.button.sproutDown:hover .icon5,
+.button.sproutDown:active .icon5,
+.button.sproutDown:focus-visible .icon5 {
+  position: absolute;
+  top: 108%;
+  left: 82%;
+  transform: translate(-50%, 0) scaleY(-1);
+  width: 62px;
+  height: auto;
+  animation: inIcon5Down 1s ease 0.45s forwards;
+}
+
+.button.sproutDown:active .icon5 {
+  top: 118%;
+  transform: translate(-50%, 0) scaleY(-1) scale(1.08);
+}
+
+@keyframes inIcon1Down {
+  0% {
+    transform-origin: 0 0%;
+    transform: translate(-50%, 0) scaleY(-1) rotate(0deg);
+  }
+  25% {
+    transform-origin: 0 0%;
+    transform: translate(-50%, 0) scaleY(-1) rotate(-5deg);
+  }
+  50% {
+    transform-origin: 0 0%;
+    transform: translate(-50%, 0) scaleY(-1) rotate(-1deg);
+  }
+  65% {
+    transform-origin: 0 0%;
+    transform: translate(-50%, 0) scaleY(-1) rotate(-3deg);
+  }
+  100% {
+    transform-origin: 0 0%;
+    transform: translate(-50%, 0) scaleY(-1) rotate(0deg);
+  }
+}
+
+@keyframes inIcon2Down {
+  0% {
+    transform-origin: 0 0%;
+    transform: translate(-50%, 0) scaleY(-1) rotate(0deg);
+  }
+  35% {
+    transform-origin: 0 0%;
+    transform: translate(-50%, 0) scaleY(-1) rotate(-10deg);
+  }
+  50% {
+    transform-origin: 0 0%;
+    transform: translate(-50%, 0) scaleY(-1) rotate(-4deg);
+  }
+  80% {
+    transform-origin: 0 0%;
+    transform: translate(-50%, 0) scaleY(-1) rotate(-5deg);
+  }
+  100% {
+    transform-origin: 0 0%;
+    transform: translate(-50%, 0) scaleY(-1) rotate(0deg);
+  }
+}
+
+@keyframes inIcon3Down {
+  0% {
+    transform-origin: 0 0%;
+    transform: translate(-50%, 0) scaleY(-1) rotate(0deg);
+  }
+  35% {
+    transform-origin: 0 0%;
+    transform: translate(-50%, 0) scaleY(-1) rotate(2deg);
+  }
+  100% {
+    transform-origin: 0 0%;
+    transform: translate(-50%, 0) scaleY(-1) rotate(0deg);
+  }
+}
+
+@keyframes inIcon4Down {
+  0% {
+    transform-origin: 0 0%;
+    transform: translate(-50%, 0) scaleY(-1) rotate(0deg);
+  }
+  40% {
+    transform-origin: 0 0%;
+    transform: translate(-50%, 0) scaleY(-1) rotate(3deg);
+  }
+  100% {
+    transform-origin: 0 0%;
+    transform: translate(-50%, 0) scaleY(-1) rotate(0deg);
+  }
+}
+
+@keyframes inIcon5Down {
+  0% {
+    transform-origin: 0 0%;
+    transform: translate(-50%, 0) scaleY(-1) rotate(0deg);
+  }
+  35% {
+    transform-origin: 0 0%;
+    transform: translate(-50%, 0) scaleY(-1) rotate(3deg);
+  }
+  100% {
+    transform-origin: 0 0%;
+    transform: translate(-50%, 0) scaleY(-1) rotate(0deg);
+  }
+}
+

@@ -28,8 +28,7 @@ export function SectionIntro({
   return (
     <div className={`flex flex-col gap-4 ${alignment} ${className}`}>
       {eyebrow ? (
-        <span className="inline-flex items-center gap-2.5 text-sm font-medium text-olive">
-          <span aria-hidden="true" className="size-2 rotate-45 bg-olive-soft" />
+        <span className="inline-flex items-center text-xs sm:text-sm font-semibold tracking-wider uppercase text-olive">
           {eyebrow}
         </span>
       ) : null}

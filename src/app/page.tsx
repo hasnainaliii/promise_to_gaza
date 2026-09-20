@@ -1,53 +1,32 @@
-import Image from "next/image";
+import Link from "next/link";
 import { ActionLink } from "@/components/action_button";
-import { CampaignCard } from "@/components/campaign_card";
+import { PlantDonateButton } from "@/components/plant_donate_button";
+import { SketchLink } from "@/components/sketch_link";
 import { HeroSlideshow } from "@/components/hero_slideshow";
-import { IllustrationFrame } from "@/components/illustration_frame";
-import { PlaceholderNote } from "@/components/placeholder_note";
 import { SectionIntro } from "@/components/section_intro";
-import { TatreezDivider } from "@/components/tatreez_divider";
-import { campaigns, workAreas } from "@/content/placeholder_content";
 
-const ACCOUNTABILITY_STEPS = [
-  {
-    title: "You choose an amount",
-    body: "You decide what to give and whether it is a one-off gift or a monthly one. The amount and currency are shown before you confirm.",
-  },
-  {
-    title: "The gift is confirmed",
-    body: "Nothing is treated as given until the payment itself is confirmed. If something fails or is cancelled, we say so plainly.",
-  },
-  {
-    title: "It is assigned to a programme",
-    body: "Each gift is recorded against the area of work it supports, so it can be traced later rather than disappearing into a general pot.",
-  },
-  {
-    title: "We publish what happened",
-    body: "Updates and spending reports are published so supporters can see the outcome, not just the appeal.",
-  },
-];
 
 export default function HomePage() {
   return (
     <>
       {/* ── Hero ────────────────────────────────────────────────── */}
-      <section className="relative min-h-[90vh] overflow-hidden -mt-22 sm:-mt-24 lg:min-h-screen">
+      <section className="relative min-h-[90vh] overflow-hidden -mt-24 bg-neutral-900 lg:min-h-screen">
         {/* Rotating smooth background photographs */}
         <HeroSlideshow />
 
-        {/* Warm gradient overlay — soft top wash for navbar, gentle center text readability, bottom fade covering only ~10-15% */}
+        {/* Ambient overlay — subtle center wash for text contrast and gentle bottom fade */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 z-10"
+          className="pointer-events-none absolute -top-16 inset-x-0 bottom-0 z-10"
           style={{
             background:
-              "linear-gradient(to bottom, var(--color-paper-90) 0%, var(--color-paper-40) 80px, var(--color-paper-0) 140px), radial-gradient(ellipse 75% 60% at 50% 50%, rgba(251, 248, 241, 0.65) 0%, rgba(251, 248, 241, 0.25) 55%, rgba(251, 248, 241, 0) 100%), linear-gradient(to top, var(--color-paper) 0%, var(--color-paper-90) 5%, var(--color-paper-40) 10%, var(--color-paper-0) 16%)",
+              "radial-gradient(ellipse 80% 65% at 50% 50%, rgba(18, 22, 19, 0.5) 0%, rgba(18, 22, 19, 0.25) 60%, transparent 100%), linear-gradient(to top, var(--color-paper) 0%, rgba(255, 255, 255, 0.5) 3%, transparent 7%)",
           }}
         />
 
         {/* Centred hero content */}
-        <div className="relative z-20 flex min-h-[90vh] flex-col items-center justify-end px-5 pb-20 pt-36 text-center sm:px-8 sm:pt-40 lg:min-h-screen lg:justify-center lg:pb-28">
-          <h1 className="mx-auto max-w-3xl font-heading text-4xl leading-[1.08] tracking-tight text-balance text-charcoal sm:text-5xl md:text-6xl lg:text-7xl">
+        <div className="relative z-20 flex min-h-[90vh] flex-col items-center justify-end px-5 pb-20 pt-28 text-center sm:px-8 sm:pt-32 lg:min-h-screen lg:justify-center lg:pb-24">
+          <h1 className="mx-auto max-w-3xl font-heading text-4xl leading-[1.08] tracking-tight text-balance text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.65)] sm:text-5xl md:text-6xl lg:text-7xl">
             Keeping a{" "}
             <span className="relative whitespace-nowrap">
               promise
@@ -55,7 +34,7 @@ export default function HomePage() {
                 viewBox="0 0 200 12"
                 preserveAspectRatio="none"
                 aria-hidden="true"
-                className="absolute -bottom-1 left-0 h-2.5 w-full text-berry"
+                className="absolute -bottom-1 left-0 h-2.5 w-full text-berry drop-shadow-sm"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="3.5"
@@ -67,29 +46,26 @@ export default function HomePage() {
             to families in Gaza.
           </h1>
 
-          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-warm-gray text-pretty sm:text-xl">
-            Promise to Gaza is a welfare effort supporting families in Gaza
-            with everyday essentials and care, and showing openly where that
-            support goes.
-          </p>
-
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <ActionLink href="/donate" variant="primary" size="lg">
+          <div className="mt-28 sm:mt-36 lg:mt-44 flex flex-col items-center justify-center gap-4 sm:gap-5 sm:flex-row">
+            <PlantDonateButton href="/donate" className="shrink-0">
               Donate now
-            </ActionLink>
-            <ActionLink href="/our-work" variant="quiet" size="lg">
+            </PlantDonateButton>
+            <Link
+              href="/our-work"
+              className="shrink-0 inline-flex min-h-[48px] items-center justify-center rounded-lg border border-neutral-200/90 bg-white px-7 py-3 text-base font-semibold text-charcoal shadow-xs transition-all duration-200 hover:-translate-y-0.5 hover:bg-white hover:border-neutral-300 hover:shadow-md active:translate-y-0 active:scale-[0.99]"
+            >
               Learn about our work
-            </ActionLink>
+            </Link>
           </div>
         </div>
 
-        {/* Organic wave transition to next section */}
+        {/* Organic wave transition to next section — decreased height */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
           <svg
             viewBox="0 0 1440 80"
             preserveAspectRatio="none"
             aria-hidden="true"
-            className="relative block h-12 w-full sm:h-16 lg:h-20"
+            className="relative block h-7 w-full sm:h-9 lg:h-11"
             fill="var(--color-paper)"
           >
             <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" />
@@ -97,145 +73,134 @@ export default function HomePage() {
         </div>
       </section>
 
-      <TatreezDivider className="mx-auto max-w-page text-sand-deep" />
-
-      <section className="bg-surface">
+      <section className="bg-paper">
         <div className="mx-auto max-w-page px-5 py-section sm:px-8">
           <div className="max-w-narrow">
             <SectionIntro
               eyebrow="Who we are"
-              title="A small effort, run with care."
-              lede="Promise to Gaza exists to get practical help to people in Gaza, and to be straightforward about what happens to every gift."
+              title="Filling the gap so everyone can play their part."
+              lede="Promise to Gaza is a project initiated by MyNetwork, which is an Islamic movement."
             />
-            <p className="mt-6 leading-relaxed text-warm-gray">
-              Our full story, how we started and who we work alongside, is being
-              written and will be published on this site rather than reduced to
-              a slogan.
+            <p className="mt-6 text-lg leading-relaxed text-warm-gray">
+              For this project, our goal is to fill the gap—especially for people who cannot donate financially or who feel they cannot do anything. We provide a way for every individual to play their part, turning moral concern into tangible action and solidarity for families in Gaza.
             </p>
-            <ActionLink href="/about" variant="quiet" className="mt-7">
-              Read about us
-            </ActionLink>
           </div>
         </div>
       </section>
 
+      {/* ── Why Gaza? ─────────────────────────────────────────────── */}
       <section className="mx-auto max-w-page px-5 py-section sm:px-8">
-        <SectionIntro
-          eyebrow="What we do"
-          title="Where our attention goes."
-          lede="Four areas of everyday need. Each will get its own detail as the work is documented."
-        />
-        <ul className="mt-10 grid gap-px overflow-hidden rounded-card bg-line sm:grid-cols-2">
-          {workAreas.map((area) => (
-            <li key={area.slug} className="flex gap-5 bg-paper p-6 sm:p-8">
-              <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-olive-tint">
-                <Image
-                  src={area.iconSrc}
-                  alt=""
-                  width={26}
-                  height={26}
-                  unoptimized
-                />
+        <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+          <div>
+            <SectionIntro
+              eyebrow="Our vision"
+              title={<span className="text-palestine-green">Why focus on Gaza?</span>}
+              lede="Our hearts stand with the oppressed everywhere. Gaza today represents an urgent, visible humanitarian crisis unfolding before the world."
+            />
+            <p className="mt-5 text-lg leading-relaxed text-warm-gray">
+              Gaza is a global headline, and in our initial stage we need a place to stand and build a strong foundation. Starting with Gaza allows us to focus our relief efforts, establish trust, and turn global attention into direct impact. From here, our vision is to expand our project so we can stand with and help every oppressed person throughout the entire world.
+            </p>
+          </div>
+          <ul className="flex flex-col gap-6 lg:pt-2">
+            <li className="flex gap-4">
+              <span
+                aria-hidden="true"
+                className="mt-1 flex size-9 shrink-0 items-center justify-center rounded-xl bg-palestine-green-tint text-palestine-green"
+              >
+                <svg className="size-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="2" y1="12" x2="22" y2="12" />
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                </svg>
               </span>
-              <div className="flex flex-col gap-2">
-                <h3 className="font-heading text-xl tracking-tight text-charcoal">
-                  {area.title}
+              <div>
+                <h3 className="font-heading text-lg tracking-tight text-charcoal">
+                  A Global Headline
                 </h3>
-                <p className="leading-relaxed text-warm-gray">
-                  {area.description}
+                <p className="mt-1 leading-relaxed text-warm-gray">
+                  Gaza is at the forefront of international consciousness. We channel this visibility into urgent, accountable relief.
                 </p>
               </div>
             </li>
-          ))}
-        </ul>
-        <PlaceholderNote className="mt-6">
-          These areas are provisional and need confirming with the team before
-          launch.
-        </PlaceholderNote>
-      </section>
-
-      <section className="bg-olive-deep text-paper">
-        <div className="mx-auto grid max-w-page items-center gap-12 px-5 py-section sm:px-8 lg:grid-cols-2">
-          <IllustrationFrame
-            src="/images/impact/placeholder_route.svg"
-            alt="Illustration of a route crossing hills towards a marked destination"
-            aspect="photo"
-            flip
-            sizes="(min-width: 1024px) 45vw, 90vw"
-          />
-          <div className="flex flex-col gap-5">
-            <span className="inline-flex items-center gap-2.5 text-sm font-medium text-sand">
-              <span aria-hidden="true" className="size-2 rotate-45 bg-sand" />
-              Where support goes
-            </span>
-            <h2 className="font-heading text-3xl leading-tight tracking-tight text-balance sm:text-4xl">
-              You should be able to follow the money.
-            </h2>
-            <p className="leading-relaxed text-sand">
-              A donation is a trust, not a transaction. We would rather publish a
-              plain breakdown than an impressive-sounding number, so this section
-              will carry the real allocation once the figures are verified.
-            </p>
-            <PlaceholderNote className="border-olive-soft/60 bg-olive/40 text-sand">
-              Spending breakdown and published accounts are not available yet.
-            </PlaceholderNote>
-          </div>
+            <li className="flex gap-4">
+              <span
+                aria-hidden="true"
+                className="mt-1 flex size-9 shrink-0 items-center justify-center rounded-xl bg-palestine-green-tint text-palestine-green"
+              >
+                <svg className="size-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </span>
+              <div>
+                <h3 className="font-heading text-lg tracking-tight text-charcoal">
+                  A Place to Stand
+                </h3>
+                <p className="mt-1 leading-relaxed text-warm-gray">
+                  Starting with Gaza gives our initial stage a dedicated ground to mobilize, prove transparency, and build lasting capability.
+                </p>
+              </div>
+            </li>
+            <li className="flex gap-4">
+              <span
+                aria-hidden="true"
+                className="mt-1 flex size-9 shrink-0 items-center justify-center rounded-xl bg-palestine-green-tint text-palestine-green"
+              >
+                <svg className="size-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="m15 3 6 6-6 6" />
+                  <path d="M21 9H9a6 6 0 0 0 0 12h3" />
+                </svg>
+              </span>
+              <div>
+                <h3 className="font-heading text-lg tracking-tight text-charcoal">
+                  Expanding to All Oppressed
+                </h3>
+                <p className="mt-1 leading-relaxed text-warm-gray">
+                  We are starting with Gaza, but our journey will expand to reach and support oppressed communities across the whole world.
+                </p>
+              </div>
+            </li>
+          </ul>
         </div>
       </section>
 
-      <section className="mx-auto max-w-page px-5 py-section sm:px-8">
-        <SectionIntro
-          eyebrow="Campaigns"
-          title="What we are raising for."
-          lede="Each campaign will show its purpose, its funding position and the updates that came out of it."
-        />
-        <PlaceholderNote className="mt-6">
-          The three campaigns below are placeholders so the layout can be
-          reviewed. None is live, and no funding figures are real.
-        </PlaceholderNote>
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {campaigns.map((campaign, index) => (
-            <CampaignCard
-              key={campaign.slug}
-              campaign={campaign}
-              flip={index % 2 === 1}
-            />
-          ))}
-        </div>
-      </section>
-
+      {/* ── Power of 100 PKR ─────────────────────────────────── */}
       <section className="bg-surface">
-        <div className="mx-auto grid max-w-page gap-12 px-5 py-section sm:px-8 lg:grid-cols-[0.9fr_1.1fr]">
-          <SectionIntro
-            eyebrow="How it works"
-            title="From your gift to the ground."
-            lede="The steps a donation passes through, and the point at which we will and will not say it has happened."
-          />
-          <ol className="flex flex-col">
-            {ACCOUNTABILITY_STEPS.map((step, index) => (
-              <li key={step.title} className="grid grid-cols-[auto_1fr] gap-x-5">
-                <div className="flex flex-col items-center">
-                  <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-olive font-heading text-base text-paper">
-                    {index + 1}
-                  </span>
-                  {index < ACCOUNTABILITY_STEPS.length - 1 ? (
-                    <span
-                      aria-hidden="true"
-                      className="w-px flex-1 bg-sand-deep"
-                    />
-                  ) : null}
-                </div>
-                <div className="pb-9">
-                  <h3 className="font-heading text-xl tracking-tight text-charcoal">
-                    {step.title}
-                  </h3>
-                  <p className="mt-2 leading-relaxed text-warm-gray">
-                    {step.body}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ol>
+        <div className="mx-auto grid max-w-page items-center gap-10 px-5 py-section sm:px-8 lg:grid-cols-[1fr_1fr]">
+          <div className="flex flex-col gap-5">
+            <SectionIntro
+              eyebrow="How we give"
+              title="The Power of 100 PKR"
+              lede="Small Drops. Infinite Ocean."
+            />
+            <p className="leading-relaxed text-warm-gray">
+              100 Rupees is just the cost of a daily cup of tea. Individually,
+              it feels small. Collectively, thousands of students contributing
+              100&nbsp;PKR every week create an unbroken pipeline of relief for
+              families in need.
+            </p>
+            <ActionLink href="/donate" variant="primary">
+              Give 100 PKR this week
+            </ActionLink>
+          </div>
+          <div className="flex items-center justify-center">
+            <div className="relative flex flex-col items-center gap-4 rounded-card bg-paper p-10 shadow-soft">
+              <span className="font-heading text-7xl leading-none tracking-tight text-olive sm:text-8xl">
+                100
+              </span>
+              <span className="font-sans text-sm font-medium uppercase tracking-widest text-warm-gray">
+                PKR per week
+              </span>
+              <div
+                aria-hidden="true"
+                className="absolute -right-4 -top-4 size-16 rounded-full bg-olive-tint"
+              />
+              <div
+                aria-hidden="true"
+                className="absolute -bottom-3 -left-3 size-10 rounded-full bg-sand"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -253,13 +218,13 @@ export default function HomePage() {
               Monthly gifts are the most useful, because they let work be planned
               rather than improvised. One-off gifts help just as much.
             </p>
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <ActionLink href="/donate" variant="primary" size="lg">
+            <div className="pt-8 sm:pt-12 flex flex-col items-center gap-4 sm:gap-5 sm:flex-row">
+              <PlantDonateButton href="/donate">
                 Donate now
-              </ActionLink>
-              <ActionLink href="/contact" variant="quiet" size="lg">
+              </PlantDonateButton>
+              <SketchLink href="/contact" size="lg">
                 Get in touch
-              </ActionLink>
+              </SketchLink>
             </div>
           </div>
         </div>

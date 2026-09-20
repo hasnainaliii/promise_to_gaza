@@ -12,6 +12,10 @@ export const metadata: Metadata = {
   },
   description:
     "Promise to Gaza is a welfare effort supporting families in Gaza. Learn what we do, follow our updates, and find ways to help.",
+  icons: {
+    icon: "/icon.png",
+    apple: "/icon.png",
+  },
   openGraph: {
     siteName: SITE_NAME,
     type: "website",

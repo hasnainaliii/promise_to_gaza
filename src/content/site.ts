@@ -7,7 +7,6 @@ export const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/our-work", label: "Our Work" },
   { href: "/about", label: "About" },
-  { href: "/updates", label: "Updates" },
 ] as const;
 
 export const DONATION_CURRENCY: CurrencyCode = "USD";

@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { TatreezDivider } from "@/components/tatreez_divider";
 import { SITE_NAME, SITE_TAGLINE } from "@/content/site";
 
 const FOOTER_SECTIONS = [
@@ -9,7 +8,6 @@ const FOOTER_SECTIONS = [
     links: [
       { href: "/our-work", label: "Our work" },
       { href: "/about", label: "About us" },
-      { href: "/updates", label: "Updates" },
     ],
   },
   {
@@ -23,8 +21,7 @@ const FOOTER_SECTIONS = [
 
 export function SiteFooter() {
   return (
-    <footer className="bg-olive-deep text-paper">
-      <TatreezDivider className="text-olive-soft" />
+    <footer className="border-t border-olive-soft/30 bg-olive-deep text-paper">
       <div className="mx-auto grid max-w-page gap-10 px-5 py-section sm:px-8 md:grid-cols-[1.4fr_1fr_1fr]">
         <div className="flex flex-col gap-4">
           <div className="flex items-center gap-3">
