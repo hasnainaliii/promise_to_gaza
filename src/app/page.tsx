@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ActionLink } from "@/components/action_button";
+import Image from "next/image";
 import { PlantDonateButton } from "@/components/plant_donate_button";
 import { SketchLink } from "@/components/sketch_link";
 import { HeroSlideshow } from "@/components/hero_slideshow";
@@ -73,94 +73,130 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-paper">
-        <div className="mx-auto max-w-page px-5 py-section sm:px-8">
-          <div className="max-w-narrow">
-            <SectionIntro
-              eyebrow="Who we are"
-              title="Filling the gap so everyone can play their part."
-              lede="Promise to Gaza is a project initiated by MyNetwork, which is an Islamic movement."
-            />
-            <p className="mt-6 text-lg leading-relaxed text-warm-gray">
-              For this project, our goal is to fill the gap—especially for people who cannot donate financially or who feel they cannot do anything. We provide a way for every individual to play their part, turning moral concern into tangible action and solidarity for families in Gaza.
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* ── Who We Are ───────────────────────────────────────────── */}
+      <section className="bg-paper overflow-hidden">
+        <div className="mx-auto max-w-page px-5 pt-section pb-0 sm:px-8">
 
-      {/* ── Why Gaza? ─────────────────────────────────────────────── */}
-      <section className="mx-auto max-w-page px-5 py-section sm:px-8">
-        <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
-          <div>
-            <SectionIntro
-              eyebrow="Our vision"
-              title={<span className="text-palestine-green">Why focus on Gaza?</span>}
-              lede="Our hearts stand with the oppressed everywhere. Gaza today represents an urgent, visible humanitarian crisis unfolding before the world."
-            />
-            <p className="mt-5 text-lg leading-relaxed text-warm-gray">
-              Gaza is a global headline, and in our initial stage we need a place to stand and build a strong foundation. Starting with Gaza allows us to focus our relief efforts, establish trust, and turn global attention into direct impact. From here, our vision is to expand our project so we can stand with and help every oppressed person throughout the entire world.
-            </p>
+          {/* Top label */}
+          <span className="inline-flex items-center text-xs sm:text-sm font-semibold tracking-wider uppercase text-olive">
+            Who we are
+          </span>
+
+          {/* Giant headline */}
+          <h2 className="mt-5 font-heading text-4xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-balance text-charcoal max-w-3xl">
+            Filling the gap so{" "}
+            <span className="relative inline-block">
+              everyone
+              {/* hand-drawn underline */}
+              <svg
+                viewBox="0 0 220 10"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+                className="absolute -bottom-1 left-0 h-2 w-full text-olive"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="3"
+                strokeLinecap="round"
+              >
+                <path d="M2 7 C 40 2, 100 9, 160 5 C 185 3, 205 7, 218 5" />
+              </svg>
+            </span>{" "}
+            can play their part.
+          </h2>
+
+          {/* Two-column body */}
+          <div className="mt-12 grid gap-10 lg:grid-cols-[1fr_1fr] lg:gap-16 pb-section">
+
+            {/* Left col — narrative */}
+            <div className="flex flex-col gap-6">
+              <p className="text-lg leading-relaxed text-warm-gray">
+                <strong className="text-charcoal font-semibold">Promise to Gaza</strong> is a project initiated by{" "}
+                <strong className="text-charcoal font-semibold">MyNetwork</strong>, an Islamic movement. Our goal is to fill the gap, especially for people who cannot donate financially, or who feel they simply cannot do anything.
+              </p>
+              <p className="text-lg leading-relaxed text-warm-gray">
+                We provide a way for every individual to play their part, turning moral concern into tangible action and solidarity for families in Gaza.
+              </p>
+
+              {/* Pull quote */}
+              <blockquote className="mt-2 border-l-[3px] border-olive pl-5">
+                <p className="font-heading text-xl leading-snug tracking-tight text-charcoal">
+                  &ldquo;Moral concern is not enough. We turn it into something real.&rdquo;
+                </p>
+              </blockquote>
+            </div>
+
+            {/* Right col — Our vision card */}
+            <div className="flex flex-col gap-6">
+              {/* Section label inside right col */}
+              <span className="inline-flex items-center text-xs font-bold tracking-widest uppercase text-palestine-green">
+                Our vision
+              </span>
+
+              <h3 className="font-heading text-2xl sm:text-3xl leading-tight tracking-tight text-palestine-green">
+                Why focus on Gaza?
+              </h3>
+
+              <p className="leading-relaxed text-warm-gray">
+                Our hearts stand with the oppressed everywhere. Gaza today represents an urgent, visible humanitarian crisis unfolding before the world.
+              </p>
+              <p className="leading-relaxed text-warm-gray">
+                Gaza is a global headline, and in our initial stage we need a place to stand and build a strong foundation. Starting with Gaza allows us to focus our relief efforts, establish trust, and turn global attention into direct impact. From here, our vision is to expand so we can stand with every oppressed person throughout the world.
+              </p>
+
+              {/* Three small feature rows */}
+              <ul className="mt-2 flex flex-col gap-5">
+                <li className="flex items-start gap-3.5">
+                  <span
+                    aria-hidden="true"
+                    className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-lg bg-palestine-green-tint text-palestine-green"
+                  >
+                    <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <circle cx="12" cy="12" r="10" />
+                      <line x1="2" y1="12" x2="22" y2="12" />
+                      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                    </svg>
+                  </span>
+                  <div>
+                    <p className="font-semibold text-charcoal leading-snug">A Global Headline</p>
+                    <p className="mt-0.5 text-sm leading-relaxed text-warm-gray">We channel global visibility into urgent, accountable relief.</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3.5">
+                  <span
+                    aria-hidden="true"
+                    className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-lg bg-palestine-green-tint text-palestine-green"
+                  >
+                    <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z" />
+                      <circle cx="12" cy="10" r="3" />
+                    </svg>
+                  </span>
+                  <div>
+                    <p className="font-semibold text-charcoal leading-snug">A Place to Stand</p>
+                    <p className="mt-0.5 text-sm leading-relaxed text-warm-gray">A dedicated ground to mobilize, prove transparency, and build trust.</p>
+                  </div>
+                </li>
+                <li className="flex items-start gap-3.5">
+                  <span
+                    aria-hidden="true"
+                    className="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-lg bg-palestine-green-tint text-palestine-green"
+                  >
+                    <svg className="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="m15 3 6 6-6 6" />
+                      <path d="M21 9H9a6 6 0 0 0 0 12h3" />
+                    </svg>
+                  </span>
+                  <div>
+                    <p className="font-semibold text-charcoal leading-snug">Expanding to All Oppressed</p>
+                    <p className="mt-0.5 text-sm leading-relaxed text-warm-gray">Starting here, our vision reaches every oppressed community worldwide.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
-          <ul className="flex flex-col gap-6 lg:pt-2">
-            <li className="flex gap-4">
-              <span
-                aria-hidden="true"
-                className="mt-1 flex size-9 shrink-0 items-center justify-center rounded-xl bg-palestine-green-tint text-palestine-green"
-              >
-                <svg className="size-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <circle cx="12" cy="12" r="10" />
-                  <line x1="2" y1="12" x2="22" y2="12" />
-                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                </svg>
-              </span>
-              <div>
-                <h3 className="font-heading text-lg tracking-tight text-charcoal">
-                  A Global Headline
-                </h3>
-                <p className="mt-1 leading-relaxed text-warm-gray">
-                  Gaza is at the forefront of international consciousness. We channel this visibility into urgent, accountable relief.
-                </p>
-              </div>
-            </li>
-            <li className="flex gap-4">
-              <span
-                aria-hidden="true"
-                className="mt-1 flex size-9 shrink-0 items-center justify-center rounded-xl bg-palestine-green-tint text-palestine-green"
-              >
-                <svg className="size-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z" />
-                  <circle cx="12" cy="10" r="3" />
-                </svg>
-              </span>
-              <div>
-                <h3 className="font-heading text-lg tracking-tight text-charcoal">
-                  A Place to Stand
-                </h3>
-                <p className="mt-1 leading-relaxed text-warm-gray">
-                  Starting with Gaza gives our initial stage a dedicated ground to mobilize, prove transparency, and build lasting capability.
-                </p>
-              </div>
-            </li>
-            <li className="flex gap-4">
-              <span
-                aria-hidden="true"
-                className="mt-1 flex size-9 shrink-0 items-center justify-center rounded-xl bg-palestine-green-tint text-palestine-green"
-              >
-                <svg className="size-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="m15 3 6 6-6 6" />
-                  <path d="M21 9H9a6 6 0 0 0 0 12h3" />
-                </svg>
-              </span>
-              <div>
-                <h3 className="font-heading text-lg tracking-tight text-charcoal">
-                  Expanding to All Oppressed
-                </h3>
-                <p className="mt-1 leading-relaxed text-warm-gray">
-                  We are starting with Gaza, but our journey will expand to reach and support oppressed communities across the whole world.
-                </p>
-              </div>
-            </li>
-          </ul>
+
+          {/* Full-bleed ruled separator */}
+          <div aria-hidden="true" className="border-t border-line/60" />
         </div>
       </section>
 
@@ -179,9 +215,11 @@ export default function HomePage() {
               100&nbsp;PKR every week create an unbroken pipeline of relief for
               families in need.
             </p>
-            <ActionLink href="/donate" variant="primary">
-              Give 100 PKR this week
-            </ActionLink>
+            <div className="pt-1">
+              <SketchLink href="/donate" size="lg">
+                Give 100 PKR this week
+              </SketchLink>
+            </div>
           </div>
           <div className="flex items-center justify-center">
             <div className="relative flex flex-col items-center gap-4 rounded-card bg-paper p-10 shadow-soft">
@@ -193,12 +231,28 @@ export default function HomePage() {
               </span>
               <div
                 aria-hidden="true"
-                className="absolute -right-4 -top-4 size-16 rounded-full bg-olive-tint"
-              />
+                className="absolute -right-5 -top-5 size-16 sm:size-20 overflow-hidden rounded-full shadow-soft ring-4 ring-paper"
+              >
+                <Image
+                  src="/images/Downloaded/palestine-metallic-flag-textured-flag-grunge-flag.jpg"
+                  alt=""
+                  fill
+                  className="object-cover object-center"
+                  sizes="80px"
+                />
+              </div>
               <div
                 aria-hidden="true"
-                className="absolute -bottom-3 -left-3 size-10 rounded-full bg-sand"
-              />
+                className="absolute -bottom-4 -left-4 size-12 sm:size-14 overflow-hidden rounded-full shadow-soft ring-4 ring-paper"
+              >
+                <Image
+                  src="/images/Downloaded/palestine-metallic-flag-textured-flag-grunge-flag.jpg"
+                  alt=""
+                  fill
+                  className="object-cover object-center"
+                  sizes="60px"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -206,17 +260,32 @@ export default function HomePage() {
 
       <section className="mx-auto max-w-page px-5 py-section sm:px-8">
         <div className="relative overflow-hidden rounded-card bg-olive-tint px-6 py-12 sm:px-12">
+          {/* Right side textured flag art — extends further inward to the left */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -right-16 -top-16 size-64 rounded-full bg-paper/50"
-          />
-          <div className="relative flex max-w-narrow flex-col items-start gap-5">
+            className="pointer-events-none absolute right-0 top-0 bottom-0 w-full sm:w-3/5 md:w-[50%] lg:w-[45%]"
+            style={{
+              maskImage: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 20%, black 100%)",
+              WebkitMaskImage: "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.5) 20%, black 100%)",
+            }}
+          >
+            <Image
+              src="/images/Downloaded/palestine-metallic-flag-textured-flag-grunge-flag.jpg"
+              alt=""
+              fill
+              className="object-cover object-center"
+              sizes="(max-width: 768px) 100vw, 45vw"
+            />
+          </div>
+
+          <div className="relative z-10 flex max-w-narrow flex-col items-start gap-5">
             <h2 className="font-heading text-3xl leading-tight tracking-tight text-balance text-charcoal sm:text-4xl">
               Give once, give monthly, or simply stay in touch.
             </h2>
             <p className="leading-relaxed text-olive-deep">
-              Monthly gifts are the most useful, because they let work be planned
-              rather than improvised. One-off gifts help just as much.
+              Monthly commitments are the most useful, because
+              <br />
+              they let work be planned rather than improvised.
             </p>
             <div className="pt-8 sm:pt-12 flex flex-col items-center gap-4 sm:gap-5 sm:flex-row">
               <PlantDonateButton href="/donate">
