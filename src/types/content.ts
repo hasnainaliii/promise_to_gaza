@@ -60,3 +60,19 @@ export interface Story {
   imageSrc: string;
   imageAlt: string;
 }
+
+export interface DriveMedia {
+  type: "image" | "video";
+  src: string;
+  alt?: string;
+  poster?: string;
+}
+
+export interface ReliefDrive {
+  id: string;
+  label: string;
+  date: string;
+  focus: string;
+  impact: string;
+  media?: DriveMedia[];
+}

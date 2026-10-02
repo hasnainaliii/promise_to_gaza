@@ -7,6 +7,8 @@ Organised by purpose. Nothing loose in the top level.
 - `impact/` — imagery for updates and impact sections.
 - `stories/` — imagery for stories.
 - `icons/` — small line icons.
+- `about/` — photography used on the About page.
+- `ourwork/` — field photography from the relief drives.
 
 Every file currently prefixed `placeholder_` (plus `olive_tree.svg`) is a
 first-party illustration standing in until approved photography exists. They are

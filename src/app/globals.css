@@ -41,6 +41,72 @@
   }
 }
 
+/* Scroll reveals driven by <Reveal>. The hidden state only applies when
+   scripting is available, so nothing is stranded invisible without JS. Kept in
+   the components layer so utilities on the same element still win. */
+@layer components {
+  [data-reveal] {
+    transition-property: opacity, transform;
+    transition-duration: 0.9s;
+    transition-timing-function: var(--ease-out-expo);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  /* The clip sits on the child: an observer never sees a fully clipped
+     target as intersecting, so the wrapper itself must stay unclipped. */
+  [data-reveal="unveil"] > * {
+    transition: clip-path 1.3s var(--ease-out-expo);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  [data-reveal="unveil"] img {
+    transition: transform 1.8s var(--ease-out-expo);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+
+  [data-reveal="draw"] [data-draw] {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 1.2s var(--ease-soft);
+    transition-delay: calc(var(--reveal-delay, 0ms) + 300ms);
+  }
+
+  @media (scripting: enabled) {
+    [data-reveal]:not([data-inview]) {
+      opacity: 0;
+    }
+
+    [data-reveal="rise"]:not([data-inview]) {
+      transform: translateY(1.75rem);
+    }
+
+    [data-reveal="unveil"]:not([data-inview]) {
+      opacity: 1;
+    }
+
+    [data-reveal="unveil"]:not([data-inview]) > * {
+      clip-path: inset(100% 0 0 0);
+    }
+
+    [data-reveal="unveil"]:not([data-inview]) img {
+      transform: scale(1.15);
+    }
+
+    [data-reveal="draw"]:not([data-inview]) {
+      opacity: 1;
+    }
+
+    [data-reveal="draw"]:not([data-inview]) [data-draw] {
+      stroke-dashoffset: 1;
+    }
+  }
+
+  /* Looping decoration only runs once its section has been revealed. */
+  [data-reveal]:not([data-inview]) [data-loop] {
+    animation-play-state: paused;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

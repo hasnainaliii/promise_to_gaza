@@ -16,3 +16,7 @@ export const DONATION_PRESETS_MINOR_UNITS = [2500, 5000, 10000, 25000];
 
 export const DONATION_MIN_MINOR_UNITS = 100;
 export const DONATION_MAX_MINOR_UNITS = 10_000_00;
+
+/** Published on the donate page as the organisation's contact line. */
+export const WHATSAPP_NUMBER = "923359756566";
+export const WHATSAPP_DISPLAY = "+92 335 9756566";

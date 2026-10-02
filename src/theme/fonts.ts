@@ -4,6 +4,8 @@ export const headingFont = Fraunces({
   subsets: ["latin"],
   variable: "--font-fraunces",
   display: "swap",
+  axes: ["SOFT", "opsz"],
+  style: ["normal", "italic"],
 });
 
 export const bodyFont = Inter({
