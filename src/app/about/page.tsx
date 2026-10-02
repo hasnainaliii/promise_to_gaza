@@ -1,98 +1,65 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { PageHeader } from "@/components/page_header";
 import { SectionIntro } from "@/components/section_intro";
 
 export const metadata: Metadata = {
-  title: "About & Strategic Vision — Promise to Gaza",
+  title: "Who We Are — Promise to Gaza",
   description:
-    "Executive introduction, operational methodology, campaign initiatives, and strategic expansion of the student-led Promise to Gaza movement under My Network.",
+    "Learn about Promise to Gaza — our history, mission, vision, purpose, core values, and the deeper truth behind why we do what we do.",
 };
 
-const SHORT_TERM_OBJECTIVES = [
-  "Direct emergency aid delivery including essential Food Rations, Clean Drinking Water, and basic survival items.",
-  "Targeted relief drives for displaced families living in refugee camps during peak crisis periods.",
-  "Establishing efficient, transparent, and low-overhead fund deployment mechanisms directly into Gaza.",
-];
-
-const LONG_TERM_VISION = [
-  "Fostering Islamic moral, ethical, and legal accountability across student and youth networks.",
-  "Building an interconnected multi-university student alliance committed to global human rights and justice.",
-  "Extending structured institutional support to oppressed regions globally over time.",
-];
-
-const CAMPAIGN_TOOLS = [
+const CORE_VALUES = [
   {
-    title: "Webinars & Expert Sessions",
-    badge: "Education & Strategy",
+    number: "01",
+    title: "Compassion",
     description:
-      "PTG organizes strategic knowledge-sharing sessions featuring notable scholars and activists. Notably, a key session was hosted with Sheikh Uzair, who shared direct insights from his participation in the Freedom Flotilla mission to break the siege on Gaza.",
+      "Standing with people who are suffering and responding to their needs with sincerity and care.",
     icon: (
-      <svg className="size-6 text-olive" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M15 10l5-5m0 0l-5-5m5 5H9a4 4 0 00-4 4v1m0 4v5a2 2 0 002 2h10a2 2 0 002-2v-5" />
+      <svg className="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
       </svg>
     ),
   },
   {
-    title: "Weekly News & Crisis Updates",
-    badge: "Field Reporting",
+    number: "02",
+    title: "Responsibility",
     description:
-      "Publishing regular graphical summaries highlighting real-time developments, field reports, and critical humanitarian statistics from Gaza to keep the academic community engaged.",
+      "Recognising our responsibility towards the Ummah and taking meaningful action instead of remaining passive.",
     icon: (
-      <svg className="size-6 text-olive" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+      <svg className="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
       </svg>
     ),
   },
   {
-    title: "Boycott & Economic Advocacy",
-    badge: "Targeted Action",
+    number: "03",
+    title: "Collective Action",
     description:
-      "Awareness materials identifying corporate entities complicit in the crisis, encouraging students to align daily purchasing decisions with ethical principles and economic resistance.",
+      "Believing that lasting impact comes when people come together, contribute what they can, and support one another.",
     icon: (
-      <svg className="size-6 text-olive" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="10" />
-        <path d="M4.93 4.93l14.14 14.14" />
-      </svg>
-    ),
-  },
-  {
-    title: "Field Impact Testimonials",
-    badge: "Verified Transparency",
-    description:
-      "Sharing verified media and video proof of ground distributions to maintain total transparency and build trust with student donors across every university chapter.",
-    icon: (
-      <svg className="size-6 text-olive" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+      <svg className="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
       </svg>
     ),
   },
 ];
 
-const METHODOLOGY_STEPS = [
-  { step: "1", title: "Student Body Participation", subtitle: "Grassroots mobilization across campuses" },
-  { step: "2", title: "Weekly Micro-Donation", subtitle: "Accessible Rs. 100 / student commitment" },
-  { step: "3", title: "Secure Fund Transfer", subtitle: "Rapid low-overhead capital transmission" },
-  { step: "4", title: "Local Gaza Volunteers", subtitle: "Verified on-ground coordination" },
-  { step: "5", title: "Direct Aid Delivery", subtitle: "Food, water & relief into hands of families" },
-];
-
-const CAMPUS_CHAPTERS = [
+const TONE_ATTRIBUTES = [
   {
-    name: "HITEC University",
-    location: "Taxila, Punjab",
-    status: "Active Chapter",
+    label: "Compassionate & Purposeful",
+    description: "Every word carries weight and intent, driven by genuine care.",
   },
   {
-    name: "University of Chenab",
-    location: "Gujrat, Punjab",
-    status: "Active Chapter",
+    label: "Empathetic & Resilient",
+    description: "We feel deeply, yet we stand firm in our resolve to act.",
   },
   {
-    name: "University of Wah",
-    location: "Wah Cantt, Punjab",
-    status: "Active Chapter",
+    label: "Warm, Sincere & Urgent",
+    description: "We speak from the heart with a sense of pressing responsibility.",
   },
 ];
 
@@ -101,7 +68,6 @@ export default function AboutPage() {
     <>
       {/* ── Immersive Full-Bleed Hero Image ──────────────────────── */}
       <section className="relative min-h-[75vh] sm:min-h-[85vh] lg:min-h-screen overflow-hidden -mt-24 bg-neutral-900">
-        {/* Background photograph with left and right blank, colorful image in center */}
         <div
           className="absolute -top-16 inset-x-0 bottom-0 overflow-hidden pointer-events-none bg-neutral-900"
           aria-hidden="true"
@@ -116,13 +82,13 @@ export default function AboutPage() {
           />
         </div>
 
-        {/* Soft bottom fade to transition cleanly into paper background */}
+        {/* Soft bottom fade */}
         <div
           aria-hidden="true"
           className="pointer-events-none absolute inset-x-0 bottom-0 h-24 z-10 bg-gradient-to-t from-[var(--color-paper)] to-transparent opacity-80"
         />
 
-        {/* Organic wave transition to next section */}
+        {/* Organic wave transition */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-20">
           <svg
             viewBox="0 0 1440 80"
@@ -136,379 +102,452 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <PageHeader
-        eyebrow="Progress & Strategic Report"
-        title="Promise to Gaza (PTG)"
-        lede="Promise to Gaza is a project initiated by MyNetwork (an Islamic movement). It started in August 2025 as a university project initiated in UET Taxila first, so students could play their part by donating 100 rupees (approx. $0.35 USD). From that initial effort, it has now grown into a full running relief project delivering continuous, verified aid directly to families in Gaza."
-      />
-
-      {/* ── 1. Executive Introduction & Foundational Vision ─────────── */}
+      {/* ── 1. Who We Are ────────────────────────────────────────── */}
       <section className="mx-auto max-w-page px-5 py-section sm:px-8">
         <div className="max-w-narrow">
           <SectionIntro
-            eyebrow="Section 1"
-            title="Executive Introduction & Foundational Vision"
-            lede="Founded on the core principle that aiding victims of oppression and genocide is a moral and spiritual imperative."
+            level="h1"
+            eyebrow="Promise to Gaza"
+            title="Who We Are"
           />
-          <p className="mt-5 text-lg leading-relaxed text-charcoal/90">
-            Promise to Gaza (PTG) is a project initiated by <strong>MyNetwork</strong> (an Islamic movement). It began in August 2025 as a university project initiated at <strong>UET Taxila</strong>, designed so students and individuals who felt they couldn&apos;t do much could play their part by contributing just <strong>Rs. 100 (approx. $0.35 USD)</strong> weekly. What started as a grassroots campus initiative has now expanded into a full running project, coordinating verified emergency food, clean drinking water, and essential relief directly on the ground in Gaza.
+          <p className="mt-8 text-lg leading-relaxed text-warm-gray">
+            Promise to Gaza is a project initiated by{" "}
+            <strong className="text-charcoal font-semibold">My Network</strong>,
+            a community working towards the revival of Islam through different
+            initiatives. In response to the ongoing crisis in Gaza, we are
+            working to provide immediate humanitarian relief to those in need.
           </p>
-        </div>
-
-        {/* Dual Pillar Cards: Short-Term vs Long-Term */}
-        <div className="mt-12 grid gap-8 md:grid-cols-2">
-          {/* Short Term */}
-          <div className="flex flex-col justify-between rounded-card border border-line bg-surface p-7 sm:p-9 shadow-xs">
-            <div>
-              <div className="flex items-center gap-3">
-                <span className="flex size-9 items-center justify-center rounded-full bg-olive-tint text-olive">
-                  <svg className="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </span>
-                <span className="font-sans text-xs font-semibold uppercase tracking-wider text-olive-deep">
-                  Immediate Impact
-                </span>
-              </div>
-              <h3 className="mt-4 font-heading text-2xl tracking-tight text-charcoal">
-                Short-Term Relief Objectives
-              </h3>
-              <ul className="mt-6 flex flex-col gap-4 text-warm-gray">
-                {SHORT_TERM_OBJECTIVES.map((obj, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="mt-2 size-1.5 shrink-0 rounded-full bg-olive" aria-hidden="true" />
-                    <span className="leading-relaxed">{obj}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="mt-8 pt-6 border-t border-line/60 text-xs text-warm-gray-soft">
-              Focus: Food parcels, drinking water tankers, and refugee shelter essentials.
-            </div>
-          </div>
-
-          {/* Long Term */}
-          <div className="flex flex-col justify-between rounded-card border border-line bg-paper p-7 sm:p-9 shadow-xs">
-            <div>
-              <div className="flex items-center gap-3">
-                <span className="flex size-9 items-center justify-center rounded-full bg-sand text-charcoal">
-                  <svg className="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
-                  </svg>
-                </span>
-                <span className="font-sans text-xs font-semibold uppercase tracking-wider text-olive-deep">
-                  Generational Framework
-                </span>
-              </div>
-              <h3 className="mt-4 font-heading text-2xl tracking-tight text-charcoal">
-                Long-Term Revival Vision
-              </h3>
-              <ul className="mt-6 flex flex-col gap-4 text-warm-gray">
-                {LONG_TERM_VISION.map((obj, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span className="mt-2 size-1.5 shrink-0 rounded-full bg-sand-deep" aria-hidden="true" />
-                    <span className="leading-relaxed">{obj}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="mt-8 pt-6 border-t border-line/60 text-xs text-warm-gray-soft">
-              Focus: Youth leadership, ethical governance, and sustained global advocacy.
-            </div>
-          </div>
-        </div>
-
-        {/* Core Philosophy Callout */}
-        <div className="mt-10 rounded-card border border-olive/30 bg-olive-tint/60 p-7 sm:p-9">
-          <div className="flex flex-col gap-2.5">
-            <span className="font-sans text-xs font-bold uppercase tracking-widest text-olive-deep">
-              Core Philosophy
-            </span>
-            <p className="font-heading text-xl sm:text-2xl leading-snug tracking-tight text-charcoal">
-              &ldquo;Grounded in the divine mandate to stand against oppression and uphold human dignity, PTG emphasizes that while Gaza stands at the frontline of current crisis, restoring active solidarity, relief, and moral advocacy is a shared obligation across the entire Muslim world.&rdquo;
-            </p>
-          </div>
+          <p className="mt-5 text-lg leading-relaxed text-warm-gray">
+            At the same time, we see this effort as part of a broader,
+            long-term journey towards the revival and strengthening of the
+            Ummah.
+          </p>
         </div>
       </section>
 
       <div aria-hidden="true" className="mx-auto max-w-page border-t border-line/60" />
 
-      {/* ── 2. Operational Methodology & Financial Framework ─────────── */}
+      {/* ── 2. History ───────────────────────────────────────────── */}
       <section className="bg-surface">
         <div className="mx-auto max-w-page px-5 py-section sm:px-8">
           <SectionIntro
-            eyebrow="Section 2"
-            title="Operational Methodology & Financial Framework"
-            lede="An innovative, high-impact micro-donation strategy specifically designed for student communities."
+            eyebrow="Our Journey"
+            title="History"
+            lede="From a single department to a multi-university movement."
           />
 
-          <p className="mt-6 max-w-narrow leading-relaxed text-warm-gray">
-            PTG stands out from conventional fundraising models by introducing
-            an innovative micro-donation strategy. Instead of relying on large
-            individual contributions, PTG leverages collective student strength
-            through systematic, low-barrier participation.
-          </p>
+          {/* Timeline */}
+          <div className="mt-12 relative">
+            {/* Vertical line */}
+            <div className="absolute left-[18px] sm:left-[22px] top-0 bottom-0 w-px bg-line/80" aria-hidden="true" />
 
-          {/* 5-Step Pipeline Visualization */}
-          <div className="mt-12 rounded-card border border-line bg-paper p-6 sm:p-10 shadow-soft">
-            <div className="mb-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-line/70 pb-5">
-              <h3 className="font-heading text-xl text-charcoal">
-                The PTG 5-Stage Direct Deployment Pipeline
-              </h3>
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-olive-tint px-3 py-1 text-xs font-semibold text-olive-deep">
-                <span className="size-2 rounded-full bg-olive animate-pulse" />
-                Zero Intermediary Leakage
-              </span>
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-              {METHODOLOGY_STEPS.map((s, idx) => (
-                <div
-                  key={s.step}
-                  className="relative flex flex-col justify-between rounded-xl border border-line/60 bg-surface/70 p-5 transition-all hover:border-olive/40 hover:bg-surface"
-                >
-                  <div>
-                    <div className="flex items-center justify-between">
-                      <span className="font-heading text-2xl font-bold text-olive">
-                        {s.step}
-                      </span>
-                      {idx < METHODOLOGY_STEPS.length - 1 ? (
-                        <span className="hidden lg:block text-warm-gray-soft text-lg font-bold" aria-hidden="true">
-                          &rarr;
-                        </span>
-                      ) : null}
-                    </div>
-                    <h4 className="mt-3 font-heading text-base font-semibold text-charcoal leading-tight">
-                      {s.title}
-                    </h4>
-                  </div>
-                  <p className="mt-3 text-xs leading-relaxed text-warm-gray">
-                    {s.subtitle}
+            <div className="flex flex-col gap-0">
+              {/* Origin */}
+              <div className="relative flex gap-6 sm:gap-8 pb-10">
+                <div className="relative z-10 flex size-[38px] sm:size-[46px] shrink-0 items-center justify-center rounded-full border-2 border-olive bg-paper shadow-xs">
+                  <span className="font-heading text-sm sm:text-base font-bold text-olive">1</span>
+                </div>
+                <div className="pt-1.5 sm:pt-2">
+                  <span className="font-sans text-xs font-bold uppercase tracking-wider text-olive">
+                    6 August 2025
+                  </span>
+                  <h3 className="mt-2 font-heading text-xl sm:text-2xl tracking-tight text-charcoal">
+                    The Spark — UET Taxila
+                  </h3>
+                  <p className="mt-3 leading-relaxed text-warm-gray max-w-xl">
+                    Promise to Gaza began as a student-led campaign at UET Taxila,
+                    initially launched within the Department of Computer Science
+                    under the name <strong className="text-charcoal">UET Taxila Donation Drive</strong>.
                   </p>
                 </div>
-              ))}
-            </div>
-          </div>
+              </div>
 
-          {/* Detailed Narrative Breakdown */}
-          <div className="mt-10 grid gap-8 md:grid-cols-2">
-            <div className="rounded-card border border-line bg-paper p-7 sm:p-8">
-              <span className="text-xs font-bold uppercase tracking-wider text-olive">
-                Core Model
-              </span>
-              <h3 className="mt-2 font-heading text-xl text-charcoal">
-                Weekly Rs. 100 (~$0.35 USD) Micro-Donation Model
-              </h3>
-              <p className="mt-4 leading-relaxed text-warm-gray">
-                The cornerstone of PTG&apos;s unique approach is an accessible weekly micro-contribution
-                of just <strong>Rs. 100 per student (or its dollar equivalent, approx. $0.35 USD)</strong>. By keeping the target
-                amount minimal and accessible, it ensures that every student and supporter can
-                participate effortlessly without financial burden.
-              </p>
-              <p className="mt-3 leading-relaxed text-warm-gray">
-                When pooled across hundreds of students consistently every week,
-                these modest contributions accumulate into substantial capital that
-                directly funds large-scale on-ground relief operations.
-              </p>
-            </div>
-
-            <div className="rounded-card border border-line bg-paper p-7 sm:p-8">
-              <span className="text-xs font-bold uppercase tracking-wider text-olive">
-                Execution
-              </span>
-              <h3 className="mt-2 font-heading text-xl text-charcoal">
-                Ground Execution Network
-              </h3>
-              <p className="mt-4 leading-relaxed text-warm-gray">
-                Accumulated funds are securely routed to verified regional volunteers
-                on the ground in Gaza.
-              </p>
-              <p className="mt-3 leading-relaxed text-warm-gray">
-                These trusted teams navigate volatile local market dynamics to purchase
-                and distribute essential goods directly — completely avoiding intermediary
-                bureaucracy, high administrative cuts, or procedural leakage.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div aria-hidden="true" className="mx-auto max-w-page border-t border-line/60" />
-
-      {/* ── 3. Campaign Tools & Awareness Initiatives ────────────────── */}
-      <section className="mx-auto max-w-page px-5 py-section sm:px-8">
-        <SectionIntro
-          eyebrow="Section 3"
-          title="Campaign Tools & Awareness Initiatives"
-          lede="Deploying educational, analytical, and media-focused campaign tools to translate student empathy into tangible, directed action."
-        />
-
-        <div className="mt-12 grid gap-6 sm:grid-cols-2">
-          {CAMPAIGN_TOOLS.map((tool) => (
-            <div
-              key={tool.title}
-              className="flex flex-col justify-between rounded-card border border-line bg-paper p-7 transition-all hover:border-olive/40 hover:shadow-soft"
-            >
-              <div>
-                <div className="flex items-center justify-between">
-                  <div className="flex size-11 items-center justify-center rounded-xl bg-olive-tint">
-                    {tool.icon}
-                  </div>
-                  <span className="rounded-full bg-sand/70 px-3 py-1 font-sans text-xs font-semibold text-charcoal">
-                    {tool.badge}
-                  </span>
+              {/* Campus expansion */}
+              <div className="relative flex gap-6 sm:gap-8 pb-10">
+                <div className="relative z-10 flex size-[38px] sm:size-[46px] shrink-0 items-center justify-center rounded-full border-2 border-olive bg-paper shadow-xs">
+                  <span className="font-heading text-sm sm:text-base font-bold text-olive">2</span>
                 </div>
-                <h3 className="mt-5 font-heading text-xl tracking-tight text-charcoal">
-                  {tool.title}
-                </h3>
-                <p className="mt-3 leading-relaxed text-warm-gray">
-                  {tool.description}
-                </p>
+                <div className="pt-1.5 sm:pt-2">
+                  <h3 className="font-heading text-xl sm:text-2xl tracking-tight text-charcoal">
+                    Campus-Wide Expansion
+                  </h3>
+                  <p className="mt-3 leading-relaxed text-warm-gray max-w-xl">
+                    Following its initial success, the campaign expanded beyond
+                    the Computer Science Department to cover departments across
+                    the entire UET Taxila campus, through which donations were
+                    collected from the university community on multiple occasions.
+                  </p>
+                </div>
+              </div>
+
+              {/* Formal project */}
+              <div className="relative flex gap-6 sm:gap-8 pb-10">
+                <div className="relative z-10 flex size-[38px] sm:size-[46px] shrink-0 items-center justify-center rounded-full border-2 border-olive bg-paper shadow-xs">
+                  <span className="font-heading text-sm sm:text-base font-bold text-olive">3</span>
+                </div>
+                <div className="pt-1.5 sm:pt-2">
+                  <h3 className="font-heading text-xl sm:text-2xl tracking-tight text-charcoal">
+                    A Formal Project of My Network
+                  </h3>
+                  <p className="mt-3 leading-relaxed text-warm-gray max-w-xl">
+                    As the initiative grew beyond its original campus-level
+                    efforts, it was later developed into a formal project of
+                    My Network under the name{" "}
+                    <strong className="text-charcoal">Promise to Gaza (PTG)</strong>.
+                  </p>
+                </div>
+              </div>
+
+              {/* Multi-university */}
+              <div className="relative flex gap-6 sm:gap-8">
+                <div className="relative z-10 flex size-[38px] sm:size-[46px] shrink-0 items-center justify-center rounded-full border-2 border-olive bg-olive shadow-xs">
+                  <span className="font-heading text-sm sm:text-base font-bold text-paper">4</span>
+                </div>
+                <div className="pt-1.5 sm:pt-2">
+                  <span className="inline-flex items-center gap-1.5 rounded-full bg-olive-tint px-3 py-0.5 text-xs font-semibold text-olive-deep">
+                    <span className="size-1.5 rounded-full bg-olive animate-pulse" />
+                    Current Phase
+                  </span>
+                  <h3 className="mt-2 font-heading text-xl sm:text-2xl tracking-tight text-charcoal">
+                    Multi-University Expansion
+                  </h3>
+                  <p className="mt-3 leading-relaxed text-warm-gray max-w-xl">
+                    Building on this journey, PTG is now being expanded to three
+                    additional universities, with the intention, In Sha Allah, of
+                    extending the initiative to more universities in the future.
+                  </p>
+                </div>
               </div>
             </div>
-          ))}
+          </div>
         </div>
       </section>
 
       <div aria-hidden="true" className="mx-auto max-w-page border-t border-line/60" />
 
-      {/* ── 4. Way Forward & Strategic Expansion ────────────────────── */}
+      {/* ── 3. Mission & Vision ──────────────────────────────────── */}
+      <section className="mx-auto max-w-page px-5 py-section sm:px-8">
+        <div className="grid gap-12 lg:gap-16 md:grid-cols-2">
+          {/* Mission */}
+          <div>
+            <SectionIntro
+              eyebrow="Our Mission"
+              title="What Drives Us"
+            />
+            <p className="mt-6 text-lg leading-relaxed text-warm-gray">
+              Our mission is to stand with people in need, especially those
+              facing oppression, hardship, and crisis, and to provide meaningful
+              support wherever help is required.
+            </p>
+            <p className="mt-4 leading-relaxed text-warm-gray">
+              While Promise to Gaza begins with providing immediate relief to
+              the people of Gaza, our vision extends beyond one place or one
+              crisis. We want to build a way of serving the Ummah where people
+              come together to support those who are suffering and to respond
+              whenever and wherever help is needed.
+            </p>
+          </div>
+
+          {/* Vision */}
+          <div>
+            <SectionIntro
+              eyebrow="Our Vision"
+              title="What We Aspire To"
+            />
+            <p className="mt-6 text-lg leading-relaxed text-warm-gray">
+              Our vision is to build an Ummah that does not remain silent in
+              the face of oppression, suffering, or injustice, but stands
+              together with a strong sense of responsibility and
+              accountability.
+            </p>
+            <p className="mt-4 leading-relaxed text-warm-gray">
+              We envision a community where people recognise their
+              responsibility towards one another, raise their voices for those
+              who are oppressed, and come together to serve those in need.
+            </p>
+            <blockquote className="mt-6 border-l-[3px] border-olive pl-5">
+              <p className="font-heading text-lg leading-snug tracking-tight text-charcoal italic">
+                Ultimately, we aspire to contribute towards the revival of an
+                Ummah that is conscious of its Islamic identity, united in its
+                responsibilities, and committed to justice, compassion, and
+                collective action.
+              </p>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      <div aria-hidden="true" className="mx-auto max-w-page border-t border-line/60" />
+
+      {/* ── 4. Purpose — Short & Long Term ───────────────────────── */}
       <section className="bg-surface">
         <div className="mx-auto max-w-page px-5 py-section sm:px-8">
           <SectionIntro
-            eyebrow="Section 4"
-            title="Way Forward & Strategic Expansion"
-            lede="Building upon existing success, PTG is actively expanding its operational footprint across universities and launching targeted sector-specific initiatives."
+            eyebrow="Our Purpose"
+            title="Why We Exist"
+            lede="Relief today. Revival tomorrow."
           />
 
-          {/* Part A: Multi-University Campus Expansion */}
-          <div className="mt-12">
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+          <div className="mt-12 grid gap-8 md:grid-cols-2">
+            {/* Short-Term */}
+            <div className="flex flex-col justify-between rounded-card border border-line bg-paper p-7 sm:p-9 shadow-xs">
               <div>
-                <span className="font-sans text-xs font-bold uppercase tracking-wider text-olive">
-                  Phase A
-                </span>
-                <h3 className="mt-1 font-heading text-2xl text-charcoal">
-                  Multi-University Campus Expansion
+                <div className="flex items-center gap-3">
+                  <span className="flex size-9 items-center justify-center rounded-full bg-olive-tint text-olive">
+                    <svg className="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </span>
+                  <span className="font-sans text-xs font-semibold uppercase tracking-wider text-olive-deep">
+                    Immediate Focus
+                  </span>
+                </div>
+                <h3 className="mt-4 font-heading text-2xl tracking-tight text-charcoal">
+                  Short-Term Purpose
                 </h3>
-                <p className="mt-2 max-w-xl text-warm-gray">
-                  Replicating the core operational model, advocacy campaigns, and relief workflows to build a unified, multi-campus student movement.
+                <p className="mt-5 leading-relaxed text-warm-gray">
+                  At our current stage, our focus is on providing immediate
+                  relief to the people of Gaza by supporting essential needs
+                  such as food, water, medical supplies, and other basic
+                  necessities.
                 </p>
+                <p className="mt-3 leading-relaxed text-warm-gray">
+                  We are starting with what we have and doing what we can with
+                  the resources available to us.
+                </p>
+              </div>
+              <div className="mt-8 pt-6 border-t border-line/60 text-xs text-warm-gray-soft">
+                Focus: Food, water, medical supplies &amp; basic necessities.
               </div>
             </div>
 
-            <div className="mt-8 grid gap-5 sm:grid-cols-3">
-              {CAMPUS_CHAPTERS.map((chapter) => (
-                <div
-                  key={chapter.name}
-                  className="flex flex-col justify-between rounded-card border border-line bg-paper p-6 shadow-xs"
-                >
-                  <div>
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-olive-tint px-2.5 py-0.5 text-xs font-medium text-olive-deep">
-                      <span className="size-1.5 rounded-full bg-olive" />
-                      {chapter.status}
-                    </span>
-                    <h4 className="mt-3 font-heading text-lg text-charcoal">
-                      {chapter.name}
-                    </h4>
-                    <p className="text-xs text-warm-gray">{chapter.location}</p>
-                  </div>
-                  <div className="mt-6 pt-4 border-t border-line/60 text-xs text-warm-gray-soft">
-                    Active student chapter driving weekly micro-donations.
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Part B: Sector-Specific Upcoming Initiatives */}
-          <div className="mt-16">
-            <span className="font-sans text-xs font-bold uppercase tracking-wider text-olive">
-              Phase B
-            </span>
-            <h3 className="mt-1 font-heading text-2xl text-charcoal">
-              Sector-Specific Upcoming Initiatives (Under Planning)
-            </h3>
-
-            <div className="mt-8 grid gap-8 md:grid-cols-2">
-              {/* Healthcare Phase 1 */}
-              <div className="relative overflow-hidden rounded-card border-2 border-olive/30 bg-paper p-7 sm:p-9 shadow-soft">
-                <div className="flex items-center justify-between">
-                  <span className="rounded-full bg-olive-tint px-3 py-1 font-sans text-xs font-semibold text-olive-deep">
-                    Phase 1 — In Preparation
+            {/* Long-Term */}
+            <div className="flex flex-col justify-between rounded-card border border-line bg-paper p-7 sm:p-9 shadow-xs">
+              <div>
+                <div className="flex items-center gap-3">
+                  <span className="flex size-9 items-center justify-center rounded-full bg-sand text-charcoal">
+                    <svg className="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+                    </svg>
                   </span>
-                  <span className="font-heading text-sm font-semibold text-olive">
-                    Next Deploy
+                  <span className="font-sans text-xs font-semibold uppercase tracking-wider text-olive-deep">
+                    Long-Term Horizon
                   </span>
                 </div>
-                <h4 className="mt-4 font-heading text-2xl tracking-tight text-charcoal">
-                  Healthcare Initiative
-                </h4>
-                <p className="mt-4 leading-relaxed text-warm-gray">
-                  PTG will establish direct contact and coordination with healthcare personnel
-                  and doctors operating on the ground in Gaza.
+                <h3 className="mt-4 font-heading text-2xl tracking-tight text-charcoal">
+                  Long-Term Purpose
+                </h3>
+                <p className="mt-5 leading-relaxed text-warm-gray">
+                  Our long-term purpose is to grow beyond a single crisis and
+                  build the capacity to support people facing oppression,
+                  hardship, and struggle wherever they may be.
                 </p>
                 <p className="mt-3 leading-relaxed text-warm-gray">
-                  These medical professionals will provide exact assessments of urgent needs,
-                  enabling PTG to facilitate medical supplies, trauma support, and aid where it
-                  is needed most effectively.
+                  As we grow, we aim to contribute towards the broader revival
+                  of the Ummah by creating a culture where people come together
+                  to care for those in need and take responsibility for one
+                  another.
                 </p>
               </div>
-
-              {/* Education Phase 2 */}
-              <div className="relative overflow-hidden rounded-card border border-line bg-paper/70 p-7 sm:p-9 shadow-xs">
-                <div className="flex items-center justify-between">
-                  <span className="rounded-full bg-sand px-3 py-1 font-sans text-xs font-semibold text-charcoal">
-                    Phase 2 — Planned
-                  </span>
-                  <span className="font-heading text-sm font-semibold text-warm-gray-soft">
-                    Sequential
-                  </span>
-                </div>
-                <h4 className="mt-4 font-heading text-2xl tracking-tight text-charcoal">
-                  Education Initiative
-                </h4>
-                <p className="mt-4 leading-relaxed text-warm-gray">
-                  Focused on providing learning continuity, educational kits, and psychosocial
-                  support for displaced Palestinian children.
-                </p>
-                <p className="mt-3 leading-relaxed text-warm-gray">
-                  To ensure operational efficiency and clinical focus, active deployment of
-                  the Education Initiative will follow the execution of the Healthcare Initiative.
-                </p>
+              <div className="mt-8 pt-6 border-t border-line/60 text-xs text-warm-gray-soft">
+                Focus: Expanding support, building culture of collective responsibility.
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── Executed Drives Link CTA ───────────────────────────────── */}
+      <div aria-hidden="true" className="mx-auto max-w-page border-t border-line/60" />
+
+      {/* ── 5. The Unspoken Truth ────────────────────────────────── */}
+      <section className="mx-auto max-w-page px-5 py-section sm:px-8">
+        <div className="relative overflow-hidden rounded-card border-2 border-olive/30 bg-olive-tint/50 p-8 sm:p-12 lg:p-16">
+          {/* Decorative subtle background shape */}
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -right-20 -top-20 size-72 rounded-full bg-olive/[0.06]"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -left-12 -bottom-16 size-56 rounded-full bg-olive/[0.04]"
+          />
+
+          <div className="relative z-10 max-w-narrow">
+            <span className="font-sans text-xs font-bold uppercase tracking-widest text-olive-deep">
+              The Unspoken Truth
+            </span>
+            <h2 className="mt-4 font-heading text-3xl sm:text-4xl leading-[1.15] tracking-tight text-charcoal">
+              Relief is essential, but relief alone cannot be the answer.
+            </h2>
+            <div className="mt-8 flex flex-col gap-5">
+              <p className="text-lg leading-relaxed text-charcoal/80">
+                Food, water, medical aid, and other necessities can help people
+                survive today, but lasting change requires more than temporary
+                responses to recurring crises.
+              </p>
+              <p className="leading-relaxed text-charcoal/75">
+                The deeper challenge is building a generation that refuses to
+                remain indifferent to the suffering of others and is willing to
+                take meaningful, sustained action.
+              </p>
+              <p className="leading-relaxed text-charcoal/75">
+                If we want to see lasting change, our response must go beyond
+                moments of sympathy and temporary relief — towards
+                responsibility, collective action, and the long-term revival
+                of the Ummah.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div aria-hidden="true" className="mx-auto max-w-page border-t border-line/60" />
+
+      {/* ── 6. Core Values ───────────────────────────────────────── */}
+      <section className="bg-surface">
+        <div className="mx-auto max-w-page px-5 py-section sm:px-8">
+          <SectionIntro
+            eyebrow="What We Stand For"
+            title="Core Values"
+            lede="The principles that shape everything we do."
+          />
+
+          <div className="mt-12 grid gap-6 sm:grid-cols-3">
+            {CORE_VALUES.map((value) => (
+              <div
+                key={value.title}
+                className="group relative flex flex-col rounded-card border border-line bg-paper p-7 sm:p-8 shadow-xs transition-all duration-300 hover:border-olive/40 hover:shadow-soft hover:-translate-y-0.5"
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex size-12 items-center justify-center rounded-xl bg-olive-tint text-olive transition-colors duration-300 group-hover:bg-olive group-hover:text-paper">
+                    {value.icon}
+                  </div>
+                  <span className="font-heading text-3xl font-bold text-sand-deep/60">
+                    {value.number}
+                  </span>
+                </div>
+                <h3 className="mt-6 font-heading text-xl tracking-tight text-charcoal">
+                  {value.title}
+                </h3>
+                <p className="mt-3 leading-relaxed text-warm-gray flex-1">
+                  {value.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <div aria-hidden="true" className="mx-auto max-w-page border-t border-line/60" />
+
+      {/* ── 7. Target Audience & Brand Messaging ─────────────────── */}
+      <section className="mx-auto max-w-page px-5 py-section sm:px-8">
+        <div className="grid gap-12 lg:gap-16 md:grid-cols-2">
+          {/* Target Audience */}
+          <div>
+            <SectionIntro
+              eyebrow="Who We Speak To"
+              title="Target Audience"
+            />
+            <p className="mt-6 text-lg leading-relaxed text-warm-gray">
+              Everyone who believes in humanity and justice.
+            </p>
+            <p className="mt-4 leading-relaxed text-warm-gray">
+              We aim to reach every conscious mind, inspiring individuals to
+              step forward, speak up, and take action for those in need.
+            </p>
+          </div>
+
+          {/* Brand Messaging */}
+          <div>
+            <SectionIntro
+              eyebrow="Our Message"
+              title="Brand Messaging"
+            />
+            <div className="mt-6">
+              <p className="font-heading text-2xl sm:text-3xl leading-tight tracking-tight text-charcoal">
+                Rise for Truth.
+                <br />
+                Stand with the Oppressed.
+              </p>
+              <p className="mt-5 text-lg leading-relaxed text-warm-gray">
+                Support the cause and be the action Gaza needs today.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div aria-hidden="true" className="mx-auto max-w-page border-t border-line/60" />
+
+      {/* ── 8. Tone of Voice ─────────────────────────────────────── */}
+      <section className="bg-surface">
+        <div className="mx-auto max-w-page px-5 py-section sm:px-8">
+          <SectionIntro
+            eyebrow="How We Communicate"
+            title="Tone of Voice"
+            lede="Our words carry the weight of our commitment."
+          />
+
+          <div className="mt-12 flex flex-col gap-5 max-w-narrow">
+            {TONE_ATTRIBUTES.map((attr) => (
+              <div
+                key={attr.label}
+                className="flex items-start gap-5 rounded-xl border border-line/60 bg-paper p-6 transition-all duration-200 hover:border-olive/30 hover:shadow-xs"
+              >
+                <span className="mt-0.5 flex size-3 shrink-0 rounded-full bg-olive" aria-hidden="true" />
+                <div>
+                  <p className="font-heading text-lg text-charcoal tracking-tight">
+                    {attr.label}
+                  </p>
+                  <p className="mt-1 text-sm leading-relaxed text-warm-gray">
+                    {attr.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA Banner ───────────────────────────────────────────── */}
       <section className="mx-auto max-w-page px-5 py-section sm:px-8">
         <div className="relative overflow-hidden rounded-card bg-olive-deep p-8 text-paper sm:p-12">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -right-16 -top-16 size-64 rounded-full bg-white/[0.04]"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute -left-8 -bottom-12 size-48 rounded-full bg-white/[0.03]"
+          />
+
           <div className="relative z-10 flex flex-col items-start gap-6 max-w-2xl">
             <span className="font-sans text-xs font-bold uppercase tracking-widest text-sand">
-              Section 5 — Executed Drives
+              Rise for Truth
             </span>
             <h3 className="font-heading text-3xl sm:text-4xl leading-tight">
-              Nine executed relief operations. Explore the full timeline.
+              Stand with the oppressed.
+              <br />
+              Be the action Gaza needs today.
             </h3>
             <p className="leading-relaxed text-sand/90 text-base sm:text-lg">
-              From the August 2025 Initial Relief setup to Ramadan food ration distributions,
-              Eid direct cash gifts, and large-scale clean water deployments in June &amp; September 2026.
+              Whether it&apos;s through donation, spreading the word, or simply
+              staying informed — every step counts.
             </p>
             <div className="flex flex-wrap gap-4 pt-2">
               <Link
-                href="/our-work"
+                href="/donate"
                 className="inline-flex items-center justify-center rounded-lg bg-sand px-6 py-3 text-base font-semibold text-charcoal shadow-xs transition-all duration-200 hover:bg-white hover:-translate-y-0.5"
               >
-                View 9 Drives Timeline &rarr;
+                Donate Now &rarr;
               </Link>
               <Link
-                href="/donate"
+                href="/our-work"
                 className="inline-flex items-center justify-center rounded-lg border border-sand/40 bg-transparent px-6 py-3 text-base font-semibold text-paper transition-all duration-200 hover:bg-paper/10 hover:-translate-y-0.5"
               >
-                Give Rs. 100 This Week
+                See Our Work
               </Link>
             </div>
           </div>
