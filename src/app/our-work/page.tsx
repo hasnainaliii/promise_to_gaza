@@ -91,7 +91,7 @@ export default function OurWorkPage() {
   return (
     <>
       {/* ── Immersive Full-Bleed Hero Image ──────────────────────── */}
-      <section className="tone-dark relative min-h-[75vh] sm:min-h-[85vh] lg:min-h-screen overflow-hidden -mt-24 bg-jet">
+      <section className="relative min-h-[75vh] sm:min-h-[85vh] lg:min-h-screen overflow-hidden -mt-24 bg-jet">
         {/* Background photograph from public/images/ourwork */}
         <div
           className="absolute -top-16 inset-x-0 bottom-0 overflow-hidden pointer-events-none bg-jet"
@@ -107,24 +107,11 @@ export default function OurWorkPage() {
           />
         </div>
 
-        {/* Soft bottom fade into the parchment page */}
+        {/* Melts the photograph into the jet section below */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-24 z-10 bg-gradient-to-t from-parchment to-transparent opacity-80"
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-40 z-10 bg-gradient-to-t from-jet to-transparent"
         />
-
-        {/* Organic wave transition to next section */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-20">
-          <svg
-            viewBox="0 0 1440 80"
-            preserveAspectRatio="none"
-            aria-hidden="true"
-            className="relative block h-7 w-full sm:h-9 lg:h-11"
-            fill="var(--color-parchment)"
-          >
-            <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" />
-          </svg>
-        </div>
       </section>
 
 
@@ -144,7 +131,7 @@ export default function OurWorkPage() {
       </section>
 
       {/* ── 02 Upcoming initiatives ─────────────────────────────── */}
-      <section className="bg-parchment-deep paper-grain">
+      <section className="surface-crimson">
         <div className="mx-auto max-w-page px-5 py-section-lg sm:px-8">
           <SectionIntro
             index="02"
@@ -158,26 +145,26 @@ export default function OurWorkPage() {
               <Reveal
                 key={initiative.title}
                 delay={i * 150}
-                className="flex flex-col rounded-blob bg-parchment-light p-8 shadow-soft sm:p-10"
+                className="surface-parchment paper-grain flex flex-col rounded-blob p-8 sm:p-10"
               >
                 <div className="flex flex-wrap items-center justify-between gap-3">
-                  <span className="text-xs font-semibold uppercase tracking-eyebrow text-crimson">
+                  <span className="text-xs font-semibold uppercase tracking-eyebrow text-accent">
                     {initiative.phase}
                   </span>
-                  <span className="font-heading text-sm italic text-jet-muted">
+                  <span className="font-heading text-sm italic text-ink-muted">
                     {initiative.status}
                   </span>
                 </div>
-                <h3 className="mt-8 font-heading text-title text-jet">
+                <h3 className="mt-8 font-heading text-title text-ink">
                   {initiative.title}
                 </h3>
-                <p className="mt-4 leading-relaxed text-jet-muted">
+                <p className="mt-4 leading-relaxed text-ink-muted">
                   {initiative.description}
                 </p>
-                <ul className="mt-auto flex flex-col gap-3 border-t border-line pt-6 text-jet">
+                <ul className="mt-auto flex flex-col gap-3 border-t border-rule pt-6 text-ink">
                   {initiative.highlights.map((highlight) => (
                     <li key={highlight} className="flex items-start gap-3">
-                      <span aria-hidden="true" className="mt-2 size-1.5 shrink-0 rounded-full bg-clay" />
+                      <span aria-hidden="true" className="mt-2 size-1.5 shrink-0 rounded-full bg-accent" />
                       <span>{highlight}</span>
                     </li>
                   ))}
@@ -189,48 +176,50 @@ export default function OurWorkPage() {
       </section>
 
       {/* ── 03 Campus chapters ──────────────────────────────────── */}
-      <section className="mx-auto max-w-page px-5 py-section-lg sm:px-8">
-        <SectionIntro
-          index="03"
-          eyebrow="Campus chapters"
-          title="From one campus to many"
-          lede={`${SITE_NAME} started at UET Taxila. Students at other universities now run chapters of their own.`}
-        />
+      <section>
+        <div className="mx-auto max-w-page px-5 py-section-lg sm:px-8">
+          <SectionIntro
+            index="03"
+            eyebrow="Campus chapters"
+            title="From one campus to many"
+            lede={`${SITE_NAME} started at UET Taxila. Students at other universities now run chapters of their own.`}
+          />
 
-        <ul className="mt-12 border-t border-line">
-          {CAMPUS_CHAPTERS.map((chapter, i) => (
-            <Reveal
-              as="li"
-              key={chapter.name}
-              delay={i * 120}
-              className="grid gap-3 border-b border-line py-8 sm:grid-cols-12 sm:items-center sm:gap-8"
-            >
-              <div className="sm:col-span-5">
-                {chapter.founding ? (
-                  <p className="mb-2 text-xs font-semibold uppercase tracking-eyebrow text-crimson">
-                    Founding chapter
-                  </p>
-                ) : null}
-                <h3 className="font-heading text-2xl tracking-tight text-jet">
-                  {chapter.name}
-                </h3>
-                <p className="mt-1 text-sm text-jet-muted">{chapter.location}</p>
-              </div>
-              <p className="leading-relaxed text-jet-muted sm:col-span-7">
-                {chapter.description}
-              </p>
-            </Reveal>
-          ))}
-        </ul>
-        <Reveal className="mt-6">
-          <p className="text-sm text-jet-muted">
-            Each chapter replicates the weekly Rs. 100 model.
-          </p>
-        </Reveal>
+          <ul className="mt-12 border-t border-rule">
+            {CAMPUS_CHAPTERS.map((chapter, i) => (
+              <Reveal
+                as="li"
+                key={chapter.name}
+                delay={i * 120}
+                className="grid gap-3 border-b border-rule py-8 sm:grid-cols-12 sm:items-center sm:gap-8"
+              >
+                <div className="sm:col-span-5">
+                  {chapter.founding ? (
+                    <p className="mb-2 text-xs font-semibold uppercase tracking-eyebrow text-accent">
+                      Founding chapter
+                    </p>
+                  ) : null}
+                  <h3 className="font-heading text-2xl tracking-tight text-ink">
+                    {chapter.name}
+                  </h3>
+                  <p className="mt-1 text-sm text-ink-muted">{chapter.location}</p>
+                </div>
+                <p className="leading-relaxed text-ink-muted sm:col-span-7">
+                  {chapter.description}
+                </p>
+              </Reveal>
+            ))}
+          </ul>
+          <Reveal className="mt-6">
+            <p className="text-sm text-ink-muted">
+              Each chapter replicates the weekly Rs. 100 model.
+            </p>
+          </Reveal>
+        </div>
       </section>
 
       {/* ── 04 Awareness tools ──────────────────────────────────── */}
-      <section className="bg-parchment-deep paper-grain">
+      <section className="surface-parchment paper-grain">
         <div className="mx-auto max-w-page px-5 py-section-lg sm:px-8">
           <SectionIntro
             index="04"
@@ -245,13 +234,13 @@ export default function OurWorkPage() {
                 as="li"
                 key={tool.title}
                 delay={(i % 2) * 120}
-                className="border-t border-jet/15 pt-6"
+                className="border-t border-rule pt-6"
               >
-                <span className="font-heading text-sm italic text-clay-deep">0{i + 1}</span>
-                <h3 className="mt-3 font-heading text-2xl tracking-tight text-jet">
+                <span className="font-heading text-sm italic text-accent-soft">0{i + 1}</span>
+                <h3 className="mt-3 font-heading text-2xl tracking-tight text-ink">
                   {tool.title}
                 </h3>
-                <p className="mt-3 leading-relaxed text-jet-muted">{tool.summary}</p>
+                <p className="mt-3 leading-relaxed text-ink-muted">{tool.summary}</p>
               </Reveal>
             ))}
           </ol>

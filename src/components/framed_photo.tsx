@@ -33,7 +33,7 @@ export function FramedPhoto({
   className = "",
   children,
 }: FramedPhotoProps) {
-  const frame = `relative overflow-hidden rounded-soft bg-parchment-deep shadow-soft ${ASPECTS[aspect]}`;
+  const frame = `relative overflow-hidden rounded-soft bg-raised shadow-soft ${ASPECTS[aspect]}`;
 
   const photo = (
     <Image

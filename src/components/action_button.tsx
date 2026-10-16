@@ -1,21 +1,19 @@
 import Link from "next/link";
 import type { ComponentProps, ReactNode } from "react";
 
-/** primary: crimson, donation actions only · secondary: jet, other main
-    actions · quiet: low-key outline · light: parchment, for dark sections and
-    photographs. */
-type Variant = "primary" | "secondary" | "quiet" | "light";
+/** Colours come from the surface the button sits on. primary: donation
+    actions only (crimson, or parchment on crimson) · secondary: other main
+    actions, the inverse of the surface · quiet: low-key outline. */
+type Variant = "primary" | "secondary" | "quiet";
 type Size = "sm" | "md" | "lg";
 
 const BASE =
   "inline-flex items-center justify-center gap-2 rounded-soft font-semibold whitespace-nowrap transition-colors duration-200 ease-soft select-none disabled:cursor-not-allowed disabled:opacity-60";
 
 const VARIANTS: Record<Variant, string> = {
-  primary: "bg-crimson text-parchment hover:bg-crimson-deep",
-  secondary: "bg-jet text-parchment hover:bg-jet-soft",
-  quiet:
-    "border border-jet/20 bg-transparent text-jet hover:border-jet hover:bg-parchment-light",
-  light: "bg-parchment text-jet hover:bg-clay",
+  primary: "bg-action text-on-action hover:bg-action-hover",
+  secondary: "bg-ink text-surface hover:bg-ink/85",
+  quiet: "border border-rule text-ink hover:border-ink hover:bg-ink/5",
 };
 
 const SIZES: Record<Size, string> = {

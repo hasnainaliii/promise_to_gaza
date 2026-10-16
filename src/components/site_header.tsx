@@ -44,10 +44,8 @@ export function SiteHeader() {
 
   return (
     <header
-      className={`sticky top-0 z-40 transition-all duration-300 ${
-        isTransparent
-          ? "tone-dark border-b-0 bg-transparent shadow-none"
-          : "border-b border-line/60 bg-parchment"
+      className={`sticky top-0 z-40 transition-colors duration-300 ${
+        isTransparent ? "bg-transparent" : "border-b border-rule bg-surface"
       }`}
     >
       <div className="mx-auto grid h-24 max-w-page grid-cols-2 items-center px-6 sm:px-8 md:grid-cols-[1fr_auto_1fr]">
@@ -55,14 +53,9 @@ export function SiteHeader() {
           <Link
             href="/"
             aria-label={`${SITE_NAME} - home`}
-            className={`flex items-center py-1 transition-[color,opacity] duration-300 hover:opacity-80 ${
-              isTransparent ? "text-parchment" : "text-jet"
-            }`}
+            className="flex items-center py-1 text-ink transition-opacity duration-300 hover:opacity-80"
           >
-            <SiteWordmark
-              accentClass={isTransparent ? "text-clay" : "text-crimson"}
-              className="text-2xl font-bold leading-none sm:text-3xl md:text-2xl lg:text-[2.15rem]"
-            />
+            <SiteWordmark className="text-2xl font-bold leading-none sm:text-3xl md:text-2xl lg:text-[2.15rem]" />
           </Link>
         </div>
 
@@ -79,16 +72,10 @@ export function SiteHeader() {
                   <Link
                     href={link.href}
                     aria-current={active ? "page" : undefined}
-                    className={`relative block py-2 text-base font-medium transition-colors duration-200 after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:rounded-full after:bg-current after:transition-transform after:duration-300 after:ease-soft ${
-                      active ? "after:scale-x-100" : "after:scale-x-0"
-                    } ${
-                      isTransparent
-                        ? active
-                          ? "text-parchment"
-                          : "text-on-dark-muted hover:text-parchment"
-                        : active
-                          ? "text-crimson"
-                          : "text-jet-muted hover:text-jet"
+                    className={`relative block py-2 text-base font-medium transition-colors duration-200 after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:rounded-full after:bg-accent after:transition-transform after:duration-300 after:ease-soft ${
+                      active
+                        ? "text-ink after:scale-x-100"
+                        : "text-ink-muted after:scale-x-0 hover:text-ink"
                     }`}
                   >
                     {link.label}
@@ -116,11 +103,7 @@ export function SiteHeader() {
             aria-controls="mobile-menu"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             onClick={() => setMenuOpen((open) => !open)}
-            className={`inline-flex size-10 items-center justify-center rounded-md backdrop-blur-sm transition-colors duration-200 md:hidden ${
-              isTransparent
-                ? "border border-parchment/30 bg-jet/30 text-parchment hover:bg-jet/50"
-                : "border border-line bg-parchment/70 text-jet hover:bg-parchment-light"
-            }`}
+            className="inline-flex size-10 items-center justify-center rounded-md border border-rule bg-surface/40 text-ink backdrop-blur-sm transition-colors duration-200 hover:bg-raised md:hidden"
           >
             <svg
               viewBox="0 0 24 24"
@@ -146,7 +129,7 @@ export function SiteHeader() {
         <nav
           id="mobile-menu"
           aria-label="Primary"
-          className="border-t border-line/60 bg-parchment px-6 pb-6 pt-3 md:hidden"
+          className="border-t border-rule bg-surface px-6 pb-6 pt-3 md:hidden"
         >
           <ul className="flex flex-col">
             {[...NAV_LINKS, { href: "/contact", label: "Contact" }].map(
@@ -158,16 +141,16 @@ export function SiteHeader() {
                       href={link.href}
                       aria-current={active ? "page" : undefined}
                       onClick={() => setMenuOpen(false)}
-                      className={`flex min-h-12 items-center justify-between border-b border-line/50 text-base transition-colors duration-200 ${
+                      className={`flex min-h-12 items-center justify-between border-b border-rule/50 text-base transition-colors duration-200 ${
                         active
-                          ? "font-bold text-crimson"
-                          : "font-medium text-jet hover:text-crimson"
+                          ? "font-bold text-accent"
+                          : "font-medium text-ink hover:text-accent"
                       }`}
                     >
                       <span>{link.label}</span>
                       {active ? (
                         <span
-                          className="size-2 rounded-full bg-crimson"
+                          className="size-2 rounded-full bg-accent"
                           aria-hidden="true"
                         />
                       ) : null}

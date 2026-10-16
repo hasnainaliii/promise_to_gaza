@@ -28,7 +28,7 @@ export function IllustrationFrame({
 }: IllustrationFrameProps) {
   return (
     <div
-      className={`relative overflow-hidden rounded-soft bg-parchment-deep ring-1 ring-line ${ASPECTS[aspect]} ${className}`}
+      className={`relative overflow-hidden rounded-soft bg-raised ring-1 ring-rule ${ASPECTS[aspect]} ${className}`}
     >
       {/* unoptimized: the placeholders are first-party SVG. Drop this once
           real raster photography replaces them. */}

@@ -85,7 +85,7 @@ function DriveVideoPlayer({
       ref={containerRef}
       onClick={togglePlay}
       onContextMenu={(e) => e.preventDefault()}
-      className="group relative aspect-[9/16] max-h-[460px] w-full max-w-sm cursor-pointer overflow-hidden tone-dark rounded-card border border-line bg-jet shadow-soft"
+      className="group relative aspect-[9/16] max-h-[460px] w-full max-w-sm cursor-pointer overflow-hidden surface-jet rounded-card border border-rule shadow-soft"
     >
       <video
         ref={videoRef}
@@ -141,7 +141,7 @@ function DriveVideoPlayer({
           value={progress}
           onChange={handleSeek}
           aria-label="Seek"
-          className="h-1.5 w-full cursor-pointer accent-crimson"
+          className="h-1.5 w-full cursor-pointer accent-clay"
         />
 
         {/* Controls row */}
@@ -223,7 +223,7 @@ function DriveImageCarousel({
       onBlur={(e) => {
         if (!e.currentTarget.contains(e.relatedTarget)) setIsFocused(false);
       }}
-      className="group relative aspect-[3/4] sm:aspect-[4/5] w-full max-w-sm overflow-hidden rounded-card border border-line bg-parchment-light shadow-soft"
+      className="group relative aspect-[3/4] sm:aspect-[4/5] w-full max-w-sm overflow-hidden rounded-card border border-rule bg-raised shadow-soft"
     >
       {images.map((img, idx) => (
         <div
@@ -307,7 +307,7 @@ function SketchBox({ children, seed }: { children: React.ReactNode; seed: number
     <span className="relative inline-block px-3.5 py-1.5">
       <svg
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 size-full text-jet"
+        className="pointer-events-none absolute inset-0 size-full text-ink"
         viewBox="0 0 120 40"
         preserveAspectRatio="none"
         fill="none"
@@ -320,7 +320,7 @@ function SketchBox({ children, seed }: { children: React.ReactNode; seed: number
           strokeLinejoin="round"
         />
       </svg>
-      <span className="relative text-sm font-medium text-jet">{children}</span>
+      <span className="relative text-sm font-medium text-ink">{children}</span>
     </span>
   );
 }
@@ -333,14 +333,14 @@ function DriveRow({ drive, index }: { drive: ReliefDrive; index: number }) {
       {/* Drive label in a hand-drawn box + date */}
       <div className="flex flex-wrap items-center gap-3">
         <SketchBox seed={index}>{drive.label}</SketchBox>
-        <span className="text-sm text-jet-muted">{drive.date}</span>
+        <span className="text-sm text-ink-muted">{drive.date}</span>
       </div>
 
-      <h3 className="font-heading text-2xl leading-tight tracking-tight text-jet sm:text-3xl">
+      <h3 className="font-heading text-2xl leading-tight tracking-tight text-ink sm:text-3xl">
         {drive.focus}
       </h3>
 
-      <p className="max-w-md leading-relaxed text-jet-muted">
+      <p className="max-w-md leading-relaxed text-ink-muted">
         {drive.impact}
       </p>
     </div>
@@ -360,7 +360,7 @@ function DriveRow({ drive, index }: { drive: ReliefDrive; index: number }) {
       ) : imageItems.length > 0 ? (
         <DriveImageCarousel images={imageItems} />
       ) : (
-        <div className="flex aspect-[4/3] w-full flex-col items-center justify-center rounded-card border-2 border-dashed border-line bg-parchment">
+        <div className="flex aspect-[4/3] w-full flex-col items-center justify-center rounded-card border-2 border-dashed border-rule bg-raised">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -369,14 +369,14 @@ function DriveRow({ drive, index }: { drive: ReliefDrive; index: number }) {
             strokeWidth="1.2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="size-8 text-jet-faint/60"
+            className="size-8 text-ink-faint/60"
             aria-hidden="true"
           >
             <rect x="2" y="2" width="20" height="20" rx="3" />
             <circle cx="8.5" cy="8.5" r="1.5" />
             <path d="m21 15-5-5L5 21" />
           </svg>
-          <p className="mt-2 max-w-[10rem] text-center text-xs leading-relaxed text-jet-faint">
+          <p className="mt-2 max-w-[10rem] text-center text-xs leading-relaxed text-ink-faint">
             Photos &amp; videos for this drive will appear here
           </p>
         </div>
@@ -414,7 +414,7 @@ export function DriveShowcase() {
           {index < RELIEF_DRIVES.length - 1 && (
             <div
               aria-hidden="true"
-              className="mx-auto h-px w-full border-t border-dashed border-jet-faint/40"
+              className="mx-auto h-px w-full border-t border-dashed border-ink-faint/40"
             />
           )}
         </div>

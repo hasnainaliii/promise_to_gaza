@@ -6,26 +6,26 @@ import type { ReliefDrive } from "@/types/content";
     Our Work page. */
 export function DriveLedger({ drives }: { drives: ReliefDrive[] }) {
   return (
-    <Reveal as="ol" delay={150} className="mt-10 border-t border-line">
+    <Reveal as="ol" delay={150} className="mt-10 border-t border-rule">
       {drives.map((drive) => (
         <li key={drive.id}>
           <Link
             href={`/our-work#${drive.id}`}
-            className="group flex items-center gap-4 border-b border-line py-4 transition-colors duration-300 ease-soft hover:bg-parchment-deep sm:gap-6 sm:px-3"
+            className="group flex items-center gap-4 border-b border-rule py-4 transition-colors duration-300 ease-soft hover:bg-ink/5 sm:gap-6 sm:px-3"
           >
-            <span className="w-24 shrink-0 text-sm text-jet-muted sm:w-32">
+            <span className="w-24 shrink-0 text-sm text-ink-muted sm:w-32">
               {drive.date}
             </span>
-            <span className="flex-1 font-heading text-lg leading-snug text-jet transition-colors duration-300 group-hover:text-crimson">
+            <span className="flex-1 font-heading text-lg leading-snug text-ink transition-colors duration-300 group-hover:text-accent">
               {drive.focus}
             </span>
-            <span className="hidden text-xs font-medium text-jet-muted sm:inline">
+            <span className="hidden text-xs font-medium text-ink-muted sm:inline">
               {drive.label}
             </span>
             <svg
               aria-hidden="true"
               viewBox="0 0 24 24"
-              className="size-4 shrink-0 -translate-x-1 text-crimson opacity-0 transition-all duration-300 ease-soft group-hover:translate-x-0 group-hover:opacity-100"
+              className="size-4 shrink-0 -translate-x-1 text-accent opacity-0 transition-all duration-300 ease-soft group-hover:translate-x-0 group-hover:opacity-100"
               fill="none"
               stroke="currentColor"
               strokeWidth="2.25"

@@ -4,41 +4,46 @@
 
 @theme {
   /* ── Brand palette: Promise for Ummah ─────────────────────────────────
-     The four brand colours. Every other colour below is a shade of one of
-     them. Rough share of a page: jet 40 · parchment 30 · crimson 20 · clay 10.
+     The four brand colours and their share of every page. The share is set
+     by which surface-* utility (below) each section uses.
 
-       Jet Black      #0C0C0C  primary / base   text, dark sections, footer
-       Parchment      #F0E8DC  secondary        page background, light text on dark
-       Deep Crimson   #720C0C  tertiary         donate actions, links, eyebrows
-       Desert Clay    #D4AC90  accent           highlights on dark, small details */
+       Jet Black      #0C0C0C  primary    40%  the canvas every page sits on
+       Deep Crimson   #720C0C  primary    30%  statement sections, donate actions
+       Parchment      #F0E8DC  secondary  20%  paper: documents, cards, text on dark
+       Desert Clay    #D4AC90  base       10%  warm accents only, never a surface */
   --color-jet: #0c0c0c;
-  --color-parchment: #f0e8dc;
   --color-crimson: #720c0c;
+  --color-parchment: #f0e8dc;
   --color-clay: #d4ac90;
 
-  /* Jet: soft is a raised surface on jet; muted is body copy and faint is
-     captions/numerals only (3:1), never paragraphs. */
-  --color-jet-soft: #1f1c1a;
+  /* Raw shades of the four, consumed by the surfaces below. Components use the
+     semantic tokens instead, so they read correctly on any surface. */
   --color-jet-muted: #5c544b;
-  --color-jet-faint: #8a8075;
-
-  /* Parchment: light lifts cards off the page, deep marks alternating bands. */
-  --color-parchment-light: #f8f4ee;
-  --color-parchment-deep: #e7dccb;
-  --color-line: #d9ccb8;
-
+  --color-jet-faint: #857b70;
   --color-crimson-deep: #560909;
-  --color-crimson-tint: #f2e0da;
-
-  /* Plain clay is too light for text on parchment; use clay-deep there. */
+  --color-crimson-bright: #8f1616;
+  --color-parchment-light: #f8f4ee;
+  --color-parchment-line: #d9ccb8;
   --color-clay-deep: #8b5c40;
-  --color-clay-tint: #f0e0d3;
 
-  /* Text and hairlines on jet or crimson. */
-  --color-on-dark: var(--color-parchment);
-  --color-on-dark-muted: rgba(240, 232, 220, 0.7);
-  --color-on-dark-line: rgba(240, 232, 220, 0.16);
-  --color-on-dark-faint: rgba(240, 232, 220, 0.08);
+  /* ── Semantic tokens ──────────────────────────────────────────────────
+     What components actually use. Defaults are the jet surface; each
+     surface-* utility redefines them for everything inside it.
+       surface   the section background     raised   cards on that background
+       ink       headings and strong text   rule     hairlines and borders
+       accent    eyebrows, links, emphasis  action   the donate button */
+  --color-surface: var(--color-jet);
+  --color-raised: rgb(240 232 220 / 0.04);
+  --color-ink: var(--color-parchment);
+  --color-ink-muted: rgb(240 232 220 / 0.72);
+  --color-ink-faint: rgb(240 232 220 / 0.5);
+  --color-rule: rgb(240 232 220 / 0.14);
+  --color-accent: var(--color-clay);
+  --color-accent-soft: rgb(212 172 144 / 0.6);
+  --color-action: var(--color-crimson);
+  --color-on-action: var(--color-parchment);
+  --color-action-hover: var(--color-crimson-bright);
+  --color-focus: var(--color-clay);
 
   /* The Palestinian flag in its own colours; used only for the flag itself. */
   --color-flag-black: #000000;
@@ -117,10 +122,10 @@
   @keyframes pulse-dot {
     0%,
     100% {
-      box-shadow: 0 0 0 0 rgb(114 12 12 / 0.35);
+      box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-accent) 40%, transparent);
     }
     60% {
-      box-shadow: 0 0 0 0.6rem rgb(114 12 12 / 0);
+      box-shadow: 0 0 0 0.6rem transparent;
     }
   }
 }
@@ -143,25 +148,72 @@
 }
 
 /* Darkens hero photography enough for parchment text, then melts into the
-   page at the bottom edge. */
+   jet section below. */
 @utility hero-scrim {
   background:
     radial-gradient(ellipse 80% 65% at 50% 50%, rgb(12 12 12 / 0.5) 0%, rgb(12 12 12 / 0.25) 60%, transparent 100%),
-    linear-gradient(to top, var(--color-parchment) 0%, rgb(240 232 220 / 0.5) 3%, transparent 7%);
+    linear-gradient(to top, var(--color-jet) 0%, rgb(12 12 12 / 0.6) 6%, transparent 18%);
 }
 
-/* Put on any jet, crimson or photographic section: focus rings switch to clay
-   so keyboard users can still see them. */
-@utility tone-dark {
-  --focus-ring: var(--color-clay);
+/* ── Surfaces ─────────────────────────────────────────────────────────
+   Put one on a section or card to paint it in a brand colour and retheme the
+   semantic tokens for everything inside it. Jet is the body default, so it
+   is only needed to reset jet inside another surface. Every pairing below
+   meets WCAG AA for text (ink-faint is for captions only). */
+@utility surface-jet {
+  --color-surface: var(--color-jet);
+  --color-raised: rgb(240 232 220 / 0.04);
+  --color-ink: var(--color-parchment);
+  --color-ink-muted: rgb(240 232 220 / 0.72);
+  --color-ink-faint: rgb(240 232 220 / 0.5);
+  --color-rule: rgb(240 232 220 / 0.14);
+  --color-accent: var(--color-clay);
+  --color-accent-soft: rgb(212 172 144 / 0.6);
+  --color-action: var(--color-crimson);
+  --color-on-action: var(--color-parchment);
+  --color-action-hover: var(--color-crimson-bright);
+  --color-focus: var(--color-clay);
+  background-color: var(--color-surface);
+  color: var(--color-ink);
 }
 
-/* Cross-stitch band drawn from tatreez, the Palestinian embroidery tradition.
-   Masked rather than filled so it takes its colour from the text colour. */
-@utility tatreez-band {
-  height: 1.125rem;
-  background-color: currentColor;
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill-rule='evenodd' d='M12 3 L21 12 L12 21 L3 12 Z M12 9 L15 12 L12 15 L9 12 Z'/%3E%3C/svg%3E");
-  mask-repeat: repeat-x;
-  mask-size: auto 100%;
+/* Large flat crimson reads dull and brown, so it gets a soft velvet falloff:
+   lighter from the top-left, deeper towards the bottom-right. On crimson the
+   donate button turns parchment, so it never disappears. */
+@utility surface-crimson {
+  --color-surface: var(--color-crimson);
+  --color-raised: var(--color-crimson-deep);
+  --color-ink: var(--color-parchment);
+  --color-ink-muted: rgb(240 232 220 / 0.8);
+  --color-ink-faint: rgb(240 232 220 / 0.65);
+  --color-rule: rgb(240 232 220 / 0.2);
+  --color-accent: var(--color-clay);
+  --color-accent-soft: rgb(212 172 144 / 0.75);
+  --color-action: var(--color-parchment);
+  --color-on-action: var(--color-crimson);
+  --color-action-hover: var(--color-clay);
+  --color-focus: var(--color-clay);
+  background-color: var(--color-surface);
+  background-image:
+    radial-gradient(120% 90% at 10% 0%, color-mix(in oklab, var(--color-crimson-bright) 70%, transparent), transparent 65%),
+    radial-gradient(90% 80% at 100% 100%, color-mix(in oklab, var(--color-crimson-deep) 70%, transparent), transparent 70%);
+  color: var(--color-ink);
+}
+
+/* Parchment is paper: add paper-grain where it should feel printed. */
+@utility surface-parchment {
+  --color-surface: var(--color-parchment);
+  --color-raised: var(--color-parchment-light);
+  --color-ink: var(--color-jet);
+  --color-ink-muted: var(--color-jet-muted);
+  --color-ink-faint: var(--color-jet-faint);
+  --color-rule: var(--color-parchment-line);
+  --color-accent: var(--color-crimson);
+  --color-accent-soft: var(--color-clay-deep);
+  --color-action: var(--color-crimson);
+  --color-on-action: var(--color-parchment);
+  --color-action-hover: var(--color-crimson-deep);
+  --color-focus: var(--color-jet);
+  background-color: var(--color-surface);
+  color: var(--color-ink);
 }

@@ -7,7 +7,7 @@ function withHighlight({ body, highlight }: HistoryStep) {
   return (
     <>
       {before}
-      <strong className="font-semibold text-jet">{highlight}</strong>
+      <strong className="font-semibold text-ink">{highlight}</strong>
       {after}
     </>
   );
@@ -20,11 +20,11 @@ export function HistoryTimeline({ steps }: { steps: HistoryStep[] }) {
     <Reveal as="ol" effect="fade" className="group relative grid gap-12 lg:grid-cols-4 lg:gap-8">
       <span
         aria-hidden="true"
-        className="absolute bottom-6 left-6 top-6 w-px origin-top scale-y-0 bg-crimson/30 transition-transform delay-300 duration-1600 ease-soft group-data-inview:scale-y-100 lg:hidden"
+        className="absolute bottom-6 left-6 top-6 w-px origin-top scale-y-0 bg-action/30 transition-transform delay-300 duration-1600 ease-soft group-data-inview:scale-y-100 lg:hidden"
       />
       <span
         aria-hidden="true"
-        className="absolute left-6 right-0 top-6 hidden h-px origin-left scale-x-0 bg-crimson/30 transition-transform delay-300 duration-1600 ease-soft group-data-inview:scale-x-100 lg:block"
+        className="absolute left-6 right-0 top-6 hidden h-px origin-left scale-x-0 bg-action/30 transition-transform delay-300 duration-1600 ease-soft group-data-inview:scale-x-100 lg:block"
       />
 
       {steps.map((step, i) => (
@@ -37,8 +37,8 @@ export function HistoryTimeline({ steps }: { steps: HistoryStep[] }) {
           <span
             className={`relative flex size-12 shrink-0 items-center justify-center rounded-full font-heading text-lg ${
               step.current
-                ? "bg-crimson text-parchment animate-pulse-dot"
-                : "border border-crimson/30 bg-parchment-light text-crimson"
+                ? "bg-action text-on-action animate-pulse-dot"
+                : "border border-accent/30 bg-raised text-accent"
             }`}
           >
             {i + 1}
@@ -46,15 +46,15 @@ export function HistoryTimeline({ steps }: { steps: HistoryStep[] }) {
           <div className="pt-2.5 lg:pr-4 lg:pt-8">
             <span
               className={`text-xs font-semibold uppercase tracking-eyebrow ${
-                step.current ? "text-clay-deep" : "text-crimson"
+                step.current ? "text-accent-soft" : "text-accent"
               }`}
             >
               {step.marker}
             </span>
-            <h3 className="mt-3 font-heading text-2xl leading-tight tracking-tight text-jet">
+            <h3 className="mt-3 font-heading text-2xl leading-tight tracking-tight text-ink">
               {step.title}
             </h3>
-            <p className="mt-3 leading-relaxed text-jet-muted">
+            <p className="mt-3 leading-relaxed text-ink-muted">
               {withHighlight(step)}
             </p>
           </div>

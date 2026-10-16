@@ -20,21 +20,19 @@ export function ClosingInvitation({
   secondary,
 }: ClosingInvitationProps) {
   return (
-    <section className="mx-auto max-w-page px-5 py-section-lg sm:px-8">
-      <Reveal className="relative isolate overflow-hidden rounded-blob bg-parchment-deep px-6 pb-12 pt-14 paper-grain sm:px-12 sm:pb-16 sm:pt-20 lg:px-16">
-        <OliveBranch className="pointer-events-none absolute -right-6 -top-4 -z-10 hidden w-80 text-clay sm:block" />
-        <div aria-hidden="true" className="absolute inset-x-0 bottom-0 -z-10 tatreez-band h-3 text-line" />
-
-        <div className="grid items-end gap-12 lg:grid-cols-12">
+    <section className="relative isolate overflow-hidden border-t border-rule">
+      <OliveBranch className="pointer-events-none absolute -right-8 top-10 -z-10 hidden w-md text-accent/30 sm:block" />
+      <div className="mx-auto max-w-page px-5 py-section-lg sm:px-8 lg:py-section-xl">
+        <Reveal className="grid items-end gap-12 lg:grid-cols-12">
           <div className="lg:col-span-7">
-            <span className="inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-eyebrow text-crimson">
+            <span className="inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-eyebrow text-accent">
               <span aria-hidden="true" className="h-px w-8 bg-current opacity-50" />
               {eyebrow}
             </span>
-            <h2 className="mt-5 font-heading text-headline text-balance text-jet">
+            <h2 className="mt-5 font-heading text-headline text-balance text-ink">
               {title}
             </h2>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-jet-muted">
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-muted">
               {body}
             </p>
           </div>
@@ -46,12 +44,12 @@ export function ClosingInvitation({
                 {secondary.label}
               </ActionLink>
             </div>
-            <p className="text-sm text-jet-muted lg:text-right">
+            <p className="text-sm text-ink-muted lg:text-right">
               {DONATION_ACCOUNT.providers.join(", ")}, or any Pakistani bank via Raast.
             </p>
           </div>
-        </div>
-      </Reveal>
+        </Reveal>
+      </div>
     </section>
   );
 }

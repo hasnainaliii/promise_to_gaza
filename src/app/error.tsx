@@ -7,10 +7,10 @@ import { ActionButton, ActionLink } from "@/components/action_button";
 export default function ErrorBoundary({ retry }: { retry: () => void }) {
   return (
     <section className="mx-auto flex max-w-narrow flex-col items-start gap-6 px-5 py-section-lg sm:px-8">
-      <h1 className="font-heading text-4xl leading-tight tracking-tight text-jet sm:text-5xl">
+      <h1 className="font-heading text-4xl leading-tight tracking-tight text-ink sm:text-5xl">
         Something went wrong at our end.
       </h1>
-      <p className="text-lg leading-relaxed text-jet-muted">
+      <p className="text-lg leading-relaxed text-ink-muted">
         This information did not load. It is a problem on our side, not
         something you did. Trying again often clears it.
       </p>

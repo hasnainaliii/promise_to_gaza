@@ -53,22 +53,22 @@ export default function ContactPage() {
           {CONTACTS.map((contact) => (
             <div
               key={contact.number}
-              className="flex flex-col gap-4 rounded-card border border-line bg-parchment-light p-6 shadow-soft sm:p-8"
+              className="flex flex-col gap-4 rounded-card border border-rule bg-raised p-6 shadow-soft sm:p-8"
             >
               <div className="flex flex-col gap-1">
-                <h2 className="font-heading text-2xl tracking-tight text-jet">
+                <h2 className="font-heading text-2xl tracking-tight text-ink">
                   {contact.name}
                 </h2>
-                <p className="text-sm text-jet-muted">{contact.role}</p>
+                <p className="text-sm text-ink-muted">{contact.role}</p>
               </div>
-              <p className="font-heading text-xl text-jet tracking-tight">
+              <p className="font-heading text-xl text-ink tracking-tight">
                 {contact.display}
               </p>
               <a
                 href={`https://wa.me/${contact.number}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-fit items-center gap-2.5 rounded-lg bg-crimson px-6 py-3 font-semibold text-parchment shadow-soft transition-all duration-300 ease-soft hover:-translate-y-0.5 hover:bg-crimson-deep"
+                className="inline-flex w-fit items-center gap-2.5 rounded-lg bg-action px-6 py-3 font-semibold text-on-action shadow-soft transition-all duration-300 ease-soft hover:-translate-y-0.5 hover:bg-action-hover"
               >
                 <svg
                   aria-hidden="true"
@@ -84,16 +84,16 @@ export default function ContactPage() {
         </div>
 
         <aside className="flex flex-col gap-8">
-          <div className="rounded-card bg-parchment-deep p-6 sm:p-8">
-            <h2 className="font-heading text-2xl tracking-tight text-jet">
+          <div className="surface-parchment paper-grain rounded-card p-6 sm:p-8">
+            <h2 className="font-heading text-2xl tracking-tight text-ink">
               What people usually write about
             </h2>
             <ul className="mt-5 flex flex-col gap-4">
               {REASONS.map((reason) => (
-                <li key={reason} className="flex gap-3 leading-relaxed text-jet-muted">
+                <li key={reason} className="flex gap-3 leading-relaxed text-ink-muted">
                   <span
                     aria-hidden="true"
-                    className="mt-2 size-2 shrink-0 rounded-full bg-clay"
+                    className="mt-2 size-2 shrink-0 rounded-full bg-accent"
                   />
                   <span>{reason}</span>
                 </li>

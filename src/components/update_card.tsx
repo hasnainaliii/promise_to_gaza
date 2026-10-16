@@ -14,7 +14,7 @@ export function UpdateCard({ update }: { update: Update }) {
         {update.publishedAt ? (
           <time
             dateTime={update.publishedAt}
-            className="text-sm font-medium text-crimson"
+            className="text-sm font-medium text-accent"
           >
             {new Date(update.publishedAt).toLocaleDateString("en-GB", {
               day: "numeric",
@@ -23,14 +23,14 @@ export function UpdateCard({ update }: { update: Update }) {
             })}
           </time>
         ) : (
-          <span className="text-sm font-medium text-jet-faint">
+          <span className="text-sm font-medium text-ink-faint">
             Not yet published
           </span>
         )}
-        <h3 className="font-heading text-2xl leading-snug tracking-tight text-jet">
+        <h3 className="font-heading text-2xl leading-snug tracking-tight text-ink">
           {update.title}
         </h3>
-        <p className="max-w-narrow leading-relaxed text-jet-muted">
+        <p className="max-w-narrow leading-relaxed text-ink-muted">
           {update.summary}
         </p>
       </div>

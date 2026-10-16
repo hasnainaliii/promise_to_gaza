@@ -71,7 +71,7 @@ export default function HomePage() {
   return (
     <>
       {/* ── Hero ────────────────────────────────────────────────── */}
-      <section className="tone-dark relative min-h-[90vh] overflow-hidden -mt-24 bg-jet lg:min-h-screen">
+      <section className="relative min-h-[90vh] overflow-hidden -mt-24 bg-jet lg:min-h-screen">
         {/* Rotating smooth background photographs */}
         <HeroSlideshow />
 
@@ -88,23 +88,10 @@ export default function HomePage() {
 
           <div className="mt-28 sm:mt-36 lg:mt-44 flex flex-col items-center justify-center gap-4 sm:gap-5 sm:flex-row">
             <PlantDonateButton />
-            <ActionLink href="/our-work" variant="light" size="lg">
+            <ActionLink href="/our-work" variant="secondary" size="lg">
               Learn about our work
             </ActionLink>
           </div>
-        </div>
-
-        {/* Organic wave transition to next section - decreased height */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
-          <svg
-            viewBox="0 0 1440 80"
-            preserveAspectRatio="none"
-            aria-hidden="true"
-            className="relative block h-7 w-full sm:h-9 lg:h-11"
-            fill="var(--color-parchment)"
-          >
-            <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" />
-          </svg>
         </div>
       </section>
 
@@ -118,7 +105,7 @@ export default function HomePage() {
               title={
                 <>
                   Filling the gap so{" "}
-                  <HandUnderline colorClass="text-crimson">
+                  <HandUnderline colorClass="text-accent">
                     everyone
                   </HandUnderline>{" "}
                   can play their part.
@@ -127,12 +114,12 @@ export default function HomePage() {
             />
             <Reveal
               delay={200}
-              className="mt-8 flex flex-col gap-5 text-lg leading-relaxed text-jet-muted"
+              className="mt-8 flex flex-col gap-5 text-lg leading-relaxed text-ink-muted"
             >
               <p>
-                <strong className="font-semibold text-jet">{SITE_NAME}</strong>{" "}
+                <strong className="font-semibold text-ink">{SITE_NAME}</strong>{" "}
                 is a project initiated by{" "}
-                <strong className="font-semibold text-jet">MyNetwork</strong>,
+                <strong className="font-semibold text-ink">MyNetwork</strong>,
                 an Islamic movement. Our goal is to fill the gap, especially for
                 people who cannot donate financially, or who feel they simply
                 cannot do anything.
@@ -158,10 +145,10 @@ export default function HomePage() {
             />
             <Reveal
               delay={450}
-              className="relative z-10 -mt-14 ml-auto max-w-xs rounded-card bg-parchment-light p-6 shadow-lift sm:mr-6 lg:absolute lg:-bottom-10 lg:-left-24 lg:mr-0 lg:mt-0"
+              className="relative z-10 -mt-14 ml-auto max-w-xs rounded-card surface-parchment paper-grain p-6 shadow-lift sm:mr-6 lg:absolute lg:-bottom-10 lg:-left-24 lg:mr-0 lg:mt-0"
             >
 
-              <p className="font-heading text-xl leading-snug text-jet">
+              <p className="font-heading text-xl leading-snug text-ink">
                 Moral concern is not enough. We turn it into something real.
               </p>
             </Reveal>
@@ -170,7 +157,7 @@ export default function HomePage() {
       </section>
 
       {/* ── 02 Why Gaza ─────────────────────────────────────────── */}
-      <section className="bg-parchment-deep paper-grain">
+      <section className="surface-crimson">
         <div className="mx-auto max-w-page px-5 py-section-lg sm:px-8">
           <div className="grid gap-10 lg:grid-cols-12">
             <SectionIntro
@@ -183,12 +170,12 @@ export default function HomePage() {
               delay={150}
               className="flex flex-col gap-6 lg:col-span-6 lg:col-start-7 lg:pt-10"
             >
-              <p className="font-heading text-title text-jet">
+              <p className="font-heading text-title text-ink">
                 Our hearts stand with the oppressed everywhere. Gaza today
                 represents an urgent, visible humanitarian crisis unfolding
                 before the world.
               </p>
-              <p className="text-lg leading-relaxed text-jet-muted">
+              <p className="text-lg leading-relaxed text-ink-muted">
                 Gaza is a global headline, and in our initial stage we need a
                 place to stand and build a strong foundation. Starting with Gaza
                 allows us to focus our relief efforts, establish trust, and turn
@@ -205,20 +192,20 @@ export default function HomePage() {
                 as="li"
                 key={pillar.title}
                 delay={i * 120}
-                className="group border-t border-jet/15 pt-6"
+                className="group border-t border-rule pt-6"
               >
                 <div className="flex items-center justify-between">
-                  <span className="flex size-11 items-center justify-center rounded-full bg-parchment-light text-crimson shadow-soft transition-colors duration-500 ease-soft group-hover:bg-crimson group-hover:text-parchment">
+                  <span className="flex size-11 items-center justify-center rounded-full bg-raised text-accent shadow-soft transition-colors duration-500 ease-soft group-hover:bg-action group-hover:text-on-action">
                     {pillar.icon}
                   </span>
-                  <span className="font-heading text-sm italic text-jet-faint">
+                  <span className="font-heading text-sm italic text-ink-faint">
                     0{i + 1}
                   </span>
                 </div>
-                <h3 className="mt-6 font-heading text-2xl tracking-tight text-jet">
+                <h3 className="mt-6 font-heading text-2xl tracking-tight text-ink">
                   {pillar.title}
                 </h3>
-                <p className="mt-2 leading-relaxed text-jet-muted">{pillar.text}</p>
+                <p className="mt-2 leading-relaxed text-ink-muted">{pillar.text}</p>
               </Reveal>
             ))}
           </ol>
@@ -241,14 +228,14 @@ export default function HomePage() {
                   className={i === 1 ? "mt-16" : undefined}
                 />
               ))}
-              <Reveal delay={300} className="col-span-2 flex items-center gap-3 text-sm text-jet-muted">
-                <span aria-hidden="true" className="size-2 shrink-0 rounded-full bg-crimson animate-pulse-dot" />
+              <Reveal delay={300} className="col-span-2 flex items-center gap-3 text-sm text-ink-muted">
+                <span aria-hidden="true" className="size-2 shrink-0 rounded-full bg-accent animate-pulse-dot" />
                 Field photos from our clean water drives in Gaza.
               </Reveal>
             </div>
           </div>
 
-          <div className="lg:col-span-6 lg:col-start-7">
+          <div className="surface-parchment paper-grain rounded-card px-6 py-10 sm:px-10 sm:py-12 lg:col-span-7 lg:col-start-6">
             <SectionIntro
               index="03"
               eyebrow="Where support goes"
@@ -264,34 +251,28 @@ export default function HomePage() {
       </section>
 
       {/* ── 04 The power of 100 PKR ─────────────────────────────── */}
-      <section className="grid border-y border-line lg:grid-cols-2">
-        {/* Each half bleeds to the screen edge while its content stays on the page grid. */}
-        <div className="tone-dark flex bg-crimson lg:justify-end">
-          <div className="w-full max-w-half px-5 py-section-lg sm:px-8 lg:pr-16">
+      <section className="surface-crimson">
+        <div className="mx-auto grid max-w-page items-center gap-16 px-5 py-section-lg sm:px-8 lg:grid-cols-2 lg:gap-24">
+          <div>
             <SectionIntro
-              tone="dark"
               index="04"
               eyebrow="The power of 100 PKR"
               title={
                 <>
                   Small drops.
                   <br />
-                  <em className="text-clay">Infinite ocean.</em>
+                  <em className="text-accent">Infinite ocean.</em>
                 </>
               }
               lede="100 Rupees is just the cost of a daily cup of tea. Individually, it feels small. Collectively, thousands of students contributing 100 PKR every week create an unbroken pipeline of relief for families in need."
             />
             <Reveal delay={300} className="mt-10">
-              <ActionLink href="/donate" variant="light" size="lg">
+              <ActionLink href="/donate" variant="primary" size="lg">
                 Give 100 PKR this week
               </ActionLink>
             </Reveal>
           </div>
-        </div>
-        <div className="flex items-center bg-parchment">
-          <div className="w-full max-w-half px-5 py-section sm:px-8 lg:py-section-lg lg:pl-16">
-            <WeeklyGivingTally weeklyAmount={100} currency="PKR" />
-          </div>
+          <WeeklyGivingTally weeklyAmount={100} currency="PKR" />
         </div>
       </section>
 

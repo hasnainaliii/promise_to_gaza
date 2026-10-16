@@ -470,40 +470,53 @@ The exact values may evolve during implementation, but the design direction shou
 
 ### Brand palette
 
-These are the official Promise for Ummah brand colors. They are fixed: don't introduce colors outside this family.
+These are the official Promise for Ummah brand colors and their share of the site. They are fixed: don't introduce colors outside this family.
 
 | Role | Name | Hex | Share | Theme token |
 | --- | --- | --- | --- | --- |
-| Primary / base | Jet Black | `#0C0C0C` | 40% | `jet` |
-| Secondary | Parchment | `#F0E8DC` | 30% | `parchment` |
-| Tertiary | Deep Crimson | `#720C0C` | 20% | `crimson` |
-| Accent | Desert Clay | `#D4AC90` | 10% | `clay` |
+| Primary | Jet Black | `#0C0C0C` | 40% | `jet` |
+| Primary | Deep Crimson | `#720C0C` | 30% | `crimson` |
+| Secondary | Parchment | `#F0E8DC` | 20% | `parchment` |
+| Base | Desert Clay | `#D4AC90` | 10% | `clay` |
 
-"Share" is roughly how much of a page each color should occupy. It's a balance guide, not a rule to measure.
+The colors are materials, not stripes:
 
-They are defined once in `src/theme/theme.css`. Every other color token is a shade of one of the four and named after it: `jet-soft`, `jet-muted`, `jet-faint`, `parchment-light`, `parchment-deep`, `crimson-deep`, `crimson-tint`, `clay-deep`, `clay-tint`, plus `line` and `on-dark-*`. If a new shade is needed, derive it from a brand color, name it after that color, and add it to the theme first.
+* **Jet** is one continuous canvas. Every page sits on it; sections on jet are separated by space and hairlines, not by color.
+* **Crimson** is for statement sections: two or three full-width bands per page with short, confident content (a big headline, a key figure, a call to give). It has a soft velvet falloff so large areas look rich rather than flat. It is also the donate button.
+* **Parchment** is paper: documents and cards that sit on the jet canvas (the account details, the drive ledger, a pinned note, a reading section), usually with `paper-grain`. It's also the text color on dark.
+* **Clay** is only an accent: eyebrows, italic emphasis, the wordmark's connecting word, chapter numbers, line drawings, focus rings. Never a background.
 
-How each color is used:
+"Share" is how much of the site each color should occupy, so it's a balance guide rather than a per-page measurement.
 
-* **Jet** — headings and body text (`jet-muted` for paragraphs), the footer and dark sections, secondary buttons.
-* **Parchment** — the page background. `parchment-light` lifts cards; `parchment-deep` marks alternating bands. Also the text color on jet and crimson (`on-dark`).
-* **Crimson** — donation actions (primary buttons), links, eyebrows, active navigation, and at most one full crimson section per page.
-* **Clay** — highlights on dark surfaces (eyebrows, italic emphasis, focus rings, decorative line drawings). Plain clay is too light for text on parchment; use `clay-deep` there.
+### Surfaces
 
-Hero and field photography sits in grayscale under the brand colors.
+Every section (and any card that should stand out) declares one surface utility from `src/theme/theme.css`: `surface-jet`, `surface-crimson` or `surface-parchment`. Jet is the body default, so plain sections are jet without a class.
 
-The Palestinian flag keeps its own colors (`flag-*` tokens) and is the only exception to the palette.
+A surface paints the background and redefines the semantic tokens for everything inside it. Components only use these semantic tokens, never raw brand colors, so they read correctly on any surface:
+
+| Token | Use |
+| --- | --- |
+| `ink`, `ink-muted`, `ink-faint` | headings, body copy, captions (`ink-faint` for captions and numerals only) |
+| `rule` | hairlines and borders |
+| `accent`, `accent-soft` | eyebrows, links, italic emphasis, chapter numbers, dots |
+| `raised` | cards that sit on the surface |
+| `action`, `on-action`, `action-hover` | the donate button: crimson on jet and parchment; parchment on crimson |
+| `surface`, `focus` | the surface color itself (for inverted buttons) and the focus ring |
+
+To change the color balance, change which surface a section uses. Don't recolor components.
+
+Raw brand shades (`jet-muted`, `crimson-deep`, `parchment-light`, `clay-deep`…) exist only to build the surfaces. The one exception is overlays on photos and videos, which stay jet and parchment regardless of surface.
+
+Hero and field photography sits in grayscale under the brand colors. The Palestinian flag keeps its own colors (`flag-*` tokens).
 
 ### Color rules
 
-* Never hardcode colors inside components.
-* Don't use the accent color on everything.
-* Don't make every button the same color. Primary (crimson) is for donating; secondary (jet), quiet (outline) and light (parchment, for dark sections) cover everything else.
-* Primary donation actions should be visually clear.
-* Secondary actions should remain visually quieter.
-* Maintain sufficient contrast. Crimson and jet on parchment, and parchment or clay on jet and crimson, all pass WCAG AA.
-* Any jet, crimson or photographic section gets the `tone-dark` utility so focus rings switch to clay.
-* Don't turn every section crimson or jet. Parchment is the resting state.
+* Never hardcode colors inside components; use the semantic tokens.
+* Don't stack crimson sections back to back, and don't alternate colors just for variety. Jet sections can follow each other; rhythm comes from crimson statements and parchment paper placed with intent.
+* Don't fill cards on jet with a solid dark color; use `bg-raised` (a faint lift) with a `border-rule` hairline.
+* Button variants: `primary` is for donating only; `secondary` (the inverse of the surface) and `quiet` (outline) cover everything else.
+* Primary donation actions should be visually clear. Secondary actions should remain visually quieter.
+* Every surface pairing in the theme passes WCAG AA for text. Keep it that way when adding shades.
 * Don't use gradients as a default design technique.
 
 Gradients should only be introduced when there is a deliberate visual reason.

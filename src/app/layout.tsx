@@ -26,10 +26,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={fontVariables}>
-      <body className="flex min-h-dvh flex-col bg-parchment">
+      <body className="flex min-h-dvh flex-col bg-surface">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-jet focus:px-5 focus:py-3 focus:text-parchment"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-ink focus:px-5 focus:py-3 focus:text-surface"
         >
           Skip to content
         </a>

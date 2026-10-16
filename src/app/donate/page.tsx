@@ -73,25 +73,25 @@ export default function DonatePage() {
           <DonateAccountCard />
 
           {/* Transfer Instructions */}
-          <div className="rounded-card border border-line bg-parchment-light p-6 sm:p-8 shadow-xs">
-            <h3 className="font-heading text-xl font-bold tracking-tight text-jet">
+          <div className="rounded-card border border-rule bg-raised p-6 sm:p-8 shadow-xs">
+            <h3 className="font-heading text-xl font-bold tracking-tight text-ink">
               How to Send Your Donation
             </h3>
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
               {HOW_TO_DONATE_STEPS.map((s) => (
                 <div
                   key={s.step}
-                  className="flex flex-col justify-between rounded-xl border border-line/70 bg-parchment p-4"
+                  className="flex flex-col justify-between rounded-xl border border-rule/70 bg-ink/5 p-4"
                 >
                   <div className="flex items-center gap-2.5">
-                    <span className="flex size-7 items-center justify-center rounded-full bg-crimson text-xs font-bold text-parchment">
+                    <span className="flex size-7 items-center justify-center rounded-full bg-action text-xs font-bold text-on-action">
                       {s.step}
                     </span>
-                    <h4 className="font-heading text-base font-semibold text-jet">
+                    <h4 className="font-heading text-base font-semibold text-ink">
                       {s.title}
                     </h4>
                   </div>
-                  <p className="mt-2.5 text-xs leading-relaxed text-jet-muted">
+                  <p className="mt-2.5 text-xs leading-relaxed text-ink-muted">
                     {s.desc}
                   </p>
                 </div>
@@ -103,22 +103,22 @@ export default function DonatePage() {
         {/* Right Column: Impact & Verification */}
         <aside className="flex flex-col gap-8">
           {/* Direct Impact Card */}
-          <div className="rounded-card border border-line bg-parchment-light p-6 sm:p-8 shadow-xs">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-clay-tint px-2.5 py-0.5 text-xs font-semibold text-clay-deep">
+          <div className="rounded-card border border-rule bg-raised p-6 sm:p-8 shadow-xs">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-accent/15 px-2.5 py-0.5 text-xs font-semibold text-accent">
               Our Commitment
             </span>
-            <h3 className="mt-3 font-heading text-2xl tracking-tight text-jet">
+            <h3 className="mt-3 font-heading text-2xl tracking-tight text-ink">
               Where Your Support Goes
             </h3>
             <ul className="mt-6 flex flex-col gap-5">
               {DIRECT_IMPACT_POINTS.map((pt) => (
                 <li key={pt.title} className="flex items-start gap-3">
-                  <span aria-hidden="true" className="mt-1.5 size-2 shrink-0 rounded-full bg-crimson" />
+                  <span aria-hidden="true" className="mt-1.5 size-2 shrink-0 rounded-full bg-accent" />
                   <div>
-                    <h4 className="font-heading text-base font-semibold text-jet">
+                    <h4 className="font-heading text-base font-semibold text-ink">
                       {pt.title}
                     </h4>
-                    <p className="mt-1 text-sm leading-relaxed text-jet-muted">
+                    <p className="mt-1 text-sm leading-relaxed text-ink-muted">
                       {pt.desc}
                     </p>
                   </div>
@@ -126,10 +126,10 @@ export default function DonatePage() {
               ))}
             </ul>
 
-            <div className="mt-8 border-t border-line/70 pt-6">
+            <div className="mt-8 border-t border-rule/70 pt-6">
               <Link
                 href="/our-work#drives"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-crimson-deep hover:underline"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:underline"
               >
                 <span>View verified field proof from 9 relief drives</span>
                 <span aria-hidden="true">-&gt;</span>
@@ -138,11 +138,11 @@ export default function DonatePage() {
           </div>
 
           {/* Rs. 100 Micro-Donation Callout */}
-          <div className="rounded-card border border-crimson/20 bg-crimson-tint/50 p-6 sm:p-8">
-            <h4 className="font-heading text-lg font-bold text-crimson-deep">
+          <div className="rounded-card border border-accent/20 bg-accent/10 p-6 sm:p-8">
+            <h4 className="font-heading text-lg font-bold text-accent">
               The Weekly Rs. 100 (~$0.35 USD) Model
             </h4>
-            <p className="mt-2 text-sm leading-relaxed text-jet/90">
+            <p className="mt-2 text-sm leading-relaxed text-ink/90">
               Initiated first at UET Taxila, {SITE_NAME} is designed so that everyone can play their
               part without financial strain. When hundreds of students contribute just
               Rs. 100 every week, the collective pool deploys full clean water tankers and
@@ -151,11 +151,11 @@ export default function DonatePage() {
           </div>
 
           {/* Assistance & WhatsApp Help */}
-          <div className="rounded-card border border-line bg-parchment-light p-6 shadow-xs">
-            <h4 className="font-heading text-base font-semibold text-jet">
+          <div className="rounded-card border border-rule bg-raised p-6 shadow-xs">
+            <h4 className="font-heading text-base font-semibold text-ink">
               Need help or international bank info?
             </h4>
-            <p className="mt-2 text-xs leading-relaxed text-jet-muted">
+            <p className="mt-2 text-xs leading-relaxed text-ink-muted">
               If you are outside Pakistan or require alternate transfer arrangements, reach
               out to our team on WhatsApp.
             </p>
@@ -164,7 +164,7 @@ export default function DonatePage() {
                 href={`https://wa.me/${WHATSAPP_NUMBER}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-lg bg-crimson px-4 py-2 text-xs font-semibold text-parchment shadow-xs transition-all hover:bg-crimson-deep"
+                className="inline-flex items-center gap-1.5 rounded-lg bg-action px-4 py-2 text-xs font-semibold text-on-action shadow-xs transition-all hover:bg-action-hover"
               >
                 WhatsApp {WHATSAPP_DISPLAY}
               </a>
@@ -172,7 +172,7 @@ export default function DonatePage() {
                 href={`https://wa.me/${WHATSAPP_NUMBER_2}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-lg border border-line bg-parchment px-4 py-2 text-xs font-semibold text-jet transition-all hover:bg-parchment-light"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-rule bg-ink/5 px-4 py-2 text-xs font-semibold text-ink transition-all hover:bg-ink/10"
               >
                 WhatsApp {WHATSAPP_DISPLAY_2}
               </a>

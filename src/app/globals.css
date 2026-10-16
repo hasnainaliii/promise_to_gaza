@@ -23,14 +23,14 @@
   }
 
   body {
-    background-color: var(--color-parchment);
-    color: var(--color-jet);
+    background-color: var(--color-surface);
+    color: var(--color-ink);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
   }
 
   :focus-visible {
-    outline: 2px solid var(--focus-ring, var(--color-jet));
+    outline: 2px solid var(--color-focus);
     outline-offset: 3px;
     border-radius: 2px;
   }
