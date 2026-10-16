@@ -7,9 +7,9 @@ export const RELIEF_DRIVES: ReliefDrive[] = [
     id: "drive-1",
     label: "Drive 1",
     date: "August 2025",
-    focus: "Initial Relief & Setup",
+    focus: "Initial Relief and Setup",
     impact:
-      "Executed in collaboration with an established partner organization, as PTG was in its initial setup phase with limited resources, to deliver urgent emergency aid. Cooked food was provided to families in high-scarcity zones.",
+      "Executed in collaboration with an established partner organization, as we were still in our initial setup phase with limited resources, to deliver urgent emergency aid. Cooked food was provided to families in high-scarcity zones.",
     media: [
       {
         type: "video",
@@ -21,7 +21,7 @@ export const RELIEF_DRIVES: ReliefDrive[] = [
   {
     id: "drives-2-3",
     label: "Drives 2 & 3",
-    date: "Ramadan 2025",
+    date: "Ramadan 2026",
     focus: "Ramadan Food Ration",
     impact:
       "Distributed complete food packages to displaced families in the last ashra of the holy month of Ramadan.",
@@ -36,7 +36,7 @@ export const RELIEF_DRIVES: ReliefDrive[] = [
   {
     id: "drive-4",
     label: "Drive 4",
-    date: "Post-Ramadan 2025",
+    date: "Post-Ramadan 2026",
     focus: "Essential Ration Drive",
     impact:
       "Delivered targeted food ration kits to families in high-scarcity zones.",
@@ -51,27 +51,10 @@ export const RELIEF_DRIVES: ReliefDrive[] = [
   {
     id: "drive-5",
     label: "Drive 5",
-    date: "Eid 2025",
+    date: "Eid 2026",
     focus: "Direct Cash (Eidi) Drive",
     impact:
       "Provided direct cash support to destitute families, helping them celebrate Eid with dignity.",
-    media: [
-      {
-        type: "image",
-        src: "/images/ourwork/water-drive-tanker-distribution-1.png",
-        alt: "Gaza youth holding Promise to Gaza emblem in front of clean water tanker",
-      },
-      {
-        type: "image",
-        src: "/images/ourwork/water-drive-tanker-distribution-2.png",
-        alt: "Child holding Promise to Gaza emblem during water distribution",
-      },
-      {
-        type: "image",
-        src: "/images/ourwork/water-drive-tanker-distribution-3.png",
-        alt: "Boy in Gaza holding Promise to Gaza emblem while water containers are filled",
-      },
-    ],
   },
   {
     id: "drives-6-7",
@@ -95,18 +78,6 @@ export const RELIEF_DRIVES: ReliefDrive[] = [
     focus: "Muharram Special Ration",
     impact:
       "Distributed food ration packages across displacement camps in collaboration with partner organizations during Muharram.",
-    media: [
-      {
-        type: "image",
-        src: "/images/ourwork/water-drive-tanker-distribution-2.png",
-        alt: "Children in displacement camp during relief drive",
-      },
-      {
-        type: "image",
-        src: "/images/ourwork/water-drive-tanker-distribution-1.png",
-        alt: "Clean water relief coordination in Gaza",
-      },
-    ],
   },
   {
     id: "drive-9",

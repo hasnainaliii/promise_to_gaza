@@ -23,21 +23,21 @@
   }
 
   body {
-    background-color: var(--color-paper);
-    color: var(--color-charcoal);
+    background-color: var(--color-parchment);
+    color: var(--color-jet);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-olive-deep);
+    outline: 2px solid var(--focus-ring, var(--color-jet));
     outline-offset: 3px;
     border-radius: 2px;
   }
 
   ::selection {
-    background-color: var(--color-sand);
-    color: var(--color-charcoal);
+    background-color: var(--color-clay);
+    color: var(--color-jet);
   }
 }
 
@@ -118,5 +118,8 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    /* Staggered entrances would otherwise still hold content back. */
+    animation-delay: 0s !important;
+    transition-delay: 0s !important;
   }
 }

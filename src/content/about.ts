@@ -1,3 +1,5 @@
+import { SITE_NAME } from "@/content/site";
+
 export interface HistoryStep {
   marker: string;
   title: string;
@@ -10,8 +12,8 @@ export interface HistoryStep {
 export const HISTORY: HistoryStep[] = [
   {
     marker: "6 August 2025",
-    title: "The spark — UET Taxila",
-    body: "Promise to Gaza began as a student-led campaign at UET Taxila, initially launched within the Department of Computer Science under the name UET Taxila Donation Drive.",
+    title: "The spark - UET Taxila",
+    body: `${SITE_NAME} began as a student-led campaign at UET Taxila, initially launched within the Department of Computer Science under the name UET Taxila Donation Drive.`,
     highlight: "UET Taxila Donation Drive",
   },
   {
@@ -22,13 +24,13 @@ export const HISTORY: HistoryStep[] = [
   {
     marker: "Then",
     title: "A formal project of My Network",
-    body: "As the initiative grew beyond its original campus-level efforts, it was later developed into a formal project of My Network under the name Promise to Gaza (PTG).",
-    highlight: "Promise to Gaza (PTG)",
+    body: `As the initiative grew beyond its original campus-level efforts, it was later developed into a formal project of My Network under the name Promise to Gaza, now known as ${SITE_NAME}.`,
+    highlight: SITE_NAME,
   },
   {
     marker: "Current phase",
     title: "Multi-university expansion",
-    body: "Building on this journey, PTG is now being expanded to three additional universities, with the intention, In Sha Allah, of extending the initiative to more universities in the future.",
+    body: `Building on this journey, ${SITE_NAME} is now being expanded to three additional universities, with the intention, In Sha Allah, of extending the initiative to more universities in the future.`,
     current: true,
   },
 ];
@@ -62,15 +64,15 @@ export const CORE_VALUES: {
 
 export const TONE_ATTRIBUTES = [
   {
-    label: "Compassionate & purposeful",
+    label: "Compassionate and purposeful",
     description: "Every word carries weight and intent, driven by genuine care.",
   },
   {
-    label: "Empathetic & resilient",
+    label: "Empathetic and resilient",
     description: "We feel deeply, yet we stand firm in our resolve to act.",
   },
   {
-    label: "Warm, sincere & urgent",
+    label: "Warm, sincere and urgent",
     description:
       "We speak from the heart with a sense of pressing responsibility.",
   },

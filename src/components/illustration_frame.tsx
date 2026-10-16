@@ -13,9 +13,7 @@ interface IllustrationFrameProps {
   src: string;
   alt: string;
   aspect?: Aspect;
-  /** Mirrors the corner rounding so adjacent frames do not look stamped. */
-  flip?: boolean;
-  priority?: boolean;
+  preload?: boolean;
   sizes?: string;
   className?: string;
 }
@@ -24,16 +22,13 @@ export function IllustrationFrame({
   src,
   alt,
   aspect = "photo",
-  flip = false,
-  priority = false,
+  preload = false,
   sizes = "(min-width: 1024px) 45vw, 100vw",
   className = "",
 }: IllustrationFrameProps) {
   return (
     <div
-      className={`relative overflow-hidden bg-surface ring-1 ring-line ${
-        flip ? "organic-frame-alt" : "organic-frame"
-      } ${ASPECTS[aspect]} ${className}`}
+      className={`relative overflow-hidden rounded-soft bg-parchment-deep ring-1 ring-line ${ASPECTS[aspect]} ${className}`}
     >
       {/* unoptimized: the placeholders are first-party SVG. Drop this once
           real raster photography replaces them. */}
@@ -42,7 +37,7 @@ export function IllustrationFrame({
         alt={alt}
         fill
         sizes={sizes}
-        priority={priority}
+        preload={preload}
         unoptimized
         className="object-cover grayscale contrast-[1.05]"
       />

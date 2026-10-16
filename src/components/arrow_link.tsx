@@ -14,14 +14,14 @@ export function ArrowLink({
   return (
     <Link
       href={href}
-      className={`group inline-flex items-center gap-2.5 font-semibold text-palestine-green transition-colors duration-300 hover:text-palestine-green-deep ${className}`}
+      className={`group inline-flex items-center gap-2.5 font-semibold text-crimson transition-colors duration-300 hover:text-crimson-deep ${className}`}
     >
       <span className="relative after:absolute after:inset-x-0 after:-bottom-1 after:h-px after:origin-left after:scale-x-0 after:bg-current after:transition-transform after:duration-500 after:ease-soft group-hover:after:scale-x-100">
         {children}
       </span>
       <span
         aria-hidden="true"
-        className="flex size-8 items-center justify-center rounded-full border border-current/25 transition-all duration-500 ease-soft group-hover:translate-x-1 group-hover:border-current group-hover:bg-palestine-green group-hover:text-paper"
+        className="flex size-8 items-center justify-center rounded-full border border-current/25 transition-all duration-500 ease-soft group-hover:translate-x-1 group-hover:border-current group-hover:bg-crimson group-hover:text-parchment"
       >
         <svg
           viewBox="0 0 24 24"

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { ActionLink } from "@/components/action_button";
 import { ArrowLink } from "@/components/arrow_link";
 import { ClosingInvitation } from "@/components/closing_invitation";
 import { DriveLedger } from "@/components/drive_ledger";
@@ -7,10 +7,10 @@ import { HandUnderline } from "@/components/hand_underline";
 import { HeroSlideshow } from "@/components/hero_slideshow";
 import { PlantDonateButton } from "@/components/plant_donate_button";
 import { Reveal } from "@/components/reveal";
-import { RipplePool } from "@/components/ripple_pool";
 import { SectionIntro } from "@/components/section_intro";
-import { SketchLink } from "@/components/sketch_link";
+import { WeeklyGivingTally } from "@/components/weekly_giving_tally";
 import { RELIEF_DRIVES } from "@/content/relief_drives";
+import { SITE_NAME } from "@/content/site";
 
 const ICON_PROPS = {
   viewBox: "0 0 24 24",
@@ -59,11 +59,11 @@ const VISION_PILLARS = [
 const FIELD_PHOTOS = [
   {
     src: "/images/ourwork/water-drive-tanker-distribution-1.png",
-    alt: "A smiling boy holds up the Promise to Gaza emblem beside a water tanker",
+    alt: "A smiling boy holds up our heart emblem beside a water tanker",
   },
   {
     src: "/images/ourwork/water-drive-tanker-distribution-3.png",
-    alt: "A boy holds the Promise to Gaza emblem while water containers are filled",
+    alt: "A boy holds our heart emblem while water containers are filled",
   },
 ];
 
@@ -71,63 +71,37 @@ export default function HomePage() {
   return (
     <>
       {/* ── Hero ────────────────────────────────────────────────── */}
-      <section className="relative min-h-[90vh] overflow-hidden -mt-24 bg-neutral-900 lg:min-h-screen">
+      <section className="tone-dark relative min-h-[90vh] overflow-hidden -mt-24 bg-jet lg:min-h-screen">
         {/* Rotating smooth background photographs */}
         <HeroSlideshow />
 
-        {/* Ambient overlay — subtle center wash for text contrast and gentle bottom fade */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -top-16 inset-x-0 bottom-0 z-10"
-          style={{
-            background:
-              "radial-gradient(ellipse 80% 65% at 50% 50%, rgba(18, 22, 19, 0.5) 0%, rgba(18, 22, 19, 0.25) 60%, transparent 100%), linear-gradient(to top, var(--color-paper) 0%, rgba(255, 255, 255, 0.5) 3%, transparent 7%)",
-          }}
+          className="hero-scrim pointer-events-none absolute -top-16 inset-x-0 bottom-0 z-10"
         />
 
         {/* Centred hero content */}
         <div className="relative z-20 flex min-h-[90vh] flex-col items-center justify-end px-5 pb-20 pt-28 text-center sm:px-8 sm:pt-32 lg:min-h-screen lg:justify-center lg:pb-24">
-          <h1 className="mx-auto max-w-3xl font-heading text-4xl leading-[1.08] tracking-tight text-balance text-white drop-shadow-[0_2px_16px_rgba(0,0,0,0.65)] sm:text-5xl md:text-6xl lg:text-7xl">
-            Keeping a{" "}
-            <span className="relative whitespace-nowrap">
-              promise
-              <svg
-                viewBox="0 0 200 12"
-                preserveAspectRatio="none"
-                aria-hidden="true"
-                className="absolute -bottom-1 left-0 h-2.5 w-full text-berry drop-shadow-sm"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="3.5"
-                strokeLinecap="round"
-              >
-                <path d="M3 8C40 3 70 10 104 6c36-4 64 3 93-2" />
-              </svg>
-            </span>{" "}
-            to families in Gaza.
+          <h1 className="mx-auto max-w-3xl font-heading text-4xl leading-[1.08] tracking-tight text-balance text-parchment drop-shadow-legible sm:text-5xl md:text-6xl lg:text-7xl">
+            Keeping a promise to families in Gaza.
           </h1>
 
           <div className="mt-28 sm:mt-36 lg:mt-44 flex flex-col items-center justify-center gap-4 sm:gap-5 sm:flex-row">
-            <PlantDonateButton href="/donate" className="shrink-0">
-              Donate now
-            </PlantDonateButton>
-            <Link
-              href="/our-work"
-              className="shrink-0 inline-flex min-h-[48px] items-center justify-center rounded-lg border border-neutral-200/90 bg-white px-7 py-3 text-base font-semibold text-charcoal shadow-xs transition-all duration-200 hover:-translate-y-0.5 hover:bg-white hover:border-neutral-300 hover:shadow-md active:translate-y-0 active:scale-[0.99]"
-            >
+            <PlantDonateButton />
+            <ActionLink href="/our-work" variant="light" size="lg">
               Learn about our work
-            </Link>
+            </ActionLink>
           </div>
         </div>
 
-        {/* Organic wave transition to next section — decreased height */}
+        {/* Organic wave transition to next section - decreased height */}
         <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0]">
           <svg
             viewBox="0 0 1440 80"
             preserveAspectRatio="none"
             aria-hidden="true"
             className="relative block h-7 w-full sm:h-9 lg:h-11"
-            fill="var(--color-paper)"
+            fill="var(--color-parchment)"
           >
             <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" />
           </svg>
@@ -144,7 +118,7 @@ export default function HomePage() {
               title={
                 <>
                   Filling the gap so{" "}
-                  <HandUnderline colorClass="text-palestine-green">
+                  <HandUnderline colorClass="text-crimson">
                     everyone
                   </HandUnderline>{" "}
                   can play their part.
@@ -153,12 +127,12 @@ export default function HomePage() {
             />
             <Reveal
               delay={200}
-              className="mt-8 flex flex-col gap-5 text-lg leading-relaxed text-warm-gray"
+              className="mt-8 flex flex-col gap-5 text-lg leading-relaxed text-jet-muted"
             >
               <p>
-                <strong className="font-semibold text-charcoal">Promise to Gaza</strong>{" "}
+                <strong className="font-semibold text-jet">{SITE_NAME}</strong>{" "}
                 is a project initiated by{" "}
-                <strong className="font-semibold text-charcoal">MyNetwork</strong>,
+                <strong className="font-semibold text-jet">MyNetwork</strong>,
                 an Islamic movement. Our goal is to fill the gap, especially for
                 people who cannot donate financially, or who feel they simply
                 cannot do anything.
@@ -176,7 +150,7 @@ export default function HomePage() {
 
           <div className="relative lg:col-span-5 lg:col-start-8">
             <FramedPhoto
-              src="/images/ourwork/ourwork-hero.png"
+              src="/images/ourwork/water_drive_hero.jpg"
               alt="A girl in Gaza holds a Promise to Gaza sign in front of a clean water tanker"
               sizes="(min-width: 1024px) 34vw, (min-width: 640px) 28rem, 90vw"
               crop="object-[46%_50%]"
@@ -184,12 +158,10 @@ export default function HomePage() {
             />
             <Reveal
               delay={450}
-              className="relative z-10 -mt-14 ml-auto max-w-xs rounded-card bg-paper p-6 shadow-lift sm:mr-6 lg:absolute lg:-bottom-10 lg:-left-24 lg:mr-0 lg:mt-0"
+              className="relative z-10 -mt-14 ml-auto max-w-xs rounded-card bg-parchment-light p-6 shadow-lift sm:mr-6 lg:absolute lg:-bottom-10 lg:-left-24 lg:mr-0 lg:mt-0"
             >
-              <span aria-hidden="true" className="block h-8 font-heading text-6xl leading-none text-berry">
-                &ldquo;
-              </span>
-              <p className="font-heading text-xl leading-snug text-charcoal">
+
+              <p className="font-heading text-xl leading-snug text-jet">
                 Moral concern is not enough. We turn it into something real.
               </p>
             </Reveal>
@@ -198,7 +170,7 @@ export default function HomePage() {
       </section>
 
       {/* ── 02 Why Gaza ─────────────────────────────────────────── */}
-      <section className="bg-cream paper-grain">
+      <section className="bg-parchment-deep paper-grain">
         <div className="mx-auto max-w-page px-5 py-section-lg sm:px-8">
           <div className="grid gap-10 lg:grid-cols-12">
             <SectionIntro
@@ -211,12 +183,12 @@ export default function HomePage() {
               delay={150}
               className="flex flex-col gap-6 lg:col-span-6 lg:col-start-7 lg:pt-10"
             >
-              <p className="font-heading text-title text-charcoal">
+              <p className="font-heading text-title text-jet">
                 Our hearts stand with the oppressed everywhere. Gaza today
                 represents an urgent, visible humanitarian crisis unfolding
                 before the world.
               </p>
-              <p className="text-lg leading-relaxed text-warm-gray">
+              <p className="text-lg leading-relaxed text-jet-muted">
                 Gaza is a global headline, and in our initial stage we need a
                 place to stand and build a strong foundation. Starting with Gaza
                 allows us to focus our relief efforts, establish trust, and turn
@@ -233,20 +205,20 @@ export default function HomePage() {
                 as="li"
                 key={pillar.title}
                 delay={i * 120}
-                className="group border-t border-charcoal/15 pt-6"
+                className="group border-t border-jet/15 pt-6"
               >
                 <div className="flex items-center justify-between">
-                  <span className="flex size-11 items-center justify-center rounded-full bg-paper text-palestine-green shadow-soft transition-colors duration-500 ease-soft group-hover:bg-palestine-green group-hover:text-paper">
+                  <span className="flex size-11 items-center justify-center rounded-full bg-parchment-light text-crimson shadow-soft transition-colors duration-500 ease-soft group-hover:bg-crimson group-hover:text-parchment">
                     {pillar.icon}
                   </span>
-                  <span className="font-heading text-sm italic text-warm-gray-soft">
+                  <span className="font-heading text-sm italic text-jet-faint">
                     0{i + 1}
                   </span>
                 </div>
-                <h3 className="mt-6 font-heading text-2xl tracking-tight text-charcoal">
+                <h3 className="mt-6 font-heading text-2xl tracking-tight text-jet">
                   {pillar.title}
                 </h3>
-                <p className="mt-2 leading-relaxed text-warm-gray">{pillar.text}</p>
+                <p className="mt-2 leading-relaxed text-jet-muted">{pillar.text}</p>
               </Reveal>
             ))}
           </ol>
@@ -269,8 +241,8 @@ export default function HomePage() {
                   className={i === 1 ? "mt-16" : undefined}
                 />
               ))}
-              <Reveal delay={300} className="col-span-2 flex items-center gap-3 text-sm text-warm-gray">
-                <span aria-hidden="true" className="size-2 shrink-0 rounded-full bg-palestine-green animate-pulse-dot" />
+              <Reveal delay={300} className="col-span-2 flex items-center gap-3 text-sm text-jet-muted">
+                <span aria-hidden="true" className="size-2 shrink-0 rounded-full bg-crimson animate-pulse-dot" />
                 Field photos from our clean water drives in Gaza.
               </Reveal>
             </div>
@@ -292,9 +264,10 @@ export default function HomePage() {
       </section>
 
       {/* ── 04 The power of 100 PKR ─────────────────────────────── */}
-      <section className="relative isolate overflow-hidden bg-forest">
-        <div className="mx-auto grid max-w-page items-center gap-14 px-5 py-section-lg sm:px-8 lg:grid-cols-12 lg:gap-10">
-          <div className="lg:col-span-6">
+      <section className="grid border-y border-line lg:grid-cols-2">
+        {/* Each half bleeds to the screen edge while its content stays on the page grid. */}
+        <div className="tone-dark flex bg-crimson lg:justify-end">
+          <div className="w-full max-w-half px-5 py-section-lg sm:px-8 lg:pr-16">
             <SectionIntro
               tone="dark"
               index="04"
@@ -303,19 +276,21 @@ export default function HomePage() {
                 <>
                   Small drops.
                   <br />
-                  <em className="text-sand">Infinite ocean.</em>
+                  <em className="text-clay">Infinite ocean.</em>
                 </>
               }
               lede="100 Rupees is just the cost of a daily cup of tea. Individually, it feels small. Collectively, thousands of students contributing 100 PKR every week create an unbroken pipeline of relief for families in need."
             />
             <Reveal delay={300} className="mt-10">
-              <SketchLink href="/donate" tone="light">
+              <ActionLink href="/donate" variant="light" size="lg">
                 Give 100 PKR this week
-              </SketchLink>
+              </ActionLink>
             </Reveal>
           </div>
-          <div className="lg:col-span-5 lg:col-start-8">
-            <RipplePool amount="100" unit="PKR · every week" />
+        </div>
+        <div className="flex items-center bg-parchment">
+          <div className="w-full max-w-half px-5 py-section sm:px-8 lg:py-section-lg lg:pl-16">
+            <WeeklyGivingTally weeklyAmount={100} currency="PKR" />
           </div>
         </div>
       </section>
@@ -324,7 +299,7 @@ export default function HomePage() {
         eyebrow="Ways to help"
         title="Give once, give monthly, or simply stay in touch."
         body="Monthly commitments are the most useful, because they let work be planned rather than improvised."
-        secondary={{ href: "/contact", label: "Get in touch" }}
+        secondary={{ href: "/contact", label: "WhatsApp us" }}
       />
     </>
   );

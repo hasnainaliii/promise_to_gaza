@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { SITE_NAME } from "@/content/site";
 
 /** Round stamp with the heart logo and a slowly turning ring of text, like a
     wax seal on a letter of promise. Position it from the caller. */
@@ -6,11 +7,11 @@ export function SealBadge({ className = "" }: { className?: string }) {
   return (
     <div
       aria-hidden="true"
-      className={`size-28 rounded-full bg-paper shadow-lift sm:size-32 ${className}`}
+      className={`size-28 rounded-full bg-parchment-light shadow-lift sm:size-32 ${className}`}
     >
       <svg
         viewBox="0 0 120 120"
-        className="absolute inset-0 size-full animate-spin-slow text-charcoal"
+        className="absolute inset-0 size-full animate-spin-slow text-jet"
       >
         <defs>
           <path
@@ -23,12 +24,12 @@ export function SealBadge({ className = "" }: { className?: string }) {
           fontSize="8.5"
         >
           <textPath href="#seal-ring" textLength="279" lengthAdjust="spacing">
-            Promise to Gaza · A project of My Network ·
+            {SITE_NAME} · A project of My Network ·
           </textPath>
         </text>
       </svg>
       <Image
-        src="/images/Logos/Promise to Gaza Transparent Logo.png"
+        src="/images/brand/promise_to_gaza_logo.png"
         alt=""
         width={64}
         height={64}

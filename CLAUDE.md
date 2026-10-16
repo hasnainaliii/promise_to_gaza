@@ -5,11 +5,11 @@ This file gives Claude Code (and any other AI coding assistant reading it) the s
 
 ## What this project is
 
-**Promise to Gaza** is a warm, human-centered welfare and donation website focused on supporting people in Gaza.
+**Promise for Ummah** (formerly Promise to Gaza) is a warm, human-centered welfare and donation website. Its current focus is supporting families in Gaza, with the stated vision of standing with oppressed people everywhere. The name is defined once as `SITE_NAME` / `SITE_WORDMARK` in `src/content/site.ts`; never hardcode it.
 
 The website allows visitors to:
 
-* Learn about Promise to Gaza and its mission.
+* Learn about Promise for Ummah and its mission.
 * Understand what work and welfare initiatives are being carried out.
 * See where donations and support are directed.
 * Make donations.
@@ -191,7 +191,7 @@ If a payment provider is introduced, keep provider-specific logic isolated from 
 
 ## Content principles
 
-Promise to Gaza should communicate clearly and honestly.
+Promise for Ummah should communicate clearly and honestly.
 
 * Don't invent statistics.
 * Don't invent beneficiaries, stories, locations, campaigns, or impact numbers.
@@ -427,11 +427,11 @@ Don't use generic titles such as:
 
 Use meaningful titles such as:
 
-* Promise to Gaza — Support & Welfare
-* Our Work — Promise to Gaza
-* Donate — Promise to Gaza
-* About Promise to Gaza
-* Updates — Promise to Gaza
+* Promise for Ummah — Support & Welfare
+* Our Work — Promise for Ummah
+* Donate — Promise for Ummah
+* About Promise for Ummah
+* Updates — Promise for Ummah
 
 Where appropriate, pages should include structured metadata and social sharing metadata.
 
@@ -468,67 +468,42 @@ All visual tokens belong in `src/theme/`.
 
 The exact values may evolve during implementation, but the design direction should remain consistent.
 
-### Color direction
+### Brand palette
 
-Promise to Gaza should have a **warm, soft humanitarian palette** rather than a conventional corporate palette.
+These are the official Promise for Ummah brand colors. They are fixed: don't introduce colors outside this family.
 
-Use a restrained combination of:
+| Role | Name | Hex | Share | Theme token |
+| --- | --- | --- | --- | --- |
+| Primary / base | Jet Black | `#0C0C0C` | 40% | `jet` |
+| Secondary | Parchment | `#F0E8DC` | 30% | `parchment` |
+| Tertiary | Deep Crimson | `#720C0C` | 20% | `crimson` |
+| Accent | Desert Clay | `#D4AC90` | 10% | `clay` |
 
-* Warm off-white / paper background.
-* Soft olive or muted green as a grounding brand color.
-* A warm berry/red accent inspired by the region and the organization's identity.
-* Deep charcoal for primary text.
-* Soft sand/tan for secondary surfaces.
-* Muted neutral tones for supporting text.
+"Share" is roughly how much of a page each color should occupy. It's a balance guide, not a rule to measure.
 
-The palette should feel warm and organic rather than loud.
+They are defined once in `src/theme/theme.css`. Every other color token is a shade of one of the four and named after it: `jet-soft`, `jet-muted`, `jet-faint`, `parchment-light`, `parchment-deep`, `crimson-deep`, `crimson-tint`, `clay-deep`, `clay-tint`, plus `line` and `on-dark-*`. If a new shade is needed, derive it from a brand color, name it after that color, and add it to the theme first.
 
-Do not turn every section green or red.
+How each color is used:
 
-Accent colors should have clear purposes.
+* **Jet** — headings and body text (`jet-muted` for paragraphs), the footer and dark sections, secondary buttons.
+* **Parchment** — the page background. `parchment-light` lifts cards; `parchment-deep` marks alternating bands. Also the text color on jet and crimson (`on-dark`).
+* **Crimson** — donation actions (primary buttons), links, eyebrows, active navigation, and at most one full crimson section per page.
+* **Clay** — highlights on dark surfaces (eyebrows, italic emphasis, focus rings, decorative line drawings). Plain clay is too light for text on parchment; use `clay-deep` there.
 
-A suggested starting direction:
+Hero and field photography sits in grayscale under the brand colors.
 
-```text
-Background:
-Warm Paper — #FBF8F1
-
-Primary Brand:
-Soft Olive — #68745A
-
-Warm Accent:
-Muted Berry — #B94B52
-
-Warm Secondary:
-Sand — #E9DCC8
-
-Primary Text:
-Deep Charcoal — #292821
-
-Secondary Text:
-Warm Gray — #766F63
-
-Soft Surface:
-#F3EDE2
-
-White:
-#FFFFFF
-```
-
-These are starting theme tokens, not values to hardcode in components.
-
-The final palette should be refined through the actual design.
+The Palestinian flag keeps its own colors (`flag-*` tokens) and is the only exception to the palette.
 
 ### Color rules
 
 * Never hardcode colors inside components.
 * Don't use the accent color on everything.
-* Don't make every button the same color.
+* Don't make every button the same color. Primary (crimson) is for donating; secondary (jet), quiet (outline) and light (parchment, for dark sections) cover everything else.
 * Primary donation actions should be visually clear.
 * Secondary actions should remain visually quieter.
-* Maintain sufficient contrast.
-* Avoid excessive use of saturated red.
-* Avoid making the entire website green.
+* Maintain sufficient contrast. Crimson and jet on parchment, and parchment or clay on jet and crimson, all pass WCAG AA.
+* Any jet, crimson or photographic section gets the `tone-dark` utility so focus rings switch to clay.
+* Don't turn every section crimson or jet. Parchment is the resting state.
 * Don't use gradients as a default design technique.
 
 Gradients should only be introduced when there is a deliberate visual reason.
@@ -720,7 +695,7 @@ The goal is:
 
 **Warm, human, trustworthy, memorable, and genuinely pleasant to use.**
 
-It should feel like **Promise to Gaza has a personality**, not like someone selected a charity template and changed the logo.
+It should feel like **Promise for Ummah has a personality**, not like someone selected a charity template and changed the logo.
 
 *<!-- BEGIN:nextjs-agent-rules -->*
 

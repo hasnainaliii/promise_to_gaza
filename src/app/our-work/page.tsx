@@ -4,20 +4,21 @@ import { ClosingInvitation } from "@/components/closing_invitation";
 import { DriveShowcase } from "@/components/drive_timeline";
 import { Reveal } from "@/components/reveal";
 import { SectionIntro } from "@/components/section_intro";
+import { SITE_NAME } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Our Work & Relief Drives",
   description:
-    "Explore the 9 executed relief operations by Promise to Gaza, upcoming healthcare & education initiatives, and university campus expansion.",
+    `Explore the 9 executed relief operations by ${SITE_NAME}, upcoming healthcare & education initiatives, and university campus expansion.`,
 };
 
 const UPCOMING_INITIATIVES = [
   {
-    phase: "Phase 1 — In Preparation",
+    phase: "Phase 1 - In Preparation",
     status: "Next Deployment",
     title: "Healthcare Initiative",
     description:
-      "PTG will establish direct contact and coordination with healthcare personnel and doctors operating on the ground in Gaza. These medical professionals will provide exact assessments of urgent needs, enabling PTG to facilitate medical supplies, trauma support, and aid where it is needed most effectively.",
+      "We will establish direct contact and coordination with healthcare personnel and doctors operating on the ground in Gaza. These medical professionals will provide exact assessments of urgent needs, enabling us to facilitate medical supplies, trauma support, and aid where it is needed most effectively.",
     highlights: [
       "Direct doctor & field clinic coordination",
       "Emergency trauma care & essential pharmaceuticals",
@@ -25,7 +26,7 @@ const UPCOMING_INITIATIVES = [
     ],
   },
   {
-    phase: "Phase 2 — Planned",
+    phase: "Phase 2 - Planned",
     status: "Sequential Deployment",
     title: "Education Initiative",
     description:
@@ -38,40 +39,44 @@ const UPCOMING_INITIATIVES = [
   },
 ];
 
-const CAMPUS_EXPANSION = [
+const CAMPUS_CHAPTERS = [
+  {
+    name: "UET Taxila",
+    location: "Taxila, Punjab",
+    founding: true,
+    description:
+      `Where ${SITE_NAME} began, on 6 August 2025. It started as a student campaign in the Department of Computer Science and grew to cover the whole campus.`,
+  },
   {
     name: "HITEC University",
     location: "Taxila, Punjab",
-    status: "Active Chapter",
-    description: "Replicating PTG micro-donation workflows and campus awareness campaigns.",
+    description: "Replicating our micro-donation workflows and campus awareness campaigns.",
   },
   {
     name: "University of Chenab",
     location: "Gujrat, Punjab",
-    status: "Active Chapter",
     description: "Mobilizing student body participation and ethical consumer boycott drives.",
   },
   {
     name: "University of Wah",
     location: "Wah Cantt, Punjab",
-    status: "Active Chapter",
     description: "Expanding weekly student pooling network to scale relief capital.",
   },
 ];
 
 const CAMPAIGN_TOOLS_SUMMARY = [
   {
-    title: "Webinars & Expert Sessions",
+    title: "Webinars and Expert Sessions",
     summary:
       "Knowledge-sharing sessions with notable scholars and activists, including an exclusive session with Sheikh Uzair featuring first-hand insights from the Freedom Flotilla mission.",
   },
   {
-    title: "Weekly News & Crisis Updates",
+    title: "Weekly News and Crisis Updates",
     summary:
       "Regular graphical field briefs and verified humanitarian statistics to keep university communities informed and actively engaged.",
   },
   {
-    title: "Boycott & Economic Advocacy",
+    title: "Boycott and Economic Advocacy",
     summary:
       "Educational awareness posters highlighting corporate accountability and aligning everyday purchasing decisions with ethical resistance.",
   },
@@ -86,26 +91,26 @@ export default function OurWorkPage() {
   return (
     <>
       {/* ── Immersive Full-Bleed Hero Image ──────────────────────── */}
-      <section className="relative min-h-[75vh] sm:min-h-[85vh] lg:min-h-screen overflow-hidden -mt-24 bg-neutral-900">
+      <section className="tone-dark relative min-h-[75vh] sm:min-h-[85vh] lg:min-h-screen overflow-hidden -mt-24 bg-jet">
         {/* Background photograph from public/images/ourwork */}
         <div
-          className="absolute -top-16 inset-x-0 bottom-0 overflow-hidden pointer-events-none bg-neutral-900"
+          className="absolute -top-16 inset-x-0 bottom-0 overflow-hidden pointer-events-none bg-jet"
           aria-hidden="true"
         >
           <Image
-            src="/images/ourwork/Expanded to 1920_1080 landscape.png"
-            alt="Young girl in Gaza holding Promise to Gaza sign in front of clean water tanker relief drive"
+            src="/images/ourwork/water_drive_hero.jpg"
+            alt=""
             fill
-            priority
+            preload
             sizes="100vw"
             className="object-cover object-[50%_35%] grayscale contrast-[1.08] brightness-[0.98]"
           />
         </div>
 
-        {/* Soft bottom fade to transition cleanly into paper background */}
+        {/* Soft bottom fade into the parchment page */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-24 z-10 bg-gradient-to-t from-[var(--color-paper)] to-transparent opacity-80"
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-24 z-10 bg-gradient-to-t from-parchment to-transparent opacity-80"
         />
 
         {/* Organic wave transition to next section */}
@@ -115,7 +120,7 @@ export default function OurWorkPage() {
             preserveAspectRatio="none"
             aria-hidden="true"
             className="relative block h-7 w-full sm:h-9 lg:h-11"
-            fill="var(--color-paper)"
+            fill="var(--color-parchment)"
           >
             <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" />
           </svg>
@@ -129,7 +134,7 @@ export default function OurWorkPage() {
           <SectionIntro
             index="01"
             eyebrow="Executed operations"
-            title="Relief drives & impact milestones"
+            title="Relief drives and impact milestones"
             lede="Nine phased relief operations tailored to seasonal, spiritual, and emergency needs across high-scarcity zones in Gaza."
           />
           <div className="mt-10">
@@ -139,7 +144,7 @@ export default function OurWorkPage() {
       </section>
 
       {/* ── 02 Upcoming initiatives ─────────────────────────────── */}
-      <section className="bg-cream paper-grain">
+      <section className="bg-parchment-deep paper-grain">
         <div className="mx-auto max-w-page px-5 py-section-lg sm:px-8">
           <SectionIntro
             index="02"
@@ -153,26 +158,26 @@ export default function OurWorkPage() {
               <Reveal
                 key={initiative.title}
                 delay={i * 150}
-                className="flex flex-col rounded-blob bg-paper p-8 shadow-soft sm:p-10"
+                className="flex flex-col rounded-blob bg-parchment-light p-8 shadow-soft sm:p-10"
               >
                 <div className="flex flex-wrap items-center justify-between gap-3">
-                  <span className="text-xs font-semibold uppercase tracking-eyebrow text-palestine-green">
+                  <span className="text-xs font-semibold uppercase tracking-eyebrow text-crimson">
                     {initiative.phase}
                   </span>
-                  <span className="font-heading text-sm italic text-warm-gray">
+                  <span className="font-heading text-sm italic text-jet-muted">
                     {initiative.status}
                   </span>
                 </div>
-                <h3 className="mt-8 font-heading text-title text-charcoal">
+                <h3 className="mt-8 font-heading text-title text-jet">
                   {initiative.title}
                 </h3>
-                <p className="mt-4 leading-relaxed text-warm-gray">
+                <p className="mt-4 leading-relaxed text-jet-muted">
                   {initiative.description}
                 </p>
-                <ul className="mt-auto flex flex-col gap-3 border-t border-line pt-6 text-charcoal">
+                <ul className="mt-auto flex flex-col gap-3 border-t border-line pt-6 text-jet">
                   {initiative.highlights.map((highlight) => (
                     <li key={highlight} className="flex items-start gap-3">
-                      <span aria-hidden="true" className="mt-2 size-1.5 shrink-0 rotate-45 bg-berry" />
+                      <span aria-hidden="true" className="mt-2 size-1.5 shrink-0 rounded-full bg-clay" />
                       <span>{highlight}</span>
                     </li>
                   ))}
@@ -188,43 +193,44 @@ export default function OurWorkPage() {
         <SectionIntro
           index="03"
           eyebrow="Campus chapters"
-          title="Multi-university strategic expansion"
-          lede="Establishing active campus chapters across academic institutions to build a unified, student-led humanitarian alliance."
+          title="From one campus to many"
+          lede={`${SITE_NAME} started at UET Taxila. Students at other universities now run chapters of their own.`}
         />
 
         <ul className="mt-12 border-t border-line">
-          {CAMPUS_EXPANSION.map((chapter, i) => (
+          {CAMPUS_CHAPTERS.map((chapter, i) => (
             <Reveal
               as="li"
               key={chapter.name}
               delay={i * 120}
-              className="grid gap-3 border-b border-line py-7 sm:grid-cols-12 sm:items-center sm:gap-8"
+              className="grid gap-3 border-b border-line py-8 sm:grid-cols-12 sm:items-center sm:gap-8"
             >
-              <div className="sm:col-span-4">
-                <h3 className="font-heading text-2xl tracking-tight text-charcoal">
+              <div className="sm:col-span-5">
+                {chapter.founding ? (
+                  <p className="mb-2 text-xs font-semibold uppercase tracking-eyebrow text-crimson">
+                    Founding chapter
+                  </p>
+                ) : null}
+                <h3 className="font-heading text-2xl tracking-tight text-jet">
                   {chapter.name}
                 </h3>
-                <p className="mt-1 text-sm text-warm-gray">{chapter.location}</p>
+                <p className="mt-1 text-sm text-jet-muted">{chapter.location}</p>
               </div>
-              <p className="leading-relaxed text-warm-gray sm:col-span-6">
+              <p className="leading-relaxed text-jet-muted sm:col-span-7">
                 {chapter.description}
               </p>
-              <span className="inline-flex items-center gap-2 justify-self-start text-sm font-medium text-palestine-green sm:col-span-2 sm:justify-self-end">
-                <span aria-hidden="true" className="size-2 rounded-full bg-palestine-green animate-pulse-dot" />
-                {chapter.status}
-              </span>
             </Reveal>
           ))}
         </ul>
         <Reveal className="mt-6">
-          <p className="text-sm text-warm-gray">
+          <p className="text-sm text-jet-muted">
             Each chapter replicates the weekly Rs. 100 model.
           </p>
         </Reveal>
       </section>
 
       {/* ── 04 Awareness tools ──────────────────────────────────── */}
-      <section className="bg-cream paper-grain">
+      <section className="bg-parchment-deep paper-grain">
         <div className="mx-auto max-w-page px-5 py-section-lg sm:px-8">
           <SectionIntro
             index="04"
@@ -239,13 +245,13 @@ export default function OurWorkPage() {
                 as="li"
                 key={tool.title}
                 delay={(i % 2) * 120}
-                className="border-t border-charcoal/15 pt-6"
+                className="border-t border-jet/15 pt-6"
               >
-                <span className="font-heading text-sm italic text-berry">0{i + 1}</span>
-                <h3 className="mt-3 font-heading text-2xl tracking-tight text-charcoal">
+                <span className="font-heading text-sm italic text-clay-deep">0{i + 1}</span>
+                <h3 className="mt-3 font-heading text-2xl tracking-tight text-jet">
                   {tool.title}
                 </h3>
-                <p className="mt-3 leading-relaxed text-warm-gray">{tool.summary}</p>
+                <p className="mt-3 leading-relaxed text-jet-muted">{tool.summary}</p>
               </Reveal>
             ))}
           </ol>
@@ -255,7 +261,7 @@ export default function OurWorkPage() {
       <ClosingInvitation
         eyebrow="Ways to help"
         title="Help make the next drive possible."
-        body="Initiated first at UET Taxila, PTG is designed so that everyone can play their part without financial strain."
+        body={`Initiated first at UET Taxila, ${SITE_NAME} is designed so that everyone can play their part without financial strain.`}
         secondary={{ href: "/about", label: "Read about us" }}
       />
     </>

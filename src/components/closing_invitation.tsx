@@ -1,8 +1,9 @@
 import type { ReactNode } from "react";
+import { ActionLink } from "@/components/action_button";
 import { OliveBranch } from "@/components/olive_branch";
 import { PlantDonateButton } from "@/components/plant_donate_button";
 import { Reveal } from "@/components/reveal";
-import { SketchLink } from "@/components/sketch_link";
+import { DONATION_ACCOUNT } from "@/content/site";
 
 interface ClosingInvitationProps {
   eyebrow: string;
@@ -20,33 +21,33 @@ export function ClosingInvitation({
 }: ClosingInvitationProps) {
   return (
     <section className="mx-auto max-w-page px-5 py-section-lg sm:px-8">
-      <Reveal className="relative isolate overflow-hidden rounded-blob bg-cream px-6 pb-12 pt-14 paper-grain sm:px-12 sm:pb-16 sm:pt-20 lg:px-16">
-        <OliveBranch className="pointer-events-none absolute -right-6 -top-4 -z-10 hidden w-80 text-olive-soft sm:block" />
-        <div aria-hidden="true" className="absolute inset-x-0 bottom-0 -z-10 tatreez-band h-3 text-cream-deep" />
+      <Reveal className="relative isolate overflow-hidden rounded-blob bg-parchment-deep px-6 pb-12 pt-14 paper-grain sm:px-12 sm:pb-16 sm:pt-20 lg:px-16">
+        <OliveBranch className="pointer-events-none absolute -right-6 -top-4 -z-10 hidden w-80 text-clay sm:block" />
+        <div aria-hidden="true" className="absolute inset-x-0 bottom-0 -z-10 tatreez-band h-3 text-line" />
 
         <div className="grid items-end gap-12 lg:grid-cols-12">
           <div className="lg:col-span-7">
-            <span className="inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-eyebrow text-palestine-green">
+            <span className="inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-eyebrow text-crimson">
               <span aria-hidden="true" className="h-px w-8 bg-current opacity-50" />
               {eyebrow}
             </span>
-            <h2 className="mt-5 font-heading text-headline text-balance text-charcoal">
+            <h2 className="mt-5 font-heading text-headline text-balance text-jet">
               {title}
             </h2>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-warm-gray">
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-jet-muted">
               {body}
             </p>
           </div>
 
           <div className="flex flex-col items-start gap-5 lg:col-span-5 lg:items-end">
             <div className="flex flex-wrap items-center gap-4 sm:gap-5">
-              <PlantDonateButton href="/donate">Donate now</PlantDonateButton>
-              <SketchLink href={secondary.href} size="lg">
+              <PlantDonateButton />
+              <ActionLink href={secondary.href} variant="quiet" size="lg">
                 {secondary.label}
-              </SketchLink>
+              </ActionLink>
             </div>
-            <p className="text-sm text-warm-gray lg:text-right">
-              Easypaisa, Sadapay, or any Pakistani bank via Raast.
+            <p className="text-sm text-jet-muted lg:text-right">
+              {DONATION_ACCOUNT.providers.join(", ")}, or any Pakistani bank via Raast.
             </p>
           </div>
         </div>

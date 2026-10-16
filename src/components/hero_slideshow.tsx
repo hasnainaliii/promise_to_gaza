@@ -2,39 +2,39 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { usePrefersReducedMotion } from "@/hooks/use_prefers_reduced_motion";
 
 interface Slide {
   src: string;
-  alt: string;
   position: string;
 }
 
 const SLIDES: Slide[] = [
   {
-    src: "/images/mohammed-ibrahim-ZupwcgqWjcU-unsplash.jpg",
-    alt: "Young people sitting together in Gaza",
+    src: "/images/hero/gaza_young_people_together.jpg",
     position: "object-[50%_35%]",
   },
   {
-    src: "/images/mohammed-ibrahim-703Sobdug5o-unsplash.jpg",
-    alt: "Children in Gaza standing together with hope",
+    src: "/images/hero/gaza_children_standing_together.jpg",
     position: "object-[50%_40%]",
   },
 ];
 
 export function HeroSlideshow() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const reducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
+    if (reducedMotion) return;
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % SLIDES.length);
     }, 4000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [reducedMotion]);
 
   return (
-    <div className="absolute -top-16 inset-x-0 bottom-0 overflow-hidden pointer-events-none bg-neutral-900" aria-hidden="true">
+    <div className="absolute -top-16 inset-x-0 bottom-0 overflow-hidden pointer-events-none bg-jet" aria-hidden="true">
       {SLIDES.map((slide, index) => {
         const isActive = index === currentIndex;
         return (
@@ -46,9 +46,9 @@ export function HeroSlideshow() {
           >
             <Image
               src={slide.src}
-              alt={slide.alt}
+              alt=""
               fill
-              priority={index === 0}
+              preload={index === 0}
               sizes="100vw"
               className={`object-cover ${slide.position} grayscale contrast-[1.08] brightness-[0.96] transition-transform duration-[7000ms] ease-out ${
                 isActive ? "scale-105" : "scale-100"

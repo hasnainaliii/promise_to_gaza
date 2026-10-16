@@ -10,9 +10,9 @@ export function PlaceholderNote({
 }) {
   return (
     <p
-      className={`inline-flex items-start gap-2.5 rounded-soft border border-dashed border-sand-deep bg-surface px-4 py-2.5 text-sm leading-relaxed text-warm-gray ${className}`}
+      className={`inline-flex items-start gap-2.5 rounded-soft border border-dashed border-clay bg-parchment-light px-4 py-2.5 text-sm leading-relaxed text-jet-muted ${className}`}
     >
-      <span aria-hidden="true" className="mt-1.5 size-2 shrink-0 rotate-45 bg-sand-deep" />
+      <span aria-hidden="true" className="mt-1.5 size-1.5 shrink-0 rounded-full bg-clay" />
       <span>{children}</span>
     </p>
   );

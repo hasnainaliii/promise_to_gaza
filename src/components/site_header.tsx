@@ -3,7 +3,8 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState, startTransition } from "react";
-import { PlantDonateButton } from "@/components/plant_donate_button";
+import { ActionLink } from "@/components/action_button";
+import { SiteWordmark } from "@/components/site_wordmark";
 import { NAV_LINKS, SITE_NAME } from "@/content/site";
 
 export function SiteHeader() {
@@ -45,28 +46,23 @@ export function SiteHeader() {
     <header
       className={`sticky top-0 z-40 transition-all duration-300 ${
         isTransparent
-          ? "border-b-0 bg-transparent shadow-none"
-          : "border-b border-line/60 bg-paper/90 backdrop-blur-md shadow-xs"
+          ? "tone-dark border-b-0 bg-transparent shadow-none"
+          : "border-b border-line/60 bg-parchment"
       }`}
     >
       <div className="mx-auto grid h-24 max-w-page grid-cols-2 items-center px-6 sm:px-8 md:grid-cols-[1fr_auto_1fr]">
-        {/* Left: Brand / Logo */}
         <div className="flex items-center justify-start">
           <Link
             href="/"
-            className={`group flex items-center py-1 transition-colors duration-300 ${
-              isTransparent
-                ? "text-white hover:text-white/85"
-                : "text-charcoal hover:text-olive-deep"
+            aria-label={`${SITE_NAME} - home`}
+            className={`flex items-center py-1 transition-[color,opacity] duration-300 hover:opacity-80 ${
+              isTransparent ? "text-parchment" : "text-jet"
             }`}
           >
-            <span
-              className={`font-heading text-2xl sm:text-3xl md:text-[1.95rem] lg:text-[2.15rem] font-bold leading-none tracking-tight whitespace-nowrap transition-colors duration-300 ${
-                isTransparent ? "text-white" : "text-charcoal"
-              }`}
-            >
-              {SITE_NAME}
-            </span>
+            <SiteWordmark
+              accentClass={isTransparent ? "text-clay" : "text-crimson"}
+              className="text-2xl font-bold leading-none sm:text-3xl md:text-2xl lg:text-[2.15rem]"
+            />
           </Link>
         </div>
 
@@ -75,7 +71,7 @@ export function SiteHeader() {
           aria-label="Primary"
           className="hidden items-center justify-center md:flex"
         >
-          <ul className="flex items-center gap-8 lg:gap-10">
+          <ul className="flex items-center gap-7 lg:gap-10">
             {NAV_LINKS.map((link) => {
               const active = isCurrent(link.href);
               return (
@@ -83,14 +79,16 @@ export function SiteHeader() {
                   <Link
                     href={link.href}
                     aria-current={active ? "page" : undefined}
-                    className={`py-1 text-base transition-colors duration-300 ease-out ${
+                    className={`relative block py-2 text-base font-medium transition-colors duration-200 after:absolute after:inset-x-0 after:bottom-0 after:h-0.5 after:rounded-full after:bg-current after:transition-transform after:duration-300 after:ease-soft ${
+                      active ? "after:scale-x-100" : "after:scale-x-0"
+                    } ${
                       isTransparent
                         ? active
-                          ? "font-semibold text-olive-tint"
-                          : "font-medium text-white/80 hover:text-white"
+                          ? "text-parchment"
+                          : "text-on-dark-muted hover:text-parchment"
                         : active
-                        ? "font-semibold text-palestine-green"
-                        : "font-medium text-charcoal/75 hover:text-charcoal"
+                          ? "text-crimson"
+                          : "text-jet-muted hover:text-jet"
                     }`}
                   >
                     {link.label}
@@ -103,14 +101,14 @@ export function SiteHeader() {
 
         {/* Right: CTA button & Mobile toggle */}
         <div className="flex items-center justify-end gap-3.5">
-          <PlantDonateButton
+          <ActionLink
             href="/donate"
+            variant="primary"
             size="sm"
-            showLeaves={false}
-            className="!hidden sm:!inline-flex"
+            className="max-sm:hidden"
           >
             Donate now
-          </PlantDonateButton>
+          </ActionLink>
 
           <button
             type="button"
@@ -120,8 +118,8 @@ export function SiteHeader() {
             onClick={() => setMenuOpen((open) => !open)}
             className={`inline-flex size-10 items-center justify-center rounded-md backdrop-blur-sm transition-colors duration-200 md:hidden ${
               isTransparent
-                ? "border border-white/30 bg-black/30 text-white hover:bg-black/50"
-                : "border border-line bg-paper/70 text-charcoal hover:bg-surface"
+                ? "border border-parchment/30 bg-jet/30 text-parchment hover:bg-jet/50"
+                : "border border-line bg-parchment/70 text-jet hover:bg-parchment-light"
             }`}
           >
             <svg
@@ -148,7 +146,7 @@ export function SiteHeader() {
         <nav
           id="mobile-menu"
           aria-label="Primary"
-          className="border-t border-line/60 bg-paper/95 px-6 pb-6 pt-3 backdrop-blur-md md:hidden"
+          className="border-t border-line/60 bg-parchment px-6 pb-6 pt-3 md:hidden"
         >
           <ul className="flex flex-col">
             {[...NAV_LINKS, { href: "/contact", label: "Contact" }].map(
@@ -162,14 +160,14 @@ export function SiteHeader() {
                       onClick={() => setMenuOpen(false)}
                       className={`flex min-h-12 items-center justify-between border-b border-line/50 text-base transition-colors duration-200 ${
                         active
-                          ? "font-bold text-palestine-green"
-                          : "font-medium text-charcoal hover:text-palestine-green"
+                          ? "font-bold text-crimson"
+                          : "font-medium text-jet hover:text-crimson"
                       }`}
                     >
                       <span>{link.label}</span>
                       {active ? (
                         <span
-                          className="size-2 rounded-full bg-palestine-green"
+                          className="size-2 rounded-full bg-crimson"
                           aria-hidden="true"
                         />
                       ) : null}
@@ -180,15 +178,15 @@ export function SiteHeader() {
             )}
           </ul>
           <div className="mt-6 flex justify-center">
-            <PlantDonateButton
+            <ActionLink
               href="/donate"
-              size="default"
-              showLeaves={false}
+              variant="primary"
+              size="lg"
               onClick={() => setMenuOpen(false)}
-              className="w-full max-w-xs text-center justify-center"
+              className="w-full max-w-xs"
             >
               Donate now
-            </PlantDonateButton>
+            </ActionLink>
           </div>
         </nav>
       ) : null}

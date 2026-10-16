@@ -4,7 +4,7 @@ import { Reveal } from "@/components/reveal";
 /** A hand-drawn stroke that traces itself under a word once it scrolls in. */
 export function HandUnderline({
   children,
-  colorClass = "text-berry",
+  colorClass = "text-clay-deep",
 }: {
   children: ReactNode;
   colorClass?: string;

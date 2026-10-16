@@ -37,13 +37,13 @@ export function SectionIntro({
       <span
         key="eyebrow"
         className={`inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-eyebrow ${
-          dark ? "text-sand" : "text-palestine-green"
+          dark ? "text-clay" : "text-crimson"
         }`}
       >
         {index ? (
           <span
             className={`font-heading text-sm font-normal italic tracking-normal normal-case ${
-              dark ? "text-on-forest-muted" : "text-berry"
+              dark ? "text-on-dark-muted" : "text-clay-deep"
             }`}
           >
             {index}
@@ -56,7 +56,7 @@ export function SectionIntro({
     <Heading
       key="title"
       className={`font-heading ${size} text-balance ${
-        dark ? "text-on-forest" : "text-charcoal"
+        dark ? "text-on-dark" : "text-jet"
       }`}
     >
       {title}
@@ -65,7 +65,7 @@ export function SectionIntro({
       <p
         key="lede"
         className={`max-w-narrow text-lg leading-relaxed text-pretty ${
-          dark ? "text-on-forest-muted" : "text-warm-gray"
+          dark ? "text-on-dark-muted" : "text-jet-muted"
         }`}
       >
         {lede}

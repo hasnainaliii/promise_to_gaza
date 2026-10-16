@@ -5,11 +5,12 @@ import { PlaceholderNote } from "@/components/placeholder_note";
 import { SectionIntro } from "@/components/section_intro";
 import { UpdateCard } from "@/components/update_card";
 import { stories, updates } from "@/content/placeholder_content";
+import { SITE_NAME } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Updates",
   description:
-    "Field updates, spending reports and stories from the work Promise to Gaza supports.",
+    `Field updates, spending reports and stories from the work ${SITE_NAME} supports.`,
 };
 
 export default function UpdatesPage() {
@@ -35,7 +36,7 @@ export default function UpdatesPage() {
         </ul>
       </section>
 
-      <section className="bg-surface">
+      <section className="bg-parchment-deep">
         <div className="mx-auto max-w-page px-5 py-section sm:px-8">
           <SectionIntro
             eyebrow="Stories"
@@ -43,14 +44,14 @@ export default function UpdatesPage() {
             lede="We will only publish a story when someone has chosen to share it and agreed to how it is told."
           />
           {stories.length === 0 ? (
-            <div className="mt-8 flex flex-col items-start gap-4 rounded-card border border-dashed border-sand-deep bg-paper p-8">
-              <p className="max-w-narrow leading-relaxed text-warm-gray">
+            <div className="mt-8 flex flex-col items-start gap-4 rounded-card border border-dashed border-clay bg-parchment-light p-8">
+              <p className="max-w-narrow leading-relaxed text-jet-muted">
                 There are no stories here yet. Rather than fill this space with
                 something invented, we have left it empty until a real,
                 consented story exists.
               </p>
               <ActionLink href="/contact" variant="quiet">
-                Ask about sharing a story
+                Reach out on WhatsApp
               </ActionLink>
             </div>
           ) : null}

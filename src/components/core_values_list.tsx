@@ -25,27 +25,27 @@ interface CoreValuesListProps {
     manifesto, and leans in slightly on hover. */
 export function CoreValuesList({ values }: CoreValuesListProps) {
   return (
-    <ol className="border-t border-charcoal/15">
+    <ol className="border-t border-jet/15">
       {values.map((value, i) => (
         <Reveal
           as="li"
           key={value.title}
           delay={i * 120}
-          className="group border-b border-charcoal/15"
+          className="group border-b border-jet/15"
         >
           <div className="grid gap-4 py-8 transition-transform duration-500 ease-soft sm:grid-cols-12 sm:items-center sm:gap-8 sm:py-10 sm:group-hover:translate-x-2">
-            <span className="font-heading text-sm italic text-berry sm:col-span-1">
+            <span className="font-heading text-sm italic text-clay-deep sm:col-span-1">
               0{i + 1}
             </span>
-            <h3 className="font-heading text-headline text-charcoal transition-colors duration-500 group-hover:text-palestine-green sm:col-span-5">
+            <h3 className="font-heading text-headline text-jet transition-colors duration-500 group-hover:text-crimson sm:col-span-5">
               {value.title}
             </h3>
-            <p className="text-lg leading-relaxed text-warm-gray sm:col-span-5">
+            <p className="text-lg leading-relaxed text-jet-muted sm:col-span-5">
               {value.description}
             </p>
             <span
               aria-hidden="true"
-              className="hidden size-14 items-center justify-center justify-self-end rounded-full border border-charcoal/15 text-palestine-green transition-all duration-500 ease-soft group-hover:rotate-6 group-hover:border-palestine-green group-hover:bg-palestine-green group-hover:text-paper sm:col-span-1 sm:flex"
+              className="hidden size-14 items-center justify-center justify-self-end rounded-full border border-jet/15 text-crimson transition-all duration-500 ease-soft group-hover:rotate-6 group-hover:border-crimson group-hover:bg-crimson group-hover:text-parchment sm:col-span-1 sm:flex"
             >
               <svg
                 viewBox="0 0 24 24"
