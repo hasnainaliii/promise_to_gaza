@@ -1,16 +1,15 @@
-import { Fraunces, Inter } from "next/font/google";
+import { Cormorant_Garamond, Work_Sans } from "next/font/google";
 
-export const headingFont = Fraunces({
+export const headingFont = Cormorant_Garamond({
   subsets: ["latin"],
-  variable: "--font-fraunces",
+  variable: "--font-cormorant",
   display: "swap",
-  axes: ["SOFT", "opsz"],
   style: ["normal", "italic"],
 });
 
-export const bodyFont = Inter({
+export const bodyFont = Work_Sans({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-work-sans",
   display: "swap",
 });
 

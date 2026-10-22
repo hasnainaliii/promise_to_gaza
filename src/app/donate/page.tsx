@@ -74,7 +74,7 @@ export default function DonatePage() {
 
           {/* Transfer Instructions */}
           <div className="rounded-card border border-rule bg-raised p-6 sm:p-8 shadow-xs">
-            <h3 className="font-heading text-xl font-bold tracking-tight text-ink">
+            <h3 className="font-heading text-2xl tracking-tight text-ink">
               How to Send Your Donation
             </h3>
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -87,7 +87,7 @@ export default function DonatePage() {
                     <span className="flex size-7 items-center justify-center rounded-full bg-action text-xs font-bold text-on-action">
                       {s.step}
                     </span>
-                    <h4 className="font-heading text-base font-semibold text-ink">
+                    <h4 className="font-heading text-lg text-ink">
                       {s.title}
                     </h4>
                   </div>
@@ -115,7 +115,7 @@ export default function DonatePage() {
                 <li key={pt.title} className="flex items-start gap-3">
                   <span aria-hidden="true" className="mt-1.5 size-2 shrink-0 rounded-full bg-accent" />
                   <div>
-                    <h4 className="font-heading text-base font-semibold text-ink">
+                    <h4 className="font-heading text-lg text-ink">
                       {pt.title}
                     </h4>
                     <p className="mt-1 text-sm leading-relaxed text-ink-muted">
@@ -132,14 +132,14 @@ export default function DonatePage() {
                 className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:underline"
               >
                 <span>View verified field proof from 9 relief drives</span>
-                <span aria-hidden="true">-&gt;</span>
+                <span aria-hidden="true">→</span>
               </Link>
             </div>
           </div>
 
           {/* Rs. 100 Micro-Donation Callout */}
           <div className="rounded-card border border-accent/20 bg-accent/10 p-6 sm:p-8">
-            <h4 className="font-heading text-lg font-bold text-accent">
+            <h4 className="font-heading text-xl text-accent">
               The Weekly Rs. 100 (~$0.35 USD) Model
             </h4>
             <p className="mt-2 text-sm leading-relaxed text-ink/90">
@@ -152,7 +152,7 @@ export default function DonatePage() {
 
           {/* Assistance & WhatsApp Help */}
           <div className="rounded-card border border-rule bg-raised p-6 shadow-xs">
-            <h4 className="font-heading text-base font-semibold text-ink">
+            <h4 className="font-heading text-lg text-ink">
               Need help or international bank info?
             </h4>
             <p className="mt-2 text-xs leading-relaxed text-ink-muted">
@@ -164,7 +164,7 @@ export default function DonatePage() {
                 href={`https://wa.me/${WHATSAPP_NUMBER}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-lg bg-action px-4 py-2 text-xs font-semibold text-on-action shadow-xs transition-all hover:bg-action-hover"
+                className="inline-flex items-center gap-1.5 rounded-lg bg-action px-4 py-2 text-xs font-semibold uppercase tracking-cta text-on-action shadow-xs transition-all hover:bg-action-hover"
               >
                 WhatsApp {WHATSAPP_DISPLAY}
               </a>
@@ -172,7 +172,7 @@ export default function DonatePage() {
                 href={`https://wa.me/${WHATSAPP_NUMBER_2}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 rounded-lg border border-rule bg-ink/5 px-4 py-2 text-xs font-semibold text-ink transition-all hover:bg-ink/10"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-rule bg-ink/5 px-4 py-2 text-xs font-semibold uppercase tracking-cta text-ink transition-all hover:bg-ink/10"
               >
                 WhatsApp {WHATSAPP_DISPLAY_2}
               </a>

@@ -5,11 +5,11 @@ This file gives Claude Code (and any other AI coding assistant reading it) the s
 
 ## What this project is
 
-**Promise for Ummah** (formerly Promise to Gaza) is a warm, human-centered welfare and donation website. Its current focus is supporting families in Gaza, with the stated vision of standing with oppressed people everywhere. The name is defined once as `SITE_NAME` / `SITE_WORDMARK` in `src/content/site.ts`; never hardcode it.
+**Stand for Ummah** (formerly Promise to Gaza) is a warm, human-centered welfare and donation website. Its current focus is supporting families in Gaza, with the stated vision of standing with oppressed people everywhere. The name is defined once as `SITE_NAME` / `SITE_WORDMARK` in `src/content/site.ts`; never hardcode it.
 
 The website allows visitors to:
 
-* Learn about Promise for Ummah and its mission.
+* Learn about Stand for Ummah and its mission.
 * Understand what work and welfare initiatives are being carried out.
 * See where donations and support are directed.
 * Make donations.
@@ -191,7 +191,7 @@ If a payment provider is introduced, keep provider-specific logic isolated from 
 
 ## Content principles
 
-Promise for Ummah should communicate clearly and honestly.
+Stand for Ummah should communicate clearly and honestly.
 
 * Don't invent statistics.
 * Don't invent beneficiaries, stories, locations, campaigns, or impact numbers.
@@ -427,11 +427,11 @@ Don't use generic titles such as:
 
 Use meaningful titles such as:
 
-* Promise for Ummah — Support & Welfare
-* Our Work — Promise for Ummah
-* Donate — Promise for Ummah
-* About Promise for Ummah
-* Updates — Promise for Ummah
+* Stand for Ummah — Support & Welfare
+* Our Work — Stand for Ummah
+* Donate — Stand for Ummah
+* About Stand for Ummah
+* Updates — Stand for Ummah
 
 Where appropriate, pages should include structured metadata and social sharing metadata.
 
@@ -470,27 +470,27 @@ The exact values may evolve during implementation, but the design direction shou
 
 ### Brand palette
 
-These are the official Promise for Ummah brand colors and their share of the site. They are fixed: don't introduce colors outside this family.
+These are the official Stand for Ummah brand colors and their share of the site. They are fixed: don't introduce colors outside this family.
 
 | Role | Name | Hex | Share | Theme token |
 | --- | --- | --- | --- | --- |
-| Primary | Jet Black | `#0C0C0C` | 40% | `jet` |
-| Primary | Deep Crimson | `#720C0C` | 30% | `crimson` |
-| Secondary | Parchment | `#F0E8DC` | 20% | `parchment` |
-| Base | Desert Clay | `#D4AC90` | 10% | `clay` |
+| Primary | Deep Teal | `#244F58` | 50% | `teal` |
+| Secondary | Soft Aqua | `#9ACACA` | 20% | `aqua` |
+| Accent | Desert Clay | `#D4AC90` | 20% | `clay` |
+| Base | Parchment | `#F0E8DC` | 10% | `parchment` |
 
-The colors are materials, not stripes:
+How each color is used:
 
-* **Jet** is one continuous canvas. Every page sits on it; sections on jet are separated by space and hairlines, not by color.
-* **Crimson** is for statement sections: two or three full-width bands per page with short, confident content (a big headline, a key figure, a call to give). It has a soft velvet falloff so large areas look rich rather than flat. It is also the donate button.
-* **Parchment** is paper: documents and cards that sit on the jet canvas (the account details, the drive ledger, a pinned note, a reading section), usually with `paper-grain`. It's also the text color on dark.
-* **Clay** is only an accent: eyebrows, italic emphasis, the wordmark's connecting word, chapter numbers, line drawings, focus rings. Never a background.
+* **Deep Teal** is the canvas. Every page sits on it; sections on teal are separated by space and hairlines, not by color.
+* **Soft Aqua** is for calm sections: page headers and one or two reading sections per page, with deep teal text. On teal it also marks chapter numbers and small highlights.
+* **Desert Clay** is the call to action and the warm voice: buttons (deep teal text on clay), eyebrow labels, italic emphasis, the wordmark's connecting word, and one warm statement section per page.
+* **Parchment** is the text color on teal, and paper: documents and cards (the account details, the drive ledger, a pinned note), usually with `paper-grain`.
 
 "Share" is how much of the site each color should occupy, so it's a balance guide rather than a per-page measurement.
 
 ### Surfaces
 
-Every section (and any card that should stand out) declares one surface utility from `src/theme/theme.css`: `surface-jet`, `surface-crimson` or `surface-parchment`. Jet is the body default, so plain sections are jet without a class.
+Every section (and any card that should stand out) declares one surface utility from `src/theme/theme.css`: `surface-teal`, `surface-aqua`, `surface-clay` or `surface-parchment`. Teal is the body default, so plain sections are teal without a class.
 
 A surface paints the background and redefines the semantic tokens for everything inside it. Components only use these semantic tokens, never raw brand colors, so they read correctly on any surface:
 
@@ -500,60 +500,48 @@ A surface paints the background and redefines the semantic tokens for everything
 | `rule` | hairlines and borders |
 | `accent`, `accent-soft` | eyebrows, links, italic emphasis, chapter numbers, dots |
 | `raised` | cards that sit on the surface |
-| `action`, `on-action`, `action-hover` | the donate button: crimson on jet and parchment; parchment on crimson |
+| `action`, `on-action`, `action-hover` | the CTA button: clay with deep teal text on teal and parchment; teal with parchment text on aqua and clay |
 | `surface`, `focus` | the surface color itself (for inverted buttons) and the focus ring |
 
 To change the color balance, change which surface a section uses. Don't recolor components.
 
-Raw brand shades (`jet-muted`, `crimson-deep`, `parchment-light`, `clay-deep`…) exist only to build the surfaces. The one exception is overlays on photos and videos, which stay jet and parchment regardless of surface.
+Raw shades (`teal-deep`, `teal-ink`, `aqua-light`, `clay-light`, `clay-deep`, `parchment-light`) exist only to build the surfaces. The one exception is overlays on photos and videos, which use `teal-ink` and `parchment` regardless of surface.
 
-Hero and field photography sits in grayscale under the brand colors. The Palestinian flag keeps its own colors (`flag-*` tokens).
+Hero and field photography sits in grayscale under a teal tint. The Palestinian flag keeps its own colors (`flag-*` tokens).
 
 ### Color rules
 
 * Never hardcode colors inside components; use the semantic tokens.
-* Don't stack crimson sections back to back, and don't alternate colors just for variety. Jet sections can follow each other; rhythm comes from crimson statements and parchment paper placed with intent.
-* Don't fill cards on jet with a solid dark color; use `bg-raised` (a faint lift) with a `border-rule` hairline.
-* Button variants: `primary` is for donating only; `secondary` (the inverse of the surface) and `quiet` (outline) cover everything else.
-* Primary donation actions should be visually clear. Secondary actions should remain visually quieter.
-* Every surface pairing in the theme passes WCAG AA for text. Keep it that way when adding shades.
+* Don't stack aqua or clay sections back to back, and don't alternate colors just for variety. Teal sections can follow each other; rhythm comes from aqua and clay sections and parchment paper placed with intent.
+* Don't fill cards on teal with a solid color; use `bg-raised` (a faint lift) with a `border-rule` hairline.
+* Button variants: `primary` is for the main call to action (donating); `secondary` (the inverse of the surface) and `quiet` (outline) cover everything else.
+* Every surface pairing in the theme passes WCAG AA for text. Plain clay sits just under AA as small text on teal, so the theme uses `clay-light` for small clay text there. Keep it that way when adding shades.
+* No decorative pattern strips (diamonds, cross-stitch bands) as dividers or borders.
 * Don't use gradients as a default design technique.
 
 Gradients should only be introduced when there is a deliberate visual reason.
 
+### Theme lab
+
+A team-only panel for trying palettes on the real site (`src/components/theme_lab*.tsx`, `src/theme/theme_lab_css.ts`, `src/theme/theme_presets.ts`). It is always on in development; on the live site, add `?theme-lab` to any URL to turn it on for that browser and `?theme-lab=off` to turn it off. Visitors never see or download it.
+
+It works by redefining the same semantic tokens the surfaces use, so keep components on semantic tokens or the lab cannot recolour them. When adding a full-width section, give it `data-section="page-name"` and a readable `data-section-label` so it can be repainted from the lab. Photo heroes carry `data-photo-surface`.
+
+The lab is for exploring. When a theme is chosen, make it permanent in `theme.css` (the "Copy settings" button gives the exact values).
+
 ## Typography
 
-Use two typefaces maximum.
+Two typefaces, defined in `src/theme/fonts.ts` and `src/theme/theme.css`. Typography does the heavy lifting: layouts stay clean, modern and readable.
 
-The typography should feel friendly and editorial rather than corporate.
+| Role | Font | Rules |
+| --- | --- | --- |
+| Headings | Cormorant Garamond Bold (700) | 1.15 line spacing, -1.5% letter-spacing. Lining numerals, so amounts read plainly. |
+| Body | Work Sans Regular (400) | Always Regular, 1.6 line spacing. Light text on dark surfaces already looks heavier, so don't bold paragraphs. |
+| Buttons and CTAs | Work Sans SemiBold (600) | UPPERCASE with +6% letter-spacing (`tracking-cta`). |
 
-Recommended direction:
-
-### Headings
-
-Use a distinctive friendly serif or soft display font.
-
-Possible direction:
-
-* Fraunces
-* DM Serif Display
-* Another warm editorial serif
-
-### Body/UI
-
-Use a clean, highly readable sans-serif.
-
-Possible direction:
-
-* Inter
-* DM Sans
-* Manrope
-
-The final selection should be defined in `src/theme/` and loaded consistently.
-
-Don't mix multiple decorative fonts.
-
-A handwritten or script font may only be used as a tiny decorative accent if it genuinely improves the brand. It must never be used for important information, navigation, donation amounts, or long-form content.
+* `font-heading` is Bold by default; don't add `font-semibold` or `font-medium` to headings.
+* Use the `text-display`, `text-headline` and `text-title` sizes, plus `leading-tight` and `tracking-tight`, which already carry the brand rhythm.
+* Don't add a third typeface or a script font.
 
 ## Shape language
 
@@ -580,6 +568,8 @@ Shapes should create personality, not visual noise.
 ## Buttons
 
 Buttons should clearly describe their action.
+
+All buttons are UPPERCASE Work Sans SemiBold with +6% letter-spacing. `ActionLink` and `ActionButton` already apply this; use them rather than styling buttons by hand.
 
 Good:
 
@@ -708,7 +698,7 @@ The goal is:
 
 **Warm, human, trustworthy, memorable, and genuinely pleasant to use.**
 
-It should feel like **Promise for Ummah has a personality**, not like someone selected a charity template and changed the logo.
+It should feel like **Stand for Ummah has a personality**, not like someone selected a charity template and changed the logo.
 
 *<!-- BEGIN:nextjs-agent-rules -->*
 

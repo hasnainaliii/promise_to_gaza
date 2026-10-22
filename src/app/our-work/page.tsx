@@ -91,10 +91,10 @@ export default function OurWorkPage() {
   return (
     <>
       {/* ── Immersive Full-Bleed Hero Image ──────────────────────── */}
-      <section className="relative min-h-[75vh] sm:min-h-[85vh] lg:min-h-screen overflow-hidden -mt-24 bg-jet">
+      <section data-photo-surface="" className="relative min-h-[75vh] sm:min-h-[85vh] lg:min-h-screen overflow-hidden -mt-24 bg-teal-ink">
         {/* Background photograph from public/images/ourwork */}
         <div
-          className="absolute -top-16 inset-x-0 bottom-0 overflow-hidden pointer-events-none bg-jet"
+          className="absolute -top-16 inset-x-0 bottom-0 overflow-hidden pointer-events-none bg-teal-ink"
           aria-hidden="true"
         >
           <Image
@@ -107,16 +107,16 @@ export default function OurWorkPage() {
           />
         </div>
 
-        {/* Melts the photograph into the jet section below */}
+        {/* Melts the photograph into the teal section below */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-40 z-10 bg-gradient-to-t from-jet to-transparent"
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-40 z-10 bg-gradient-to-t from-teal to-transparent"
         />
       </section>
 
 
       {/* ── 01 Relief drives ─────────────────────────────────── */}
-      <section id="drives" className="scroll-mt-24">
+      <section data-section="work-drives" data-section-label="Our Work · Relief drives" id="drives" className="scroll-mt-24">
         <div className="mx-auto max-w-page px-5 py-section-lg sm:px-8">
           <SectionIntro
             index="01"
@@ -131,7 +131,7 @@ export default function OurWorkPage() {
       </section>
 
       {/* ── 02 Upcoming initiatives ─────────────────────────────── */}
-      <section className="surface-crimson">
+      <section data-section="work-upcoming" data-section-label="Our Work · Upcoming initiatives" className="surface-aqua">
         <div className="mx-auto max-w-page px-5 py-section-lg sm:px-8">
           <SectionIntro
             index="02"
@@ -176,7 +176,7 @@ export default function OurWorkPage() {
       </section>
 
       {/* ── 03 Campus chapters ──────────────────────────────────── */}
-      <section>
+      <section data-section="work-campus" data-section-label="Our Work · Campus chapters">
         <div className="mx-auto max-w-page px-5 py-section-lg sm:px-8">
           <SectionIntro
             index="03"
@@ -219,7 +219,7 @@ export default function OurWorkPage() {
       </section>
 
       {/* ── 04 Awareness tools ──────────────────────────────────── */}
-      <section className="surface-parchment paper-grain">
+      <section data-section="work-tools" data-section-label="Our Work · Awareness tools" className="surface-clay">
         <div className="mx-auto max-w-page px-5 py-section-lg sm:px-8">
           <SectionIntro
             index="04"

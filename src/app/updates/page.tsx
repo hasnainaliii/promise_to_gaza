@@ -36,7 +36,7 @@ export default function UpdatesPage() {
         </ul>
       </section>
 
-      <section className="surface-parchment">
+      <section data-section="updates-stories" data-section-label="Updates · Stories" className="surface-parchment">
         <div className="mx-auto max-w-page px-5 py-section sm:px-8">
           <SectionIntro
             eyebrow="Stories"

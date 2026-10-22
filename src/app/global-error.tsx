@@ -28,7 +28,7 @@ export default function GlobalError({ retry }: { retry: () => void }) {
             {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
             <a
               href="/"
-              className="inline-flex min-h-12 items-center justify-center rounded-md border border-rule bg-raised px-7 py-2.5 text-base font-medium text-ink shadow-xs transition-all duration-200 ease-soft hover:border-accent"
+              className="inline-flex min-h-12 items-center justify-center rounded-md border border-rule bg-raised px-7 py-2.5 text-base font-semibold uppercase tracking-cta text-ink shadow-xs transition-all duration-200 ease-soft hover:border-accent"
             >
               Back to the home page
             </a>

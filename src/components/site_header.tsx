@@ -1,14 +1,23 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState, startTransition } from "react";
 import { ActionLink } from "@/components/action_button";
 import { SiteWordmark } from "@/components/site_wordmark";
 import { NAV_LINKS, SITE_NAME } from "@/content/site";
+import { useThemeLabEnabled } from "@/hooks/use_theme_lab_enabled";
+
+// Team-only tool; visitors never download it.
+const ThemeLab = dynamic(
+  () => import("@/components/theme_lab").then((m) => m.ThemeLab),
+  { ssr: false },
+);
 
 export function SiteHeader() {
   const pathname = usePathname();
+  const labEnabled = useThemeLabEnabled();
   const hasHero = pathname === "/" || pathname === "/our-work";
   const [menuOpen, setMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -44,6 +53,8 @@ export function SiteHeader() {
 
   return (
     <header
+      data-theme-region="navbar"
+      data-transparent={isTransparent ? "" : undefined}
       className={`sticky top-0 z-40 transition-colors duration-300 ${
         isTransparent ? "bg-transparent" : "border-b border-rule bg-surface"
       }`}
@@ -88,6 +99,7 @@ export function SiteHeader() {
 
         {/* Right: CTA button & Mobile toggle */}
         <div className="flex items-center justify-end gap-3.5">
+          {labEnabled ? <ThemeLab /> : null}
           <ActionLink
             href="/donate"
             variant="primary"

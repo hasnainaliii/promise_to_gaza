@@ -13,10 +13,10 @@ const LINK_CLASSES = "transition-colors duration-200 hover:text-ink";
 
 export function SiteFooter() {
   return (
-    <footer className="surface-jet border-t border-rule">
+    <footer data-theme-region="footer" className="surface-teal border-t border-rule">
       <div className="mx-auto flex max-w-page flex-col gap-8 px-5 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-8">
         <div className="flex flex-col gap-4">
-          {/* The ring keeps the black stripe visible against the jet footer. */}
+          {/* The ring keeps the black stripe visible against the teal footer. */}
           <svg
             viewBox="0 0 6 3"
             role="img"

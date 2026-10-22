@@ -85,7 +85,7 @@ function DriveVideoPlayer({
       ref={containerRef}
       onClick={togglePlay}
       onContextMenu={(e) => e.preventDefault()}
-      className="group relative aspect-[9/16] max-h-[460px] w-full max-w-sm cursor-pointer overflow-hidden surface-jet rounded-card border border-rule shadow-soft"
+      className="group relative aspect-[9/16] max-h-[460px] w-full max-w-sm cursor-pointer overflow-hidden surface-teal rounded-card border border-rule shadow-soft"
     >
       <video
         ref={videoRef}
@@ -104,7 +104,7 @@ function DriveVideoPlayer({
 
       {/* Top badge */}
       <div className="pointer-events-none absolute top-3 left-3 z-10">
-        <span className="rounded-md bg-jet/60 px-2.5 py-1 text-xs font-medium text-parchment backdrop-blur-sm">
+        <span className="rounded-md bg-teal-ink/60 px-2.5 py-1 text-xs font-medium text-parchment backdrop-blur-sm">
           Field Video
         </span>
       </div>
@@ -118,9 +118,9 @@ function DriveVideoPlayer({
             togglePlay();
           }}
           aria-label={`Play ${label}`}
-          className="absolute inset-0 flex items-center justify-center bg-jet/30 transition-opacity"
+          className="absolute inset-0 flex items-center justify-center bg-teal-ink/30 transition-opacity"
         >
-          <span className="flex size-14 items-center justify-center rounded-full bg-parchment/95 text-jet shadow-lift transition-transform group-hover:scale-110">
+          <span className="flex size-14 items-center justify-center rounded-full bg-parchment/95 text-teal-ink shadow-lift transition-transform group-hover:scale-110">
             <svg aria-hidden="true" className="ml-1 size-6 fill-current" viewBox="0 0 24 24">
               <path d="M8 5v14l11-7z" />
             </svg>
@@ -131,7 +131,7 @@ function DriveVideoPlayer({
       {/* Bottom control bar (no download button anywhere) */}
       <div
         onClick={(e) => e.stopPropagation()}
-        className={`absolute inset-x-0 bottom-0 z-10 flex flex-col gap-2 bg-gradient-to-t from-jet/85 via-jet/40 to-transparent p-3 text-parchment transition-opacity duration-200 ${REVEAL_CONTROLS}`}
+        className={`absolute inset-x-0 bottom-0 z-10 flex flex-col gap-2 bg-gradient-to-t from-teal-ink/85 via-teal-ink/40 to-transparent p-3 text-parchment transition-opacity duration-200 ${REVEAL_CONTROLS}`}
       >
         <input
           type="range"
@@ -245,7 +245,7 @@ function DriveImageCarousel({
       ))}
 
       {/* Top badge */}
-      <span className="absolute top-3 left-3 z-20 rounded-md bg-jet/60 px-2.5 py-1 text-xs font-medium text-parchment backdrop-blur-sm">
+      <span className="absolute top-3 left-3 z-20 rounded-md bg-teal-ink/60 px-2.5 py-1 text-xs font-medium text-parchment backdrop-blur-sm">
         Field Photo{images.length > 1 ? ` • ${currentIndex + 1}/${images.length}` : ""}
       </span>
 
@@ -256,7 +256,7 @@ function DriveImageCarousel({
             type="button"
             onClick={prevSlide}
             aria-label="Previous photo"
-            className={`absolute left-2.5 top-1/2 z-20 -translate-y-1/2 rounded-full bg-jet/50 p-2 text-parchment backdrop-blur-sm transition-all duration-200 hover:bg-jet/75 ${REVEAL_CONTROLS}`}
+            className={`absolute left-2.5 top-1/2 z-20 -translate-y-1/2 rounded-full bg-teal-ink/50 p-2 text-parchment backdrop-blur-sm transition-all duration-200 hover:bg-teal-ink/75 ${REVEAL_CONTROLS}`}
           >
             <svg aria-hidden="true" className="size-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -266,7 +266,7 @@ function DriveImageCarousel({
             type="button"
             onClick={nextSlide}
             aria-label="Next photo"
-            className={`absolute right-2.5 top-1/2 z-20 -translate-y-1/2 rounded-full bg-jet/50 p-2 text-parchment backdrop-blur-sm transition-all duration-200 hover:bg-jet/75 ${REVEAL_CONTROLS}`}
+            className={`absolute right-2.5 top-1/2 z-20 -translate-y-1/2 rounded-full bg-teal-ink/50 p-2 text-parchment backdrop-blur-sm transition-all duration-200 hover:bg-teal-ink/75 ${REVEAL_CONTROLS}`}
           >
             <svg aria-hidden="true" className="size-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />

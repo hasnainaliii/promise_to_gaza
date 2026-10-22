@@ -30,7 +30,7 @@ export default function AboutPage() {
   return (
     <>
       {/* ── Hero ────────────────────────────────────────────────── */}
-      <section className="overflow-hidden">
+      <section data-section="about-intro" data-section-label="About · Who we are" className="overflow-hidden">
         <div className="mx-auto grid max-w-page items-center gap-16 px-5 pb-section pt-10 sm:px-8 lg:grid-cols-12 lg:gap-10 lg:pb-section-lg lg:pt-16">
           <div className="lg:col-span-6">
             <div className="animate-rise-in">
@@ -88,7 +88,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── 01 History ──────────────────────────────────────────── */}
-      <section className="surface-crimson">
+      <section data-section="about-history" data-section-label="About · Our journey" className="surface-aqua">
         <div className="mx-auto max-w-page px-5 py-section-lg sm:px-8">
           <SectionIntro
             index="01"
@@ -103,77 +103,79 @@ export default function AboutPage() {
       </section>
 
       {/* ── 02 Mission & vision ─────────────────────────────────── */}
-      <section className="mx-auto max-w-page px-5 py-section-lg sm:px-8">
-        <SectionIntro
-          index="02"
-          eyebrow="Mission & vision"
-          title="What drives us, and what we aspire to."
-          className="max-w-3xl"
-        />
+      <section data-section="about-mission" data-section-label="About · Mission & vision">
+        <div className="mx-auto max-w-page px-5 py-section-lg sm:px-8">
+          <SectionIntro
+            index="02"
+            eyebrow="Mission & vision"
+            title="What drives us, and what we aspire to."
+            className="max-w-3xl"
+          />
 
-        <div className="mt-14 grid gap-12 lg:grid-cols-2 lg:gap-16">
-          <Reveal>
-            <h3 className={`${EYEBROW} text-accent`}>
-              <span aria-hidden="true" className="size-2 rounded-full bg-accent" />
-              Our mission
-            </h3>
-            <p className="mt-5 font-heading text-title text-ink">
-              Our mission is to stand with people in need, especially those
-              facing oppression, hardship, and crisis, and to provide meaningful
-              support wherever help is required.
-            </p>
-            <p className="mt-5 leading-relaxed text-ink-muted">
-              While {SITE_NAME} begins with providing immediate relief to the
-              people of Gaza, our vision extends beyond one place or one crisis.
-              We want to build a way of serving the Ummah where people come
-              together to support those who are suffering and to respond
-              whenever and wherever help is needed.
-            </p>
-          </Reveal>
-          <Reveal delay={150}>
-            <h3 className={`${EYEBROW} text-accent`}>
-              <span aria-hidden="true" className="size-2 rounded-full bg-accent" />
-              Our vision
-            </h3>
-            <p className="mt-5 font-heading text-title text-ink">
-              Our vision is to build an Ummah that does not remain silent in the
-              face of oppression, suffering, or injustice, but stands together
-              with a strong sense of responsibility and accountability.
-            </p>
-            <p className="mt-5 leading-relaxed text-ink-muted">
-              We envision a community where people recognise their
-              responsibility towards one another, raise their voices for those
-              who are oppressed, and come together to serve those in need.
-            </p>
-          </Reveal>
-        </div>
+          <div className="mt-14 grid gap-12 lg:grid-cols-2 lg:gap-16">
+            <Reveal>
+              <h3 className={`${EYEBROW} text-accent`}>
+                <span aria-hidden="true" className="size-2 rounded-full bg-accent" />
+                Our mission
+              </h3>
+              <p className="mt-5 font-heading text-title text-ink">
+                Our mission is to stand with people in need, especially those
+                facing oppression, hardship, and crisis, and to provide meaningful
+                support wherever help is required.
+              </p>
+              <p className="mt-5 leading-relaxed text-ink-muted">
+                While {SITE_NAME} begins with providing immediate relief to the
+                people of Gaza, our vision extends beyond one place or one crisis.
+                We want to build a way of serving the Ummah where people come
+                together to support those who are suffering and to respond
+                whenever and wherever help is needed.
+              </p>
+            </Reveal>
+            <Reveal delay={150}>
+              <h3 className={`${EYEBROW} text-accent`}>
+                <span aria-hidden="true" className="size-2 rounded-full bg-accent" />
+                Our vision
+              </h3>
+              <p className="mt-5 font-heading text-title text-ink">
+                Our vision is to build an Ummah that does not remain silent in the
+                face of oppression, suffering, or injustice, but stands together
+                with a strong sense of responsibility and accountability.
+              </p>
+              <p className="mt-5 leading-relaxed text-ink-muted">
+                We envision a community where people recognise their
+                responsibility towards one another, raise their voices for those
+                who are oppressed, and come together to serve those in need.
+              </p>
+            </Reveal>
+          </div>
 
-        <div className="mt-16 grid items-center gap-10 lg:mt-24 lg:grid-cols-12">
-          <figure className="lg:col-span-7">
-            <FramedPhoto
-              src="/images/about/al-aqsa-jerusalem.jpg"
-              alt="The Dome of the Rock at Al-Aqsa, rising above the old city of Jerusalem"
-              aspect="wide"
-              sizes="(min-width: 1024px) 44rem, 92vw"
-            />
-            <figcaption className="mt-3 text-sm text-ink-muted">
-              Al-Aqsa, Jerusalem.
-            </figcaption>
-          </figure>
-          <Reveal as="figure" delay={200} className="lg:col-span-5">
+          <div className="mt-16 grid items-center gap-10 lg:mt-24 lg:grid-cols-12">
+            <figure className="lg:col-span-7">
+              <FramedPhoto
+                src="/images/about/al-aqsa-jerusalem.jpg"
+                alt="The Dome of the Rock at Al-Aqsa, rising above the old city of Jerusalem"
+                aspect="wide"
+                sizes="(min-width: 1024px) 44rem, 92vw"
+              />
+              <figcaption className="mt-3 text-sm text-ink-muted">
+                Al-Aqsa, Jerusalem.
+              </figcaption>
+            </figure>
+            <Reveal as="figure" delay={200} className="lg:col-span-5">
 
-            <blockquote className="font-heading text-title italic text-ink">
-              Ultimately, we aspire to contribute towards the revival of an
-              Ummah that is conscious of its Islamic identity, united in its
-              responsibilities, and committed to justice, compassion, and
-              collective action.
-            </blockquote>
-          </Reveal>
+              <blockquote className="font-heading text-title italic text-ink">
+                Ultimately, we aspire to contribute towards the revival of an
+                Ummah that is conscious of its Islamic identity, united in its
+                responsibilities, and committed to justice, compassion, and
+                collective action.
+              </blockquote>
+            </Reveal>
+          </div>
         </div>
       </section>
 
       {/* ── 03 Purpose ──────────────────────────────────────────── */}
-      <section>
+      <section data-section="about-purpose" data-section-label="About · Relief today, revival tomorrow">
         <div className="mx-auto max-w-page px-5 py-section-lg sm:px-8">
           <SectionIntro
             index="03"
@@ -212,7 +214,7 @@ export default function AboutPage() {
               </ul>
             </Reveal>
 
-            <Reveal delay={150} className="surface-crimson relative isolate flex flex-col overflow-hidden rounded-blob p-8 sm:p-10">
+            <Reveal delay={150} className="surface-clay relative isolate flex flex-col overflow-hidden rounded-blob p-8 sm:p-10">
               <OliveBranch className="pointer-events-none absolute -bottom-6 -right-8 -z-10 w-64 text-rule" />
               <div className="flex items-center justify-between">
                 <span className={`${EYEBROW} text-accent`}>Long-term horizon</span>
@@ -242,7 +244,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── 04 The unspoken truth ───────────────────────────────── */}
-      <section className="surface-parchment paper-grain">
+      <section data-section="about-truth" data-section-label="About · The unspoken truth" className="surface-parchment paper-grain">
         <div className="mx-auto max-w-page px-5 py-section-xl sm:px-8">
           <div className="mx-auto max-w-4xl text-center">
             <Reveal>
@@ -282,7 +284,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── 05 Core values ──────────────────────────────────────── */}
-      <section>
+      <section data-section="about-values" data-section-label="About · Core values">
         <div className="mx-auto max-w-page px-5 py-section-lg sm:px-8">
           <div className="grid gap-6 lg:grid-cols-12 lg:items-end">
             <SectionIntro
@@ -304,7 +306,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── 06 Our message ──────────────────────────────────────── */}
-      <section className="surface-crimson relative isolate overflow-hidden">
+      <section data-section="about-message" data-section-label="About · Our message" className="surface-clay relative isolate overflow-hidden">
         <OliveBranch className="pointer-events-none absolute -right-10 top-16 -z-10 w-72 text-rule sm:w-md" />
         <div className="mx-auto max-w-page px-5 py-section-xl sm:px-8">
           <Reveal>

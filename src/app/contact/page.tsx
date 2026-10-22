@@ -68,7 +68,7 @@ export default function ContactPage() {
                 href={`https://wa.me/${contact.number}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-fit items-center gap-2.5 rounded-lg bg-action px-6 py-3 font-semibold text-on-action shadow-soft transition-all duration-300 ease-soft hover:-translate-y-0.5 hover:bg-action-hover"
+                className="inline-flex w-fit items-center gap-2.5 rounded-lg bg-action px-6 py-3 font-semibold uppercase tracking-cta text-on-action shadow-soft transition-all duration-300 ease-soft hover:-translate-y-0.5 hover:bg-action-hover"
               >
                 <svg
                   aria-hidden="true"

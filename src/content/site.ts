@@ -1,5 +1,5 @@
 /** Kept in parts so the wordmark can set the connecting word in italic. */
-export const SITE_WORDMARK = { lead: "Promise", connector: "for", tail: "Ummah" } as const;
+export const SITE_WORDMARK = { lead: "Stand", connector: "for", tail: "Ummah" } as const;
 export const SITE_NAME = `${SITE_WORDMARK.lead} ${SITE_WORDMARK.connector} ${SITE_WORDMARK.tail}`;
 
 export const NAV_LINKS = [

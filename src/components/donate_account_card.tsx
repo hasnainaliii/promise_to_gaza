@@ -44,7 +44,7 @@ export function DonateAccountCard() {
       {/* Top Header */}
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-rule pb-5">
         <div>
-          <h2 className="font-heading text-2xl sm:text-3xl font-bold tracking-tight text-ink">
+          <h2 className="font-heading text-2xl sm:text-3xl tracking-tight text-ink">
             Account Details
           </h2>
         </div>
@@ -75,7 +75,7 @@ export function DonateAccountCard() {
           <button
             type="button"
             onClick={handleCopy}
-            className={`inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold transition-all duration-200 shadow-xs ${
+            className={`inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold uppercase tracking-cta transition-all duration-200 shadow-xs ${
               copyState === "copied"
                 ? "bg-action text-on-action"
                 : "bg-ink text-surface hover:bg-ink/85 hover:-translate-y-0.5"
@@ -173,7 +173,7 @@ export function DonateAccountCard() {
           <svg aria-hidden="true" className="size-4 fill-current" viewBox="0 0 24 24">
             <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.584 1.961.949 3.018.949h.001c3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.586-5.766-5.77-5.766zm3.393 8.354c-.149.42-1.077 1.01-1.492 1.045-.415.035-.826-.08-2.316-.692-1.49-.612-2.457-2.128-2.531-2.228-.075-.1-.611-.812-.611-1.549 0-.736.386-1.099.523-1.248.137-.149.3-.186.4-.186.1 0 .2 0 .287.005.09.005.21-.035.328.25.118.286.406.99.442 1.063.036.074.06.161.011.26-.05.099-.074.16-.148.247-.074.086-.156.192-.223.258-.074.074-.151.155-.065.303.086.148.382.631.819 1.02.563.501 1.038.656 1.186.73.149.074.236.062.324-.037.087-.1.372-.434.471-.582.099-.149.198-.124.334-.074.137.05.867.409 1.015.483.149.075.248.112.285.174.037.062.037.36-.112.78z" />
           </svg>
-          Send Receipt on WhatsApp <span aria-hidden="true">-&gt;</span>
+          Send Receipt on WhatsApp <span aria-hidden="true">→</span>
         </a>
       </div>
     </div>

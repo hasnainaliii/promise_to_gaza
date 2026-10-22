@@ -2,13 +2,13 @@ import Link from "next/link";
 import type { ComponentProps, ReactNode } from "react";
 
 /** Colours come from the surface the button sits on. primary: donation
-    actions only (crimson, or parchment on crimson) · secondary: other main
+    actions only (clay on teal and parchment, teal on aqua and clay) · secondary: other main
     actions, the inverse of the surface · quiet: low-key outline. */
 type Variant = "primary" | "secondary" | "quiet";
 type Size = "sm" | "md" | "lg";
 
 const BASE =
-  "inline-flex items-center justify-center gap-2 rounded-soft font-semibold whitespace-nowrap transition-colors duration-200 ease-soft select-none disabled:cursor-not-allowed disabled:opacity-60";
+  "inline-flex items-center justify-center gap-2 rounded-soft font-semibold uppercase tracking-cta whitespace-nowrap transition-colors duration-200 ease-soft select-none disabled:cursor-not-allowed disabled:opacity-60";
 
 const VARIANTS: Record<Variant, string> = {
   primary: "bg-action text-on-action hover:bg-action-hover",
