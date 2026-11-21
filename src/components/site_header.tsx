@@ -56,7 +56,7 @@ export function SiteHeader() {
       data-theme-region="navbar"
       data-transparent={isTransparent ? "" : undefined}
       className={`sticky top-0 z-40 transition-colors duration-300 ${
-        isTransparent ? "bg-transparent" : "border-b border-rule bg-surface"
+        isTransparent ? "on-photo bg-transparent" : "border-b border-rule bg-surface"
       }`}
     >
       <div className="mx-auto grid h-24 max-w-page grid-cols-2 items-center px-6 sm:px-8 md:grid-cols-[1fr_auto_1fr]">

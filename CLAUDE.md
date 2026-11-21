@@ -470,27 +470,20 @@ The exact values may evolve during implementation, but the design direction shou
 
 ### Brand palette
 
-These are the official Stand for Ummah brand colors and their share of the site. They are fixed: don't introduce colors outside this family.
+These are the official Stand for Ummah brand colors. They are fixed: don't introduce colors outside this family.
 
-| Role | Name | Hex | Share | Theme token |
-| --- | --- | --- | --- | --- |
-| Primary | Deep Teal | `#244F58` | 50% | `teal` |
-| Secondary | Soft Aqua | `#9ACACA` | 20% | `aqua` |
-| Accent | Desert Clay | `#D4AC90` | 20% | `clay` |
-| Base | Parchment | `#F0E8DC` | 10% | `parchment` |
+| Role | Hex | Theme token | Where it goes |
+| --- | --- | --- | --- |
+| Primary | `#F0EEE8` off-white | `brand-primary` | Page background and navbar |
+| Secondary | `#720C0C` crimson | `brand-secondary` | Buttons, statement sections, page headers, links, eyebrows, italic emphasis |
+| Accent | `#D4AC90` clay | `brand-accent` | Cards (drive ledger, account details, pinned note, purpose card, seal) and warm sections |
+| Base | `#0C0C0C` black | `brand-base` | All text, the footer, video frames, and full-width dark bands |
 
-How each color is used:
-
-* **Deep Teal** is the canvas. Every page sits on it; sections on teal are separated by space and hairlines, not by color.
-* **Soft Aqua** is for calm sections: page headers and one or two reading sections per page, with deep teal text. On teal it also marks chapter numbers and small highlights.
-* **Desert Clay** is the call to action and the warm voice: buttons (deep teal text on clay), eyebrow labels, italic emphasis, the wordmark's connecting word, and one warm statement section per page.
-* **Parchment** is the text color on teal, and paper: documents and cards (the account details, the drive ledger, a pinned note), usually with `paper-grain`.
-
-"Share" is how much of the site each color should occupy, so it's a balance guide rather than a per-page measurement.
+Tokens are named by role, not by color. To change the palette, change the four `--color-brand-*` values (and their few shades) in `src/theme/theme.css`; nothing else should need to change.
 
 ### Surfaces
 
-Every section (and any card that should stand out) declares one surface utility from `src/theme/theme.css`: `surface-teal`, `surface-aqua`, `surface-clay` or `surface-parchment`. Teal is the body default, so plain sections are teal without a class.
+Every section (and any card that should stand out) declares one surface utility from `src/theme/theme.css`: `surface-primary`, `surface-secondary`, `surface-accent` or `surface-base`. Primary is the body default, so plain sections need no class.
 
 A surface paints the background and redefines the semantic tokens for everything inside it. Components only use these semantic tokens, never raw brand colors, so they read correctly on any surface:
 
@@ -500,26 +493,26 @@ A surface paints the background and redefines the semantic tokens for everything
 | `rule` | hairlines and borders |
 | `accent`, `accent-soft` | eyebrows, links, italic emphasis, chapter numbers, dots |
 | `raised` | cards that sit on the surface |
-| `action`, `on-action`, `action-hover` | the CTA button: clay with deep teal text on teal and parchment; teal with parchment text on aqua and clay |
+| `action`, `on-action`, `action-hover` | the CTA button: crimson with off-white text, except on crimson sections where it turns off-white with crimson text |
 | `surface`, `focus` | the surface color itself (for inverted buttons) and the focus ring |
 
 To change the color balance, change which surface a section uses. Don't recolor components.
 
-Raw shades (`teal-deep`, `teal-ink`, `aqua-light`, `clay-light`, `clay-deep`, `parchment-light`) exist only to build the surfaces. The one exception is overlays on photos and videos, which use `teal-ink` and `parchment` regardless of surface.
+Content laid over a photograph uses `on-photo`: dark-surface text colors without a background. The photo heroes and the navbar (while it floats over a hero) use it. Photo and video overlays use `overlay` and `on-overlay`, and photos fade into `page` (the page background, which surfaces never redefine).
 
-Hero and field photography sits in grayscale under a teal tint. The Palestinian flag keeps its own colors (`flag-*` tokens).
+Hero and field photography sits in grayscale under a dark scrim. The Palestinian flag keeps its own colors (`flag-*` tokens).
 
 ### Color rules
 
 * Never hardcode colors inside components; use the semantic tokens.
-* Don't stack aqua or clay sections back to back, and don't alternate colors just for variety. Teal sections can follow each other; rhythm comes from aqua and clay sections and parchment paper placed with intent.
-* Don't fill cards on teal with a solid color; use `bg-raised` (a faint lift) with a `border-rule` hairline.
+* Don't stack secondary or accent sections back to back, and don't alternate colors just for variety. Primary sections can follow each other; rhythm comes from secondary and accent sections and dark "documents" placed with intent.
+* Cards that should stand out use `surface-accent` (clay); quieter cards use `bg-raised` with a `border-rule` hairline.
+* Black (`surface-base`) is only for full-width horizontal bands and the footer, never for a card.
+* Buttons are crimson, never clay.
 * Button variants: `primary` is for the main call to action (donating); `secondary` (the inverse of the surface) and `quiet` (outline) cover everything else.
-* Every surface pairing in the theme passes WCAG AA for text. Plain clay sits just under AA as small text on teal, so the theme uses `clay-light` for small clay text there. Keep it that way when adding shades.
+* Every surface pairing in the theme passes WCAG AA for text. Plain clay is too light for text on the off-white, so small clay-colored text there uses `brand-accent-deep`. Keep it that way when adding shades.
 * No decorative pattern strips (diamonds, cross-stitch bands) as dividers or borders.
-* Don't use gradients as a default design technique.
-
-Gradients should only be introduced when there is a deliberate visual reason.
+* Large crimson areas carry a soft velvet falloff so they don't read flat. Otherwise, don't use gradients as a default design technique.
 
 ### Theme lab
 

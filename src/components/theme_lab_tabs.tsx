@@ -16,10 +16,10 @@ const SHARE_BASIS: Record<PaletteRole, string> = {
 
 const REGIONS: { id: LabRegion; label: string; hint: string; from: PaletteRole }[] = [
   { id: "navbar", label: "Navbar", hint: "Once you scroll past the photo", from: "primary" },
-  { id: "footer", label: "Footer", hint: "Bottom of every page", from: "primary" },
+  { id: "footer", label: "Footer", hint: "Bottom of every page", from: "base" },
   { id: "pageHeader", label: "Page headers", hint: "Top of Donate, Contact, Updates", from: "secondary" },
-  { id: "button", label: "Buttons", hint: "Donate and every call to action", from: "accent" },
-  { id: "accentText", label: "Links & labels", hint: "Eyebrows, links, italic words", from: "accent" },
+  { id: "button", label: "Buttons", hint: "Donate and every call to action", from: "secondary" },
+  { id: "accentText", label: "Links & labels", hint: "Eyebrows, links, italic words", from: "secondary" },
 ];
 
 const FIELD = "rounded-md border border-lab-line bg-lab-panel px-2.5 py-1.5 text-sm text-lab-text";

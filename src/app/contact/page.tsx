@@ -84,7 +84,7 @@ export default function ContactPage() {
         </div>
 
         <aside className="flex flex-col gap-8">
-          <div className="surface-parchment paper-grain rounded-card p-6 sm:p-8">
+          <div className="surface-accent paper-grain rounded-card p-6 sm:p-8">
             <h2 className="font-heading text-2xl tracking-tight text-ink">
               What people usually write about
             </h2>

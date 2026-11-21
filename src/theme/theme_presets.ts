@@ -9,20 +9,26 @@ export const ROLE_SHARE: Record<PaletteRole, number> = {
 };
 
 export const ROLE_LABELS: Record<PaletteRole, { name: string; use: string }> = {
-  primary: { name: "Primary", use: "Page background, navbar, footer" },
-  secondary: { name: "Secondary", use: "Calm sections, page headers" },
-  accent: { name: "Accent", use: "Buttons, labels, statement sections" },
-  base: { name: "Base", use: "Text on dark, paper cards" },
+  primary: { name: "Primary", use: "Page background, navbar" },
+  secondary: { name: "Secondary", use: "Buttons, statement sections, links" },
+  accent: { name: "Accent", use: "Cards, warm sections" },
+  base: { name: "Base", use: "Text, footer, full-width dark bands" },
 };
 
 /** The palette the live site ships with; choosing it clears the lab. */
-export const BRAND_PRESET_ID = "night-teal";
+export const BRAND_PRESET_ID = "ivory-crimson";
 
 export const THEME_PRESETS: ThemePreset[] = [
   {
+    id: "ivory-crimson",
+    name: "Ivory & Crimson",
+    note: "The live site today",
+    palette: { primary: "#f0eee8", secondary: "#720c0c", accent: "#d4ac90", base: "#0c0c0c" },
+  },
+  {
     id: "night-teal",
     name: "Night Teal",
-    note: "The live site today",
+    note: "Stand for Ummah, darker teal",
     palette: { primary: "#0f2e2e", secondary: "#9acaca", accent: "#d4ac90", base: "#f6f0e6" },
   },
   {

@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { ComponentProps, ReactNode } from "react";
 
 /** Colours come from the surface the button sits on. primary: donation
-    actions only (clay on teal and parchment, teal on aqua and clay) · secondary: other main
+    actions only (clay, or crimson on clay sections) · secondary: other main
     actions, the inverse of the surface · quiet: low-key outline. */
 type Variant = "primary" | "secondary" | "quiet";
 type Size = "sm" | "md" | "lg";

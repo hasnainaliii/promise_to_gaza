@@ -91,10 +91,10 @@ export default function OurWorkPage() {
   return (
     <>
       {/* ── Immersive Full-Bleed Hero Image ──────────────────────── */}
-      <section data-photo-surface="" className="relative min-h-[75vh] sm:min-h-[85vh] lg:min-h-screen overflow-hidden -mt-24 bg-teal-ink">
+      <section data-photo-surface="" className="on-photo relative min-h-[75vh] sm:min-h-[85vh] lg:min-h-screen overflow-hidden -mt-24 bg-overlay">
         {/* Background photograph from public/images/ourwork */}
         <div
-          className="absolute -top-16 inset-x-0 bottom-0 overflow-hidden pointer-events-none bg-teal-ink"
+          className="absolute -top-16 inset-x-0 bottom-0 overflow-hidden pointer-events-none bg-overlay"
           aria-hidden="true"
         >
           <Image
@@ -107,10 +107,10 @@ export default function OurWorkPage() {
           />
         </div>
 
-        {/* Melts the photograph into the teal section below */}
+        {/* Melts the photograph into the page below */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-40 z-10 bg-gradient-to-t from-teal to-transparent"
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-40 z-10 bg-gradient-to-t from-page to-transparent"
         />
       </section>
 
@@ -131,7 +131,7 @@ export default function OurWorkPage() {
       </section>
 
       {/* ── 02 Upcoming initiatives ─────────────────────────────── */}
-      <section data-section="work-upcoming" data-section-label="Our Work · Upcoming initiatives" className="surface-aqua">
+      <section data-section="work-upcoming" data-section-label="Our Work · Upcoming initiatives" className="surface-secondary">
         <div className="mx-auto max-w-page px-5 py-section-lg sm:px-8">
           <SectionIntro
             index="02"
@@ -145,7 +145,7 @@ export default function OurWorkPage() {
               <Reveal
                 key={initiative.title}
                 delay={i * 150}
-                className="surface-parchment paper-grain flex flex-col rounded-blob p-8 sm:p-10"
+                className="surface-accent paper-grain flex flex-col rounded-blob p-8 sm:p-10"
               >
                 <div className="flex flex-wrap items-center justify-between gap-3">
                   <span className="text-xs font-semibold uppercase tracking-eyebrow text-accent">
@@ -219,7 +219,7 @@ export default function OurWorkPage() {
       </section>
 
       {/* ── 04 Awareness tools ──────────────────────────────────── */}
-      <section data-section="work-tools" data-section-label="Our Work · Awareness tools" className="surface-clay">
+      <section data-section="work-tools" data-section-label="Our Work · Awareness tools" className="surface-accent">
         <div className="mx-auto max-w-page px-5 py-section-lg sm:px-8">
           <SectionIntro
             index="04"

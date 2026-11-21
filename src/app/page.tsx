@@ -71,7 +71,7 @@ export default function HomePage() {
   return (
     <>
       {/* ── Hero ────────────────────────────────────────────────── */}
-      <section data-photo-surface="" className="relative min-h-[90vh] overflow-hidden -mt-24 bg-teal-ink lg:min-h-screen">
+      <section data-photo-surface="" className="on-photo relative min-h-[90vh] overflow-hidden -mt-24 bg-overlay lg:min-h-screen">
         {/* Rotating smooth background photographs */}
         <HeroSlideshow />
 
@@ -82,7 +82,7 @@ export default function HomePage() {
 
         {/* Centred hero content */}
         <div className="relative z-20 flex min-h-[90vh] flex-col items-center justify-end px-5 pb-20 pt-28 text-center sm:px-8 sm:pt-32 lg:min-h-screen lg:justify-center lg:pb-24">
-          <h1 className="mx-auto max-w-3xl font-heading text-5xl leading-tight tracking-tight text-balance text-parchment drop-shadow-legible sm:text-6xl md:text-7xl lg:text-8xl">
+          <h1 className="mx-auto max-w-3xl font-heading text-5xl leading-tight tracking-tight text-balance text-on-overlay drop-shadow-legible sm:text-6xl md:text-7xl lg:text-8xl">
             Your pain is our shared pain.
           </h1>
 
@@ -145,7 +145,7 @@ export default function HomePage() {
             />
             <Reveal
               delay={450}
-              className="relative z-10 -mt-14 ml-auto max-w-xs rounded-card surface-parchment paper-grain p-6 shadow-lift sm:mr-6 lg:absolute lg:-bottom-10 lg:-left-24 lg:mr-0 lg:mt-0"
+              className="relative z-10 -mt-14 ml-auto max-w-xs rounded-card surface-accent paper-grain p-6 shadow-lift sm:mr-6 lg:absolute lg:-bottom-10 lg:-left-24 lg:mr-0 lg:mt-0"
             >
 
               <p className="font-heading text-xl leading-snug text-ink">
@@ -157,7 +157,7 @@ export default function HomePage() {
       </section>
 
       {/* ── 02 Why Gaza ─────────────────────────────────────────── */}
-      <section data-section="home-why" data-section-label="Home · Why focus on Gaza?" className="surface-aqua">
+      <section data-section="home-why" data-section-label="Home · Why focus on Gaza?" className="surface-secondary">
         <div className="mx-auto max-w-page px-5 py-section-lg sm:px-8">
           <div className="grid gap-10 lg:grid-cols-12">
             <SectionIntro
@@ -235,7 +235,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="surface-parchment paper-grain rounded-card px-6 py-10 sm:px-10 sm:py-12 lg:col-span-7 lg:col-start-6">
+          <div className="surface-accent paper-grain rounded-card px-6 py-10 sm:px-10 sm:py-12 lg:col-span-7 lg:col-start-6">
             <SectionIntro
               index="03"
               eyebrow="Where support goes"
@@ -251,7 +251,7 @@ export default function HomePage() {
       </section>
 
       {/* ── 04 The power of 100 PKR ─────────────────────────────── */}
-      <section data-section="home-pkr" data-section-label="Home · The power of 100 PKR" className="surface-clay">
+      <section data-section="home-pkr" data-section-label="Home · The power of 100 PKR" className="surface-accent">
         <div className="mx-auto grid max-w-page items-center gap-16 px-5 py-section-lg sm:px-8 lg:grid-cols-2 lg:gap-24">
           <div>
             <SectionIntro

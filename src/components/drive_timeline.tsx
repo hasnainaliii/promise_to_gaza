@@ -85,7 +85,7 @@ function DriveVideoPlayer({
       ref={containerRef}
       onClick={togglePlay}
       onContextMenu={(e) => e.preventDefault()}
-      className="group relative aspect-[9/16] max-h-[460px] w-full max-w-sm cursor-pointer overflow-hidden surface-teal rounded-card border border-rule shadow-soft"
+      className="group relative aspect-[9/16] max-h-[460px] w-full max-w-sm cursor-pointer overflow-hidden surface-base rounded-card border border-rule shadow-soft"
     >
       <video
         ref={videoRef}
@@ -104,7 +104,7 @@ function DriveVideoPlayer({
 
       {/* Top badge */}
       <div className="pointer-events-none absolute top-3 left-3 z-10">
-        <span className="rounded-md bg-teal-ink/60 px-2.5 py-1 text-xs font-medium text-parchment backdrop-blur-sm">
+        <span className="rounded-md bg-overlay/60 px-2.5 py-1 text-xs font-medium text-on-overlay backdrop-blur-sm">
           Field Video
         </span>
       </div>
@@ -118,9 +118,9 @@ function DriveVideoPlayer({
             togglePlay();
           }}
           aria-label={`Play ${label}`}
-          className="absolute inset-0 flex items-center justify-center bg-teal-ink/30 transition-opacity"
+          className="absolute inset-0 flex items-center justify-center bg-overlay/30 transition-opacity"
         >
-          <span className="flex size-14 items-center justify-center rounded-full bg-parchment/95 text-teal-ink shadow-lift transition-transform group-hover:scale-110">
+          <span className="flex size-14 items-center justify-center rounded-full bg-on-overlay/95 text-overlay shadow-lift transition-transform group-hover:scale-110">
             <svg aria-hidden="true" className="ml-1 size-6 fill-current" viewBox="0 0 24 24">
               <path d="M8 5v14l11-7z" />
             </svg>
@@ -131,7 +131,7 @@ function DriveVideoPlayer({
       {/* Bottom control bar (no download button anywhere) */}
       <div
         onClick={(e) => e.stopPropagation()}
-        className={`absolute inset-x-0 bottom-0 z-10 flex flex-col gap-2 bg-gradient-to-t from-teal-ink/85 via-teal-ink/40 to-transparent p-3 text-parchment transition-opacity duration-200 ${REVEAL_CONTROLS}`}
+        className={`absolute inset-x-0 bottom-0 z-10 flex flex-col gap-2 bg-gradient-to-t from-overlay/85 via-overlay/40 to-transparent p-3 text-on-overlay transition-opacity duration-200 ${REVEAL_CONTROLS}`}
       >
         <input
           type="range"
@@ -141,7 +141,7 @@ function DriveVideoPlayer({
           value={progress}
           onChange={handleSeek}
           aria-label="Seek"
-          className="h-1.5 w-full cursor-pointer accent-clay"
+          className="h-1.5 w-full cursor-pointer accent-accent"
         />
 
         {/* Controls row */}
@@ -149,7 +149,7 @@ function DriveVideoPlayer({
           <button
             type="button"
             onClick={togglePlay}
-            className="rounded p-1 text-parchment transition-colors hover:text-clay"
+            className="rounded p-1 text-on-overlay transition-colors hover:text-accent"
             aria-label={isPlaying ? "Pause" : "Play"}
           >
             {isPlaying ? (
@@ -166,7 +166,7 @@ function DriveVideoPlayer({
           <button
             type="button"
             onClick={toggleMute}
-            className="rounded p-1 text-parchment transition-colors hover:text-clay"
+            className="rounded p-1 text-on-overlay transition-colors hover:text-accent"
             aria-label={isMuted ? "Unmute" : "Mute"}
           >
             {isMuted ? (
@@ -245,7 +245,7 @@ function DriveImageCarousel({
       ))}
 
       {/* Top badge */}
-      <span className="absolute top-3 left-3 z-20 rounded-md bg-teal-ink/60 px-2.5 py-1 text-xs font-medium text-parchment backdrop-blur-sm">
+      <span className="absolute top-3 left-3 z-20 rounded-md bg-overlay/60 px-2.5 py-1 text-xs font-medium text-on-overlay backdrop-blur-sm">
         Field Photo{images.length > 1 ? ` • ${currentIndex + 1}/${images.length}` : ""}
       </span>
 
@@ -256,7 +256,7 @@ function DriveImageCarousel({
             type="button"
             onClick={prevSlide}
             aria-label="Previous photo"
-            className={`absolute left-2.5 top-1/2 z-20 -translate-y-1/2 rounded-full bg-teal-ink/50 p-2 text-parchment backdrop-blur-sm transition-all duration-200 hover:bg-teal-ink/75 ${REVEAL_CONTROLS}`}
+            className={`absolute left-2.5 top-1/2 z-20 -translate-y-1/2 rounded-full bg-overlay/50 p-2 text-on-overlay backdrop-blur-sm transition-all duration-200 hover:bg-overlay/75 ${REVEAL_CONTROLS}`}
           >
             <svg aria-hidden="true" className="size-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
@@ -266,7 +266,7 @@ function DriveImageCarousel({
             type="button"
             onClick={nextSlide}
             aria-label="Next photo"
-            className={`absolute right-2.5 top-1/2 z-20 -translate-y-1/2 rounded-full bg-teal-ink/50 p-2 text-parchment backdrop-blur-sm transition-all duration-200 hover:bg-teal-ink/75 ${REVEAL_CONTROLS}`}
+            className={`absolute right-2.5 top-1/2 z-20 -translate-y-1/2 rounded-full bg-overlay/50 p-2 text-on-overlay backdrop-blur-sm transition-all duration-200 hover:bg-overlay/75 ${REVEAL_CONTROLS}`}
           >
             <svg aria-hidden="true" className="size-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
@@ -284,7 +284,7 @@ function DriveImageCarousel({
                   setCurrentIndex(dotIdx);
                 }}
                 className={`h-1.5 rounded-full transition-all duration-300 ${
-                  dotIdx === currentIndex ? "w-6 bg-parchment-light" : "w-1.5 bg-parchment/50"
+                  dotIdx === currentIndex ? "w-6 bg-on-overlay" : "w-1.5 bg-on-overlay/50"
                 }`}
                 aria-label={`Go to slide ${dotIdx + 1}`}
               />

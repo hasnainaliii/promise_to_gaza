@@ -4,48 +4,54 @@
 
 @theme {
   /* ── Brand palette: Stand for Ummah ───────────────────────────────────
-     The four brand colours and their share of every page. The share is set
-     by which surface-* utility (below) each section uses.
+     Named by role, not by colour, so a new palette only changes these four
+     values. Which role a section is painted in is set by the surface-*
+     utilities below.
 
-       Deep Teal     #0f2e2e  primary    50%  the canvas every page sits on
-       Soft Aqua     #9ACACA  secondary  20%  calm reading sections, highlights
-       Desert Clay   #D4AC90  accent     20%  buttons, labels, warm statements
-       Parchment     #f6f0e6  base       10%  text on teal, paper documents */
-  --color-teal: #0f2e2e;
-  --color-aqua: #9acaca;
-  --color-clay: #d4ac90;
-  --color-parchment: #f6f0e6;
+       Primary     #F0EEE8  off-white  page background, navbar
+       Secondary   #720C0C  crimson    buttons, statement sections, links
+       Accent      #D4AC90  clay       cards, warm sections
+       Base        #0C0C0C  black      text, footer, full-width dark bands */
+  --color-brand-primary: #f0eee8;
+  --color-brand-secondary: #720c0c;
+  --color-brand-accent: #d4ac90;
+  --color-brand-base: #0c0c0c;
 
-  /* Raw shades of the four, consumed by the surfaces below. Components use the
-     semantic tokens instead, so they read correctly on any surface.
-     teal-ink is the darkest text and the text colour on clay buttons;
-     clay-light is clay nudged just far enough to pass AA as small text on
-     teal; clay-deep is clay dark enough to be text on parchment. */
-  --color-teal-deep: #0a2121;
-  --color-teal-ink: #081c1c;
-  --color-aqua-light: #c2dede;
-  --color-clay-light: #ddbba2;
-  --color-clay-deep: #8b5c40;
-  --color-parchment-light: #faf6ef;
+  /* Shades the surfaces need. Buttons are crimson: secondary-deep is their
+     hover on light surfaces, secondary-bright their hover on black.
+     primary-light is the hover for the off-white button on crimson sections.
+     accent-deep is clay dark enough for small text on the off-white. */
+  --color-brand-secondary-deep: #560909;
+  --color-brand-secondary-bright: #8f1616;
+  --color-brand-primary-light: #faf9f6;
+  --color-brand-accent-deep: #8b5c40;
+
+  /* Photo and video overlays: always dark under light text, whatever the
+     surface around them. */
+  --color-overlay: var(--color-brand-base);
+  --color-on-overlay: var(--color-brand-primary);
+  /* The page background itself, which surfaces never redefine; photos fade
+     into it. */
+  --color-page: var(--color-brand-primary);
 
   /* ── Semantic tokens ──────────────────────────────────────────────────
-     What components actually use. Defaults are the teal surface; each
+     What components actually use. Defaults are the primary surface; each
      surface-* utility redefines them for everything inside it.
        surface   the section background     raised   cards on that background
        ink       headings and strong text   rule     hairlines and borders
        accent    eyebrows, links, emphasis  action   the call-to-action button */
-  --color-surface: var(--color-teal);
-  --color-raised: rgb(246 240 230 / 0.06);
-  --color-ink: var(--color-parchment);
-  --color-ink-muted: rgb(246 240 230 / 0.8);
-  --color-ink-faint: rgb(246 240 230 / 0.66);
-  --color-rule: rgb(246 240 230 / 0.16);
-  --color-accent: var(--color-clay-light);
-  --color-accent-soft: var(--color-aqua);
-  --color-action: var(--color-clay);
-  --color-on-action: var(--color-teal-ink);
-  --color-action-hover: var(--color-clay-light);
-  --color-focus: var(--color-clay-light);
+  --color-surface: var(--color-brand-primary);
+  --color-raised: rgb(255 255 255 / 0.55);
+  --color-ink: var(--color-brand-base);
+  --color-ink-muted: rgb(12 12 12 / 0.72);
+  --color-ink-faint: rgb(12 12 12 / 0.55);
+  --color-rule: rgb(12 12 12 / 0.12);
+  --color-accent: var(--color-brand-secondary);
+  --color-accent-soft: var(--color-brand-accent-deep);
+  --color-action: var(--color-brand-secondary);
+  --color-on-action: var(--color-brand-primary);
+  --color-action-hover: var(--color-brand-secondary-deep);
+  --color-focus: var(--color-brand-secondary);
 
   /* The Palestinian flag in its own colours; used only for the flag itself. */
   --color-flag-black: #000000;
@@ -91,11 +97,11 @@
   --radius-card: 1.25rem;
   --radius-blob: 2.5rem;
 
-  --shadow-soft: 0 1px 2px rgb(8 28 28 / 0.06), 0 8px 24px -14px rgb(8 28 28 / 0.2);
-  --shadow-lift: 0 2px 4px rgb(8 28 28 / 0.08), 0 20px 44px -20px rgb(8 28 28 / 0.35);
-  --shadow-photo: 0 30px 60px -30px rgb(8 28 28 / 0.55);
-  /* Keeps parchment headlines legible over any part of a photograph. */
-  --drop-shadow-legible: 0 2px 16px rgb(8 28 28 / 0.7);
+  --shadow-soft: 0 1px 2px rgb(12 12 12 / 0.05), 0 8px 24px -14px rgb(12 12 12 / 0.18);
+  --shadow-lift: 0 2px 4px rgb(12 12 12 / 0.06), 0 20px 44px -20px rgb(12 12 12 / 0.3);
+  --shadow-photo: 0 30px 60px -30px rgb(12 12 12 / 0.45);
+  /* Keeps light headlines legible over any part of a photograph. */
+  --drop-shadow-legible: 0 2px 16px rgb(12 12 12 / 0.7);
 
   --spacing-section: 4.5rem;
   --spacing-section-lg: 7rem;
@@ -162,87 +168,101 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.05 0 0 0 0 0.05 0 0 0 0 0.05 0 0 0 0.07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* Tints hero photography towards teal so parchment text reads on it, then
-   melts into the teal section below. */
+/* Darkens hero photography enough for light text, then melts into the page
+   background below. */
 @utility hero-scrim {
   background:
-    radial-gradient(ellipse 80% 65% at 50% 50%, color-mix(in oklab, var(--color-teal-ink) 55%, transparent) 0%, color-mix(in oklab, var(--color-teal-ink) 30%, transparent) 60%, color-mix(in oklab, var(--color-teal) 15%, transparent) 100%),
-    linear-gradient(to top, var(--color-teal) 0%, color-mix(in oklab, var(--color-teal) 60%, transparent) 6%, transparent 18%);
+    radial-gradient(ellipse 80% 65% at 50% 50%, color-mix(in oklab, var(--color-overlay) 55%, transparent) 0%, color-mix(in oklab, var(--color-overlay) 30%, transparent) 60%, color-mix(in oklab, var(--color-overlay) 12%, transparent) 100%),
+    linear-gradient(to top, var(--color-page) 0%, color-mix(in oklab, var(--color-page) 60%, transparent) 6%, transparent 18%);
 }
 
 /* ── Surfaces ─────────────────────────────────────────────────────────
-   Put one on a section or card to paint it in a brand colour and retheme the
-   semantic tokens for everything inside it. Teal is the body default, so it
-   is only needed to reset teal inside another surface. Every text pairing
-   below meets WCAG AA (ink-faint is for captions only). */
-@utility surface-teal {
-  --color-surface: var(--color-teal);
-  --color-raised: rgb(246 240 230 / 0.06);
-  --color-ink: var(--color-parchment);
-  --color-ink-muted: rgb(246 240 230 / 0.8);
-  --color-ink-faint: rgb(246 240 230 / 0.66);
-  --color-rule: rgb(246 240 230 / 0.16);
-  --color-accent: var(--color-clay-light);
-  --color-accent-soft: var(--color-aqua);
-  --color-action: var(--color-clay);
-  --color-on-action: var(--color-teal-ink);
-  --color-action-hover: var(--color-clay-light);
-  --color-focus: var(--color-clay-light);
+   Put one on a section or card to paint it in a palette role and retheme the
+   semantic tokens for everything inside it. Primary is the body default, so
+   it is only needed to reset primary inside another surface. Every text
+   pairing below meets WCAG AA (ink-faint is for captions only). */
+@utility surface-primary {
+  --color-surface: var(--color-brand-primary);
+  --color-raised: rgb(255 255 255 / 0.55);
+  --color-ink: var(--color-brand-base);
+  --color-ink-muted: rgb(12 12 12 / 0.72);
+  --color-ink-faint: rgb(12 12 12 / 0.55);
+  --color-rule: rgb(12 12 12 / 0.12);
+  --color-accent: var(--color-brand-secondary);
+  --color-accent-soft: var(--color-brand-accent-deep);
+  --color-action: var(--color-brand-secondary);
+  --color-on-action: var(--color-brand-primary);
+  --color-action-hover: var(--color-brand-secondary-deep);
+  --color-focus: var(--color-brand-secondary);
   background-color: var(--color-surface);
   color: var(--color-ink);
 }
 
-/* A clay button would vanish on aqua or clay, so there the button is teal. */
-@utility surface-aqua {
-  --color-surface: var(--color-aqua);
-  --color-raised: var(--color-aqua-light);
-  --color-ink: var(--color-teal-ink);
-  --color-ink-muted: var(--color-teal);
-  --color-ink-faint: rgb(15 46 46 / 0.85);
-  --color-rule: rgb(15 46 46 / 0.2);
-  --color-accent: var(--color-teal-deep);
-  --color-accent-soft: var(--color-teal);
-  --color-action: var(--color-teal);
-  --color-on-action: var(--color-parchment);
-  --color-action-hover: var(--color-teal-deep);
-  --color-focus: var(--color-teal-ink);
+/* Large flat crimson reads dull, so it gets a soft velvet falloff: lighter
+   from the top-left, deeper towards the bottom-right. Buttons here turn
+   off-white, since a crimson one would vanish. */
+@utility surface-secondary {
+  --color-surface: var(--color-brand-secondary);
+  --color-raised: rgb(12 12 12 / 0.2);
+  --color-ink: var(--color-brand-primary);
+  --color-ink-muted: rgb(240 238 232 / 0.8);
+  --color-ink-faint: rgb(240 238 232 / 0.65);
+  --color-rule: rgb(240 238 232 / 0.2);
+  --color-accent: var(--color-brand-accent);
+  --color-accent-soft: rgb(212 172 144 / 0.75);
+  --color-action: var(--color-brand-primary);
+  --color-on-action: var(--color-brand-secondary);
+  --color-action-hover: var(--color-brand-primary-light);
+  --color-focus: var(--color-brand-accent);
+  background-color: var(--color-surface);
+  background-image:
+    radial-gradient(120% 90% at 10% 0%, color-mix(in oklab, var(--color-surface), white 10%), transparent 65%),
+    radial-gradient(90% 80% at 100% 100%, color-mix(in oklab, var(--color-surface), black 25%), transparent 70%);
+  color: var(--color-ink);
+}
+
+/* Clay is for cards and warm sections; buttons on it stay crimson. */
+@utility surface-accent {
+  --color-surface: var(--color-brand-accent);
+  --color-raised: rgb(255 255 255 / 0.25);
+  --color-ink: var(--color-brand-base);
+  --color-ink-muted: rgb(12 12 12 / 0.78);
+  --color-ink-faint: rgb(12 12 12 / 0.66);
+  --color-rule: rgb(12 12 12 / 0.16);
+  --color-accent: var(--color-brand-secondary);
+  --color-accent-soft: var(--color-brand-secondary-deep);
+  --color-action: var(--color-brand-secondary);
+  --color-on-action: var(--color-brand-primary);
+  --color-action-hover: var(--color-brand-secondary-deep);
+  --color-focus: var(--color-brand-base);
   background-color: var(--color-surface);
   color: var(--color-ink);
 }
 
-@utility surface-clay {
-  --color-surface: var(--color-clay);
-  --color-raised: rgb(246 240 230 / 0.3);
-  --color-ink: var(--color-teal-ink);
-  --color-ink-muted: var(--color-teal-deep);
-  --color-ink-faint: var(--color-teal);
-  --color-rule: rgb(8 28 28 / 0.18);
-  --color-accent: var(--color-teal-deep);
-  --color-accent-soft: var(--color-teal);
-  --color-action: var(--color-teal);
-  --color-on-action: var(--color-parchment);
-  --color-action-hover: var(--color-teal-deep);
-  --color-focus: var(--color-teal-ink);
-  background-color: var(--color-surface);
+/* Dark-surface tokens without a background: for content laid over a
+   photograph (the hero, and the navbar while it floats over the hero), so
+   text stays light even though the page itself is light. */
+@utility on-photo {
+  --color-surface: var(--color-brand-base);
+  --color-raised: rgb(240 238 232 / 0.06);
+  --color-ink: var(--color-brand-primary);
+  --color-ink-muted: rgb(240 238 232 / 0.72);
+  --color-ink-faint: rgb(240 238 232 / 0.55);
+  --color-rule: rgb(240 238 232 / 0.14);
+  --color-accent: var(--color-brand-accent);
+  --color-accent-soft: rgb(212 172 144 / 0.65);
+  --color-action: var(--color-brand-secondary);
+  --color-on-action: var(--color-brand-primary);
+  --color-action-hover: var(--color-brand-secondary-bright);
+  --color-focus: var(--color-brand-accent);
   color: var(--color-ink);
 }
 
-/* Parchment is paper: add paper-grain where it should feel printed. */
-@utility surface-parchment {
-  --color-surface: var(--color-parchment);
-  --color-raised: var(--color-parchment-light);
-  --color-ink: var(--color-teal-ink);
-  --color-ink-muted: var(--color-teal);
-  --color-ink-faint: rgb(15 46 46 / 0.75);
-  --color-rule: rgb(15 46 46 / 0.16);
-  --color-accent: var(--color-clay-deep);
-  --color-accent-soft: var(--color-teal);
-  --color-action: var(--color-clay);
-  --color-on-action: var(--color-teal-ink);
-  --color-action-hover: var(--color-clay-light);
-  --color-focus: var(--color-teal-ink);
+/* The dark surface: footer, video cards and the "documents" laid on the page
+   (the drive ledger, account details, a pinned note). */
+@utility surface-base {
+  @apply on-photo;
   background-color: var(--color-surface);
-  color: var(--color-ink);
 }
 
 /* Wraps the theme lab panel: its own colours and focus ring, untouched by

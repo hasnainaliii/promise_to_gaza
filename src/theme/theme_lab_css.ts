@@ -93,7 +93,7 @@ const SOFT_ORDER: Record<PaletteRole, PaletteRole[]> = {
   base: ["primary", "secondary"],
 };
 const ANY_ORDER: PaletteRole[] = ["accent", "secondary", "primary", "base"];
-const ACTION_ORDER: PaletteRole[] = ["accent", "primary", "secondary", "base"];
+const ACTION_ORDER: PaletteRole[] = ["secondary", "primary", "accent", "base"];
 
 type Vars = Record<string, string>;
 
@@ -139,10 +139,10 @@ export function surfaceVars(bgHex: string, palette: Palette, role: PaletteRole |
 }
 
 const SURFACE_SELECTOR: Record<PaletteRole, string> = {
-  primary: ":root, .surface-teal",
-  secondary: ".surface-aqua",
-  accent: ".surface-clay",
-  base: ".surface-parchment",
+  primary: ":root, .surface-primary",
+  secondary: ".surface-secondary",
+  accent: ".surface-accent",
+  base: ".surface-base",
 };
 
 const REGION_SELECTOR: Record<"navbar" | "footer" | "pageHeader", string> = {
@@ -153,7 +153,7 @@ const REGION_SELECTOR: Record<"navbar" | "footer" | "pageHeader", string> = {
 };
 
 const EVERY_SURFACE =
-  ":root, .surface-teal, .surface-aqua, .surface-clay, .surface-parchment, [data-section], [data-theme-region]";
+  ":root, .surface-primary, .surface-secondary, .surface-accent, .surface-base, [data-section], [data-theme-region]";
 
 function block(selector: string, vars: Vars, paint = false, important = false) {
   const flag = important ? " !important" : "";
@@ -177,11 +177,12 @@ export function buildThemeCss(state: ThemeLabState, brand: Palette) {
     parts.push(
       block(":root", {
         // Raw tokens still read directly: photo overlays, the hero tint, selection.
-        "--color-teal": palette.primary,
-        "--color-aqua": palette.secondary,
-        "--color-clay": palette.accent,
-        "--color-parchment": toHex(light),
-        "--color-teal-ink": toHex(dark),
+        "--color-brand-primary": palette.primary,
+        "--color-brand-secondary": palette.secondary,
+        "--color-brand-accent": palette.accent,
+        "--color-brand-base": palette.base,
+        "--color-overlay": toHex(dark),
+        "--color-on-overlay": toHex(light),
       }),
     );
     for (const role of ROLES) {

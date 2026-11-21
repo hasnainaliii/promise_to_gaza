@@ -44,8 +44,8 @@
   }
 
   ::selection {
-    background-color: var(--color-clay);
-    color: var(--color-teal-ink);
+    background-color: var(--color-brand-accent);
+    color: var(--color-overlay);
   }
 }
 

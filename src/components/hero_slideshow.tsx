@@ -34,7 +34,7 @@ export function HeroSlideshow() {
   }, [reducedMotion]);
 
   return (
-    <div className="absolute -top-16 inset-x-0 bottom-0 overflow-hidden pointer-events-none bg-teal-ink" aria-hidden="true">
+    <div className="absolute -top-16 inset-x-0 bottom-0 overflow-hidden pointer-events-none bg-overlay" aria-hidden="true">
       {SLIDES.map((slide, index) => {
         const isActive = index === currentIndex;
         return (

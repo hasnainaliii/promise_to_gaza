@@ -40,7 +40,7 @@ export function DonateAccountCard() {
   };
 
   return (
-    <div className="flex flex-col gap-6 surface-parchment paper-grain rounded-card p-6 sm:p-9">
+    <div className="flex flex-col gap-6 surface-accent paper-grain rounded-card p-6 sm:p-9">
       {/* Top Header */}
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-rule pb-5">
         <div>
@@ -77,8 +77,8 @@ export function DonateAccountCard() {
             onClick={handleCopy}
             className={`inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold uppercase tracking-cta transition-all duration-200 shadow-xs ${
               copyState === "copied"
-                ? "bg-action text-on-action"
-                : "bg-ink text-surface hover:bg-ink/85 hover:-translate-y-0.5"
+                ? "bg-ink text-surface"
+                : "bg-action text-on-action hover:bg-action-hover hover:-translate-y-0.5"
             }`}
           >
             {copyState === "copied" ? (

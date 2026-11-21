@@ -88,7 +88,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── 01 History ──────────────────────────────────────────── */}
-      <section data-section="about-history" data-section-label="About · Our journey" className="surface-aqua">
+      <section data-section="about-history" data-section-label="About · Our journey" className="surface-secondary">
         <div className="mx-auto max-w-page px-5 py-section-lg sm:px-8">
           <SectionIntro
             index="01"
@@ -188,7 +188,7 @@ export default function AboutPage() {
           />
 
           <div className="mt-14 grid gap-6 lg:grid-cols-2">
-            <Reveal className="surface-parchment paper-grain flex flex-col rounded-blob p-8 sm:p-10">
+            <Reveal className="surface-accent paper-grain flex flex-col rounded-blob p-8 sm:p-10">
               <div className="flex items-center justify-between">
                 <span className={`${EYEBROW} text-accent`}>Immediate focus</span>
                 <span className="font-heading italic text-ink-faint">Now</span>
@@ -214,7 +214,7 @@ export default function AboutPage() {
               </ul>
             </Reveal>
 
-            <Reveal delay={150} className="surface-clay relative isolate flex flex-col overflow-hidden rounded-blob p-8 sm:p-10">
+            <Reveal delay={150} className="surface-secondary relative isolate flex flex-col overflow-hidden rounded-blob p-8 sm:p-10">
               <OliveBranch className="pointer-events-none absolute -bottom-6 -right-8 -z-10 w-64 text-rule" />
               <div className="flex items-center justify-between">
                 <span className={`${EYEBROW} text-accent`}>Long-term horizon</span>
@@ -244,7 +244,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── 04 The unspoken truth ───────────────────────────────── */}
-      <section data-section="about-truth" data-section-label="About · The unspoken truth" className="surface-parchment paper-grain">
+      <section data-section="about-truth" data-section-label="About · The unspoken truth" className="surface-base paper-grain">
         <div className="mx-auto max-w-page px-5 py-section-xl sm:px-8">
           <div className="mx-auto max-w-4xl text-center">
             <Reveal>
@@ -306,7 +306,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── 06 Our message ──────────────────────────────────────── */}
-      <section data-section="about-message" data-section-label="About · Our message" className="surface-clay relative isolate overflow-hidden">
+      <section data-section="about-message" data-section-label="About · Our message" className="surface-accent relative isolate overflow-hidden">
         <OliveBranch className="pointer-events-none absolute -right-10 top-16 -z-10 w-72 text-rule sm:w-md" />
         <div className="mx-auto max-w-page px-5 py-section-xl sm:px-8">
           <Reveal>

@@ -7,7 +7,7 @@ export function SealBadge({ className = "" }: { className?: string }) {
   return (
     <div
       aria-hidden="true"
-      className={`surface-parchment size-28 rounded-full shadow-lift sm:size-32 ${className}`}
+      className={`surface-accent size-28 rounded-full shadow-lift sm:size-32 ${className}`}
     >
       <svg
         viewBox="0 0 120 120"
