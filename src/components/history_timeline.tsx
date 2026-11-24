@@ -13,20 +13,10 @@ function withHighlight({ body, highlight }: HistoryStep) {
   );
 }
 
-/** Vertical on phones, horizontal from laptop up. The connecting line draws
-    itself in once the timeline scrolls into view. */
+/** Vertical on phones, horizontal from laptop up. */
 export function HistoryTimeline({ steps }: { steps: HistoryStep[] }) {
   return (
-    <Reveal as="ol" effect="fade" className="group relative grid gap-12 lg:grid-cols-4 lg:gap-8">
-      <span
-        aria-hidden="true"
-        className="absolute bottom-6 left-6 top-6 w-px origin-top scale-y-0 bg-action/30 transition-transform delay-300 duration-1600 ease-soft group-data-inview:scale-y-100 lg:hidden"
-      />
-      <span
-        aria-hidden="true"
-        className="absolute left-6 right-0 top-6 hidden h-px origin-left scale-x-0 bg-action/30 transition-transform delay-300 duration-1600 ease-soft group-data-inview:scale-x-100 lg:block"
-      />
-
+    <Reveal as="ol" effect="fade" className="relative grid gap-12 lg:grid-cols-4 lg:gap-8">
       {steps.map((step, i) => (
         <Reveal
           as="li"

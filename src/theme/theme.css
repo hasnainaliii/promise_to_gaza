@@ -59,6 +59,9 @@
   --color-flag-green: #007a3d;
   --color-flag-red: #ce1126;
 
+  /* Olive-branch line art only. */
+  --color-olive: #4c563f;
+
   /* Theme lab chrome: a fixed neutral, deliberately outside the brand, so the
      panel stays readable whatever palette is being tried. */
   --color-lab-bg: #17191b;

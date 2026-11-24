@@ -123,7 +123,7 @@ export default function AboutPage() {
                 facing oppression, hardship, and crisis, and to provide meaningful
                 support wherever help is required.
               </p>
-              <p className="mt-5 leading-relaxed text-ink-muted">
+              <p className="mt-5 text-justify leading-relaxed text-ink-muted">
                 While {SITE_NAME} begins with providing immediate relief to the
                 people of Gaza, our vision extends beyond one place or one crisis.
                 We want to build a way of serving the Ummah where people come
@@ -141,7 +141,7 @@ export default function AboutPage() {
                 face of oppression, suffering, or injustice, but stands together
                 with a strong sense of responsibility and accountability.
               </p>
-              <p className="mt-5 leading-relaxed text-ink-muted">
+              <p className="mt-5 text-justify leading-relaxed text-ink-muted">
                 We envision a community where people recognise their
                 responsibility towards one another, raise their voices for those
                 who are oppressed, and come together to serve those in need.
@@ -215,7 +215,7 @@ export default function AboutPage() {
             </Reveal>
 
             <Reveal delay={150} className="surface-secondary relative isolate flex flex-col overflow-hidden rounded-blob p-8 sm:p-10">
-              <OliveBranch className="pointer-events-none absolute -bottom-6 -right-8 -z-10 w-64 text-rule" />
+              <OliveBranch className="pointer-events-none absolute -bottom-6 -right-8 -z-10 w-64" />
               <div className="flex items-center justify-between">
                 <span className={`${EYEBROW} text-accent`}>Long-term horizon</span>
                 <span className="font-heading italic text-ink-muted">Next</span>
@@ -249,7 +249,7 @@ export default function AboutPage() {
           <div className="mx-auto max-w-4xl text-center">
             <Reveal>
               <span className={`${EYEBROW} text-accent`}>
-                <span className="font-heading text-sm font-normal italic normal-case tracking-normal text-accent-soft">
+                <span className="font-heading text-base font-normal italic normal-case tracking-normal text-accent-soft">
                   04
                 </span>
                 <span aria-hidden="true" className="h-px w-8 bg-current opacity-50" />
@@ -275,7 +275,7 @@ export default function AboutPage() {
               </p>
               <p>
                 If we want to see lasting change, our response must go beyond
-                moments of sympathy and temporary relief - towards responsibility,
+                moments of sympathy and temporary relief, towards responsibility,
                 collective action, and the long-term revival of the Ummah.
               </p>
             </Reveal>
@@ -307,7 +307,7 @@ export default function AboutPage() {
 
       {/* ── 06 Our message ──────────────────────────────────────── */}
       <section data-section="about-message" data-section-label="About · Our message" className="surface-accent relative isolate overflow-hidden">
-        <OliveBranch className="pointer-events-none absolute -right-10 top-16 -z-10 w-72 text-rule sm:w-md" />
+        <OliveBranch className="pointer-events-none absolute -right-10 top-16 -z-10 w-72 sm:w-md" />
         <div className="mx-auto max-w-page px-5 py-section-xl sm:px-8">
           <Reveal>
             <span className={`${EYEBROW} text-accent`}>

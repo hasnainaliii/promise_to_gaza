@@ -34,7 +34,7 @@ export function CoreValuesList({ values }: CoreValuesListProps) {
           className="group border-b border-rule"
         >
           <div className="grid gap-4 py-8 transition-transform duration-500 ease-soft sm:grid-cols-12 sm:items-center sm:gap-8 sm:py-10 sm:group-hover:translate-x-2">
-            <span className="font-heading text-sm italic text-accent-soft sm:col-span-1">
+            <span className="font-heading text-base italic text-accent-soft sm:col-span-1">
               0{i + 1}
             </span>
             <h3 className="font-heading text-headline text-ink transition-colors duration-500 group-hover:text-accent sm:col-span-5">

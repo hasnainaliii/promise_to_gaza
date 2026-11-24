@@ -46,7 +46,7 @@ const HOW_TO_DONATE_STEPS = [
 const DIRECT_IMPACT_POINTS = [
   {
     title: "Zero Administrative Leakage",
-    desc: "100% of your donation is deployed directly for food parcels and clean water tankers.",
+    desc: "100% of your donation is deployed directly to families in Gaza, as water tankers, food rations, tents, cash support and other essential relief.",
   },
   {
     title: "Verified Ground Execution",
@@ -144,7 +144,7 @@ export default function DonatePage() {
             </h4>
             <p className="mt-2 text-sm leading-relaxed text-ink/90">
               Initiated first at UET Taxila, {SITE_NAME} is designed so that everyone can play their
-              part without financial strain. When hundreds of students contribute just
+              part without financial strain. When hundreds of people contribute just
               Rs. 100 every week, the collective pool deploys full clean water tankers and
               large-scale food ration drives.
             </p>

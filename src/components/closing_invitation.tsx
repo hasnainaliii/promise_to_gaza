@@ -21,7 +21,7 @@ export function ClosingInvitation({
 }: ClosingInvitationProps) {
   return (
     <section data-section="closing" data-section-label="Ways to help (end of every page)" className="relative isolate overflow-hidden border-t border-rule">
-      <OliveBranch className="pointer-events-none absolute -right-8 top-10 -z-10 hidden w-md text-accent/30 sm:block" />
+      <OliveBranch className="pointer-events-none absolute -right-8 top-10 -z-10 hidden w-md sm:block" />
       <div className="mx-auto max-w-page px-5 py-section-lg sm:px-8 lg:py-section-xl">
         <Reveal className="grid items-end gap-12 lg:grid-cols-12">
           <div className="lg:col-span-7">

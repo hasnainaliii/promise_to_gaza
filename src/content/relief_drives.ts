@@ -9,7 +9,7 @@ export const RELIEF_DRIVES: ReliefDrive[] = [
     date: "August 2025",
     focus: "Initial Relief and Setup",
     impact:
-      "Executed in collaboration with an established partner organization, as we were still in our initial setup phase with limited resources, to deliver urgent emergency aid. Cooked food was provided to families in high-scarcity zones.",
+      "Our first relief drive, carried out in our initial setup phase to deliver urgent emergency aid. Cooked food was provided to families in high-scarcity zones.",
     media: [
       {
         type: "video",
@@ -77,7 +77,7 @@ export const RELIEF_DRIVES: ReliefDrive[] = [
     date: "June / July 2026",
     focus: "Muharram Special Ration",
     impact:
-      "Distributed food ration packages across displacement camps in collaboration with partner organizations during Muharram.",
+      "Distributed food ration packages across displacement camps during Muharram.",
   },
   {
     id: "drive-9",

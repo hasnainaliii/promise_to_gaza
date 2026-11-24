@@ -154,9 +154,9 @@ export function DonateAccountCard() {
             <strong className="font-semibold text-accent">
               Weekly Rs. 100 (~$0.35 USD) Model:
             </strong>{" "}
-            You can give any amount you wish, or join hundreds of students contributing
-            just Rs. 100 each week. Consistent small contributions fund major water tankers
-            and food distributions in Gaza.
+            You can give any amount you wish, or join others contributing just Rs. 100
+            each week. Consistent small contributions fund major water tankers and food
+            distributions in Gaza.
           </div>
         </div>
       </div>

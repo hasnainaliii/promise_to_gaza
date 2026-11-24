@@ -516,7 +516,7 @@ Hero and field photography sits in grayscale under a dark scrim. The Palestinian
 
 ### Theme lab
 
-A team-only panel for trying palettes on the real site (`src/components/theme_lab*.tsx`, `src/theme/theme_lab_css.ts`, `src/theme/theme_presets.ts`). It is always on in development; on the live site, add `?theme-lab` to any URL to turn it on for that browser and `?theme-lab=off` to turn it off. Visitors never see or download it.
+A team-only panel for trying palettes on the real site (`src/components/theme_lab*.tsx`, `src/theme/theme_lab_css.ts`, `src/theme/theme_presets.ts`). Its header button is currently removed, so the lab is dormant: to bring it back, render `<ThemeLab />` (loaded with `next/dynamic`, `ssr: false`) in `site_header.tsx` behind `useThemeLabEnabled()`. When mounted, it is always on in development; on the live site, `?theme-lab` turns it on for that browser and `?theme-lab=off` turns it off.
 
 It works by redefining the same semantic tokens the surfaces use, so keep components on semantic tokens or the lab cannot recolour them. When adding a full-width section, give it `data-section="page-name"` and a readable `data-section-label` so it can be repainted from the lab. Photo heroes carry `data-photo-surface`.
 

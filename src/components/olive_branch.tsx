@@ -18,7 +18,7 @@ const LEAVES: [number, number, number][] = [
 /** Line-drawn olive branch that sketches itself in when revealed. */
 export function OliveBranch({ className = "" }: { className?: string }) {
   return (
-    <Reveal as="span" effect="draw" className={`block ${className}`}>
+    <Reveal as="span" effect="draw" className={`block text-olive/70 ${className}`}>
       <svg
         viewBox="0 0 220 120"
         aria-hidden="true"

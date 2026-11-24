@@ -37,7 +37,7 @@ export function SectionIntro({
       >
         {index ? (
           <span
-            className="font-heading text-sm font-normal italic tracking-normal normal-case text-accent-soft"
+            className="font-heading text-base font-normal italic tracking-normal normal-case text-accent-soft"
           >
             {index}
           </span>

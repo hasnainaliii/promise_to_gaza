@@ -194,14 +194,9 @@ export default function HomePage() {
                 delay={i * 120}
                 className="group border-t border-rule pt-6"
               >
-                <div className="flex items-center justify-between">
-                  <span className="flex size-11 items-center justify-center rounded-full bg-raised text-accent shadow-soft transition-colors duration-500 ease-soft group-hover:bg-action group-hover:text-on-action">
-                    {pillar.icon}
-                  </span>
-                  <span className="font-heading text-sm italic text-ink-faint">
-                    0{i + 1}
-                  </span>
-                </div>
+                <span className="flex size-11 items-center justify-center rounded-full bg-raised text-accent shadow-soft transition-colors duration-500 ease-soft group-hover:bg-action group-hover:text-on-action">
+                  {pillar.icon}
+                </span>
                 <h3 className="mt-6 font-heading text-2xl tracking-tight text-ink">
                   {pillar.title}
                 </h3>

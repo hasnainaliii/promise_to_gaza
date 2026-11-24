@@ -30,7 +30,7 @@ const UPCOMING_INITIATIVES = [
     status: "Sequential Deployment",
     title: "Education Initiative",
     description:
-      "Focused on providing learning continuity, educational kits, and psychosocial support for displaced Palestinian children living across refugee camps. To ensure operational efficiency, active deployment of the Education Initiative will follow the execution of the Healthcare Initiative.",
+      "Focused on providing learning continuity, educational kits, and psychosocial support for displaced Palestinian children living across refugee camps.",
     highlights: [
       "Learning continuity kits for displaced children",
       "Temporary makeshift classroom support",
@@ -210,11 +210,6 @@ export default function OurWorkPage() {
               </Reveal>
             ))}
           </ul>
-          <Reveal className="mt-6">
-            <p className="text-sm text-ink-muted">
-              Each chapter replicates the weekly Rs. 100 model.
-            </p>
-          </Reveal>
         </div>
       </section>
 
@@ -236,7 +231,7 @@ export default function OurWorkPage() {
                 delay={(i % 2) * 120}
                 className="border-t border-rule pt-6"
               >
-                <span className="font-heading text-sm italic text-accent-soft">0{i + 1}</span>
+                <span className="font-heading text-base italic text-accent-soft">0{i + 1}</span>
                 <h3 className="mt-3 font-heading text-2xl tracking-tight text-ink">
                   {tool.title}
                 </h3>
